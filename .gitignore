@@ -1,0 +1,27 @@
+# Documentation to exclude from repo
+README.md
+QUICKSTART.md
+MONGODB_SETUP.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# Logs
+*.log
+
+# System
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+.next/
+out/
+build/
