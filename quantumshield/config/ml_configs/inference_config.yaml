@@ -1,0 +1,15 @@
+# ML Inference Configuration
+inference:
+  batch_size: 32
+  device: auto  # auto, cpu, cuda
+  enable_cache: true
+  cache_size: 1000
+
+models:
+  traffic_classifier:
+    enabled: true
+    threshold: 0.5
+  anomaly_detector:
+    enabled: true
+    threshold: 0.1
+
