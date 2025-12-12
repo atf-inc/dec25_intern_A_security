@@ -1,0 +1,15 @@
+# ML Model Parameters
+traffic_classifier:
+  input_size: 1500
+  num_classes: 2
+  learning_rate: 0.001
+  batch_size: 32
+  epochs: 100
+
+anomaly_detector:
+  input_size: 40
+  encoding_dim: 10
+  learning_rate: 0.001
+  batch_size: 64
+  epochs: 50
+

@@ -1,0 +1,25 @@
+{
+  "actions": [
+    {
+      "name": "block",
+      "description": "Block IP address",
+      "enabled": true
+    },
+    {
+      "name": "rate_limit",
+      "description": "Apply rate limiting",
+      "enabled": true
+    },
+    {
+      "name": "alert",
+      "description": "Send security alert",
+      "enabled": true
+    },
+    {
+      "name": "quarantine",
+      "description": "Quarantine suspicious traffic",
+      "enabled": false
+    }
+  ]
+}
+
