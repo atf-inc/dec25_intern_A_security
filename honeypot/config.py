@@ -12,7 +12,7 @@ class Settings:
     DB_NAME = os.getenv("DB_NAME", "shadow_guardian")
     
     # Honeypot Configuration
-    HONEYPOT_NAME = os.getenv("HONEYPOT_NAME", "ShadowGuardian")
+    HONEYPOT_NAME = os.getenv("HONEYPOT_NAME", "QuantumShield")
     SYSTEM_PERSONA = os.getenv("SYSTEM_PERSONA", "Ubuntu 22.04 LTS")
     
     # Rate Limiting Configuration

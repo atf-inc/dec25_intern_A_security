@@ -25,7 +25,7 @@ async def lifespan(app: FastAPI):
     # Shutdown
     await db.close()
 
-app = FastAPI(title="ShadowGuardian Firewall Proxy", lifespan=lifespan)
+app = FastAPI(title="QuantumShield Firewall Proxy", lifespan=lifespan)
 
 # Add CORS middleware
 app.add_middleware(
@@ -96,7 +96,7 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         return Response(
             content=response_content, 
             media_type=media_type,
-            headers={"X-ShadowGuardian-Trap": "Active - You are in a Honeypot"}
+            headers={"X-QuantumShield-Trap": "Active - You are in a Honeypot"}
         )
         
     else:
