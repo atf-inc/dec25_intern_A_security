@@ -1,0 +1,12 @@
+# Ignore python cache files
+__pycache__/
+*.pyc
+
+# CRITICAL: Ignore the heavy model weights
+# Your screenshot shows it is .safetensors, not .bin
+*.safetensors
+*.bin
+
+# Ignore virtual environments
+venv/
+.env
