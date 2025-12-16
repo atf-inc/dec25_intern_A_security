@@ -77,3 +77,8 @@ mlruns/
 *.bak
 *.swp
 
+
+# Project Specific
+cyenv/
+node_modules/
+**/node_modules/
