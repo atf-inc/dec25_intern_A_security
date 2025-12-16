@@ -10,10 +10,10 @@ from typing import Dict, List, Optional
 from datetime import datetime
 import multiprocessing as mp
 
-from core.packet_capture import PacketCapture
-from core.traffic_processor import TrafficProcessor
-from core.decision_maker import DecisionMaker, PacketContext, ThreatIndicator
-from core.response_executor import ResponseExecutor
+from .packet_capture import PacketCapture
+from .traffic_processor import TrafficProcessor
+from .decision_maker import DecisionMaker, ThreatContext, ThreatIndicator
+from .response_executor import ResponseExecutor
 
 logger = logging.getLogger(__name__)
 
@@ -265,9 +265,9 @@ class QuantumShieldEngine:
         
         # Import detection engines
         try:
-            from detection_engines.signature_engine import SignatureEngine
-            from detection_engines.anomaly_engine import AnomalyEngine
-            from detection_engines.behavioral_engine import BehavioralEngine
+            from ..detection_engines.signature_engine import SignatureEngine
+            from ..detection_engines.anomaly_engine import AnomalyEngine
+            from ..detection_engines.behavioral_engine import BehavioralEngine
             
             if engines_config.get('signature', {}).get('enabled', True):
                 self.detection_engines.append(
