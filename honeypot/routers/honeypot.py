@@ -7,7 +7,13 @@ from core.logger import logger
 
 router = APIRouter()
 
-async def handle_honeypot_request(request: Request, background_tasks: BackgroundTasks, command: str = None):
+async def handle_honeypot_request(
+    request: Request, 
+    background_tasks: BackgroundTasks, 
+    command: str = None,
+    ml_verdict: str = None,
+    ml_confidence: float = None
+):
     client_ip = request.client.host
     user_agent = request.headers.get("user-agent", "unknown")
     
@@ -28,14 +34,16 @@ async def handle_honeypot_request(request: Request, background_tasks: Background
     # Generate response
     response_text = await deception_engine.process_input(context, user_input)
 
-    # Log interaction
+    # Log interaction with ML data
     background_tasks.add_task(
         logger.log_interaction, 
         session_id, 
         client_ip, 
         "http_request" if not command else "command", 
         user_input, 
-        response_text
+        response_text,
+        ml_verdict,
+        ml_confidence
     )
     
     # Update history
