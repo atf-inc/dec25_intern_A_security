@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 import httpx
 from core.database import db
 from core.firewall import firewall_model
+from core.email_notifier import email_notifier
 from routers import analytics, honeypot
 import logging
 
@@ -46,8 +47,8 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     """
     Main Gateway Logic:
     1. Extract Request Data.
-    2. Check ML Firewall.
-    3. Route to Upstream (Safe) or Honeypot (Malicious).
+    2. Check ML Firewall with confidence scoring.
+    3. Route to Upstream (Safe) or Honeypot (Malicious/Suspicious).
     """
     
     # 1. Extract Data for Analysis
@@ -64,12 +65,27 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     # "POST /login body=..."
     analysis_text = f"{method} /{path_name} {query_params}\n{body_str}"
     
-    # 2. Firewall Check
-    is_malicious = firewall_model.predict(analysis_text)
+    # 2. Firewall Check with confidence
+    ml_result = firewall_model.predict_with_confidence(analysis_text)
+    is_malicious = ml_result["is_malicious"]
+    ml_verdict = ml_result["verdict"]
+    ml_confidence = ml_result["confidence"]
     
-    if is_malicious:
-        # TRAP: Route to Honeypot
-        logger.warning(f"[BLOCKED] Malicious traffic detected from {request.client.host}")
+    if is_malicious or ml_verdict == "SUSPICIOUS":
+        # TRAP: Route to Honeypot for malicious or suspicious traffic
+        logger.warning(f"[BLOCKED] {ml_verdict} traffic detected from {request.client.host} (confidence: {ml_confidence:.2f})")
+        
+        # Send email alert for MALICIOUS attacks (not SUSPICIOUS)
+        if ml_verdict == "MALICIOUS":
+            background_tasks.add_task(
+                email_notifier.send_attack_alert,
+                ip=request.client.host,
+                method=method,
+                path=path_name,
+                ml_verdict=ml_verdict,
+                ml_confidence=ml_confidence,
+                payload=body_str[:500]
+            )
         
         # We construct a new request or just pass existing one?
         # handle_honeypot_request expects the request object.
@@ -81,9 +97,13 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
             return {"type": "http.request", "body": body_bytes}
         request._receive = receive
         
-        # Call Honeypot Handler
-        # We pass context/command if needed, or let it decide.
-        response_content = await honeypot.handle_honeypot_request(request, background_tasks)
+        # Call Honeypot Handler with ML data for logging
+        response_content = await honeypot.handle_honeypot_request(
+            request, 
+            background_tasks,
+            ml_verdict=ml_verdict,
+            ml_confidence=ml_confidence
+        )
         
         # Return the honeypot's response (HTML or JSON)
         # The honeypot router returns a string (HTML/JSON content) usually.
