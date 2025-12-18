@@ -2,3 +2,7 @@ torch
 transformers
 numpy
 safetensors
+pandas
+xgboost
+scikit-learn
+joblib
