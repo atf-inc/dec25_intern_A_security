@@ -8,7 +8,7 @@ myenv/
 venv/
 env/
 ENV/
-
+.md
 # Environment variables
 .env
 
@@ -24,7 +24,7 @@ ENV/
 Thumbs.db
 
 # Logs
-*.log
+# *.log
 
 # Database
 *.db

@@ -178,3 +178,72 @@ async def get_timeline(hours: int = Query(24, description="Number of hours to an
         "hours": hours,
         "data": timeline
     }
+
+@router.get("/summary/{session_id}")
+async def get_threat_summary(session_id: str):
+    """Generate AI-powered threat summary for a session"""
+    from analysis import threat_summarizer
+    
+    summary = await threat_summarizer.generate_summary(session_id)
+    return summary
+
+@router.get("/playback/{session_id}")
+async def get_attack_playback(session_id: str):
+    """Get step-by-step playback data for an attack session"""
+    logs_collection = db.get_collection("logs")
+    sessions_collection = db.get_collection("sessions")
+    
+    # Get session info
+    session = await sessions_collection.find_one({"session_id": session_id})
+    if not session:
+        return JSONResponse(
+            status_code=404,
+            content={"error": "Session not found"}
+        )
+    
+    # Get all logs for this session, ordered by time
+    logs = await logs_collection.find({"session_id": session_id}).sort("timestamp", 1).to_list(length=None)
+    
+    # Format for playback
+    playback_steps = []
+    for i, log in enumerate(logs):
+        playback_steps.append({
+            "step": i + 1,
+            "timestamp": log["timestamp"].isoformat() if isinstance(log["timestamp"], datetime) else str(log["timestamp"]),
+            "attack_type": log.get("attack_type", "unknown"),
+            "request_type": log.get("type", "unknown"),
+            "payload": log.get("payload", ""),
+            "response": log.get("response", ""),
+            "ip": log.get("ip", "")
+        })
+    
+    return {
+        "session_id": session_id,
+        "ip_address": session.get("ip_address"),
+        "user_agent": session.get("user_agent"),
+        "start_time": session.get("start_time").isoformat() if isinstance(session.get("start_time"), datetime) else str(session.get("start_time")),
+        "total_steps": len(playback_steps),
+        "steps": playback_steps
+    }
+
+@router.get("/report/weekly")
+async def download_weekly_report():
+    """Generate and download weekly PDF report"""
+    from fastapi.responses import Response
+    from reports import report_generator
+    
+    try:
+        pdf_bytes = await report_generator.generate_weekly_report()
+        
+        return Response(
+            content=pdf_bytes,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": f"attachment; filename=quantum_shield_report_{datetime.utcnow().strftime('%Y%m%d')}.pdf"
+            }
+        )
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Failed to generate report: {str(e)}"}
+        )

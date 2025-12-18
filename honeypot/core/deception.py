@@ -63,13 +63,22 @@ Respond ONLY with the output of the command. Do not add markdown formatting unle
     async def process_input(self, context: dict, user_input: str) -> str:
         prompt = self.build_prompt(context, user_input)
         
+        print(f"\n[DECEPTION] Processing input: {user_input[:100]}")
+        
         # Check cache first
         cached_response = response_cache.get(prompt, user_input)
         if cached_response:
+            print(f"[DECEPTION] Using cached response: {cached_response[:100]}")
             return cached_response
+        
+        print(f"[DECEPTION] Calling LLM to generate response...")
         
         # Generate new response
         response = await llm_client.generate_response(prompt, user_input)
+        
+        print(f"[DECEPTION] LLM Response received:")
+        print(f"[DECEPTION] Length: {len(response) if response else 0} characters")
+        print(f"[DECEPTION] Content: {response[:200] if response else 'None'}")
         
         # Cache the response
         response_cache.set(prompt, user_input, response)

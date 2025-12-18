@@ -12,7 +12,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("proxy")
 
-UPSTREAM_URL = "http://127.0.0.1:8001"
+UPSTREAM_URL = "http://127.0.0.1:3000"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -85,19 +85,60 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         # We pass context/command if needed, or let it decide.
         response_content = await honeypot.handle_honeypot_request(request, background_tasks)
         
+        print(f"\n[PROXY] Honeypot response received:")
+        print(f"[PROXY] Type: {type(response_content)}")
+        print(f"[PROXY] Length: {len(response_content) if response_content else 0}")
+        print(f"[PROXY] Content preview: {response_content[:200] if response_content else 'None'}")
+        print(f"[PROXY] Path name: '{path_name}'")
+        
         # Return the honeypot's response (HTML or JSON)
-        # The honeypot router returns a string (HTML/JSON content) usually.
-        # But handle_honeypot_request returns `response_text` (str).
-        # We need to wrap it in a proper Response object.
-        
-        # Determine content type based on response look
-        media_type = "text/html" if "<html" in response_content.lower() else "application/json"
-        
-        return Response(
-            content=response_content, 
-            media_type=media_type,
-            headers={"X-QuantumShield-Trap": "Active - You are in a Honeypot"}
-        )
+        # For API endpoints, return JSON with AI response embedded
+        # Note: path_name doesn't include leading slash, so check for 'api/' not '/api/'
+        if path_name.startswith("api/") or "/api/" in path_name:
+            print(f"[PROXY] Detected API endpoint, formatting as JSON...")
+            # API endpoint - return properly formatted JSON that frontend can parse
+            # The frontend expects JSON, so we need to return valid JSON structure
+            # Include the LLM response in a way that can be displayed
+            try:
+                # Try to parse the response as JSON first (in case LLM returned JSON)
+                import json
+                parsed_response = json.loads(response_content)
+                # If it's already JSON, use it but add our honeypot markers
+                parsed_response["_honeypot"] = True
+                parsed_response["_trap_active"] = True
+                print(f"[PROXY] Response is already JSON, adding honeypot markers")
+                return JSONResponse(
+                    content=parsed_response,
+                    status_code=200,
+                    headers={"X-QuantumShield-Trap": "Active"}
+                )
+            except (json.JSONDecodeError, TypeError):
+                # Response is not JSON (HTML or plain text from LLM)
+                # Wrap it in a JSON structure the frontend can handle
+                print(f"[PROXY] Response is not JSON, wrapping in JSON structure")
+                json_response = {
+                    "success": False,
+                    "error": "Authentication failed",
+                    "message": response_content,
+                    "honeypot_response": response_content,
+                    "_honeypot": True,
+                    "_trap_active": True
+                }
+                print(f"[PROXY] Returning JSON: {str(json_response)[:200]}")
+                return JSONResponse(
+                    content=json_response,
+                    status_code=401,
+                    headers={"X-QuantumShield-Trap": "Active"}
+                )
+        else:
+            print(f"[PROXY] Web page request, returning as HTML/text")
+            # Web page - return LLM-generated HTML/text
+            media_type = "text/html" if "<html" in response_content.lower() else "text/plain"
+            return Response(
+                content=response_content, 
+                media_type=media_type,
+                headers={"X-QuantumShield-Trap": "Active - You are in a Honeypot"}
+            )
         
     else:
         # SAFE: Forward to Upstream (Vulnerable Server)
@@ -118,10 +159,16 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
             upstream_response = await client.send(upstream_req)
             content = upstream_response.content
             
+            # Remove compression headers since we're sending raw content
+            headers = dict(upstream_response.headers)
+            headers.pop("content-encoding", None)
+            headers.pop("content-length", None)
+            headers.pop("transfer-encoding", None)
+            
             return Response(
                 content=content,
                 status_code=upstream_response.status_code,
-                headers=dict(upstream_response.headers),
+                headers=headers,
                 media_type=upstream_response.headers.get("content-type")
             )
         except Exception as e:

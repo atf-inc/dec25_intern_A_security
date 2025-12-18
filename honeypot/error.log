@@ -1,0 +1,1548 @@
+2025-12-12 02:48:37,189 - uvicorn.error - INFO - Started server process [7328]
+2025-12-12 02:48:37,203 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 02:48:37,464 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 02:48:58,933 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99997, Requested 375. Please try again in 5m21.408s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:48:58,964 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99997, Requested 375. Please try again in 5m21.408s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:48:59,026 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99997, Requested 373. Please try again in 5m19.68s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:48:59,043 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99997, Requested 373. Please try again in 5m19.68s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:00,088 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99996, Requested 375. Please try again in 5m20.544s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:00,114 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99996, Requested 375. Please try again in 5m20.544s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:00,314 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99996, Requested 373. Please try again in 5m18.816s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:00,346 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 100000, Requested 373. Please try again in 5m22.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:02,171 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 375. Please try again in 5m22.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:02,205 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 375. Please try again in 5m22.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:02,387 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 373. Please try again in 5m20.544s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:02,421 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 373. Please try again in 5m20.544s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:02,630 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 779. Please try again in 11m11.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:03,739 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99996, Requested 779. Please try again in 11m9.6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:04,649 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99995, Requested 776. Please try again in 11m6.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:04,680 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99995, Requested 776. Please try again in 11m6.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:04,845 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99995, Requested 778. Please try again in 11m7.872s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:05,029 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99995, Requested 780. Please try again in 11m9.6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:05,783 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99994, Requested 776. Please try again in 11m5.28s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:05,811 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99994, Requested 776. Please try again in 11m5.28s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:06,012 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99994, Requested 778. Please try again in 11m7.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:06,036 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99994, Requested 779. Please try again in 11m7.872s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:06,145 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99994, Requested 780. Please try again in 11m8.736s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:07,918 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99992, Requested 776. Please try again in 11m3.552s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:07,962 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99991, Requested 776. Please try again in 11m2.688s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:08,206 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99991, Requested 778. Please try again in 11m4.416s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:49:08,240 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99991, Requested 780. Please try again in 11m6.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:51:38,751 - uvicorn.error - INFO - Shutting down
+2025-12-12 02:51:38,903 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 02:51:38,946 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 02:51:38,966 - uvicorn.error - INFO - Finished server process [7328]
+2025-12-12 02:52:48,278 - uvicorn.error - INFO - Started server process [22416]
+2025-12-12 02:52:48,285 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 02:52:48,382 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 02:52:51,620 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99733, Requested 375. Please try again in 1m33.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:51,632 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99733, Requested 377. Please try again in 1m35.04s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:51,642 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99733, Requested 375. Please try again in 1m33.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:51,866 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99732, Requested 373. Please try again in 1m30.72s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:52,810 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99731, Requested 377. Please try again in 1m33.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:52,964 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99731, Requested 375. Please try again in 1m31.584s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:53,061 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99731, Requested 377. Please try again in 1m33.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:53,125 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99731, Requested 375. Please try again in 1m31.584s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:53,248 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99731, Requested 373. Please try again in 1m29.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:54,265 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99730, Requested 377. Please try again in 1m32.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:55,051 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99729, Requested 375. Please try again in 1m29.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:55,203 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99728, Requested 375. Please try again in 1m28.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:55,213 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99728, Requested 377. Please try again in 1m30.72s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:55,264 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99728, Requested 375. Please try again in 1m28.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:55,284 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99728, Requested 373. Please try again in 1m27.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:55,355 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99728, Requested 373. Please try again in 1m27.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:55,365 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99728, Requested 375. Please try again in 1m28.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:55,534 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99728, Requested 373. Please try again in 1m27.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:56,283 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99727, Requested 375. Please try again in 1m28.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:56,363 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99727, Requested 377. Please try again in 1m29.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:56,450 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99727, Requested 373. Please try again in 1m26.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:56,487 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99727, Requested 373. Please try again in 1m26.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:56,534 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99727, Requested 375. Please try again in 1m28.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:56,586 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99727, Requested 373. Please try again in 1m26.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:57,685 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99726, Requested 373. Please try again in 1m25.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:58,442 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99725, Requested 375. Please try again in 1m26.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:58,696 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99724, Requested 377. Please try again in 1m27.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:58,781 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99724, Requested 373. Please try again in 1m23.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:58,801 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99724, Requested 375. Please try again in 1m25.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:58,934 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99724, Requested 377. Please try again in 1m27.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:58,962 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99724, Requested 375. Please try again in 1m25.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:59,062 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99724, Requested 373. Please try again in 1m23.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:59,169 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99724, Requested 375. Please try again in 1m25.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:59,787 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99723, Requested 373. Please try again in 1m22.944s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:59,800 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99723, Requested 377. Please try again in 1m26.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:52:59,860 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99723, Requested 375. Please try again in 1m24.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:00,069 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99723, Requested 377. Please try again in 1m26.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:00,072 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99723, Requested 375. Please try again in 1m24.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:00,283 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99723, Requested 375. Please try again in 1m24.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:01,000 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99722, Requested 375. Please try again in 1m23.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:01,918 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99721, Requested 377. Please try again in 1m24.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:02,076 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 373. Please try again in 1m20.352s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:02,228 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 377. Please try again in 1m23.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:02,234 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 375. Please try again in 1m22.08s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:02,358 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 375. Please try again in 1m22.08s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:02,359 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 371. Please try again in 1m18.624s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:02,404 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 375. Please try again in 1m22.08s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:02,476 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 373. Please try again in 1m20.352s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:03,130 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99719, Requested 375. Please try again in 1m21.216s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:03,196 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99719, Requested 373. Please try again in 1m19.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:03,247 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99719, Requested 375. Please try again in 1m21.216s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:03,584 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99719, Requested 375. Please try again in 1m21.216s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:03,602 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99719, Requested 371. Please try again in 1m17.759999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:03,657 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99719, Requested 373. Please try again in 1m19.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:04,381 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99718, Requested 375. Please try again in 1m20.352s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:05,398 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99717, Requested 373. Please try again in 1m17.759999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:05,706 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99716, Requested 375. Please try again in 1m18.624s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:05,723 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99716, Requested 371. Please try again in 1m15.168s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:05,836 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99716, Requested 373. Please try again in 1m16.896s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:53:06,522 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99715, Requested 375. Please try again in 1m17.759999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:29,850 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99928, Requested 375. Please try again in 4m21.792s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:29,950 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99928, Requested 375. Please try again in 4m21.792s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:29,994 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99928, Requested 377. Please try again in 4m23.52s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:30,005 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99928, Requested 379. Please try again in 4m25.248s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:30,007 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99928, Requested 377. Please try again in 4m23.52s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:30,913 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99927, Requested 375. Please try again in 4m20.928s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:31,058 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99927, Requested 375. Please try again in 4m20.928s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:31,094 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99927, Requested 377. Please try again in 4m22.656s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:31,103 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99927, Requested 379. Please try again in 4m24.383999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:31,112 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99927, Requested 377. Please try again in 4m22.656s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:33,001 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99924, Requested 375. Please try again in 4m18.336s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:33,152 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99924, Requested 375. Please try again in 4m18.336s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:33,213 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99924, Requested 377. Please try again in 4m20.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:33,231 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99924, Requested 379. Please try again in 4m21.792s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:33,238 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99924, Requested 377. Please try again in 4m20.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:35,242 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99922, Requested 375. Please try again in 4m16.608s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:35,554 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99921, Requested 373. Please try again in 4m14.016s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:35,599 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99921, Requested 373. Please try again in 4m14.016s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:35,667 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99921, Requested 375. Please try again in 4m15.744s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:35,684 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99921, Requested 377. Please try again in 4m17.471999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:36,318 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99921, Requested 375. Please try again in 4m15.744s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:36,632 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99920, Requested 373. Please try again in 4m13.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:36,662 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99920, Requested 373. Please try again in 4m13.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:36,770 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99920, Requested 375. Please try again in 4m14.88s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:36,796 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99920, Requested 377. Please try again in 4m16.608s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:38,406 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99918, Requested 375. Please try again in 4m13.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:38,706 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99918, Requested 373. Please try again in 4m11.423999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:38,741 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99918, Requested 373. Please try again in 4m11.423999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:38,925 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99918, Requested 375. Please try again in 4m13.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:54:38,947 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99918, Requested 377. Please try again in 4m14.88s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:43,299 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99774, Requested 375. Please try again in 2m8.735999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:43,361 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99774, Requested 375. Please try again in 2m8.735999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:44,398 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99772, Requested 375. Please try again in 2m7.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:44,469 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99772, Requested 375. Please try again in 2m7.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:46,467 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99770, Requested 375. Please try again in 2m5.279999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:46,662 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99770, Requested 375. Please try again in 2m5.279999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:46,665 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99770, Requested 377. Please try again in 2m7.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:46,717 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99770, Requested 373. Please try again in 2m3.552s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:47,790 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99768, Requested 377. Please try again in 2m5.279999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:47,817 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99768, Requested 373. Please try again in 2m1.824s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:49,917 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99766, Requested 377. Please try again in 2m3.552s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:49,975 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99766, Requested 373. Please try again in 2m0.095999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:50,090 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99766, Requested 373. Please try again in 2m0.095999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:51,189 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99764, Requested 373. Please try again in 1m58.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:56:53,300 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99762, Requested 373. Please try again in 1m56.64s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:58:53,165 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 488. Please try again in 6m59.904s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:58:53,428 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99997, Requested 377. Please try again in 5m23.135999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:59:03,549 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99986, Requested 488. Please try again in 6m49.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:59:03,666 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99986, Requested 377. Please try again in 5m13.632s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:59:13,895 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99974, Requested 488. Please try again in 6m39.168s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 02:59:13,958 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99974, Requested 377. Please try again in 5m3.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:01:46,276 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-12 03:01:46,314 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-12 03:01:46,347 - uvicorn.error - INFO - Started reloader process [5396] using WatchFiles
+2025-12-12 03:02:11,317 - uvicorn.error - INFO - Started server process [18948]
+2025-12-12 03:02:11,323 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 03:02:11,772 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 03:02:46,883 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99727, Requested 488. Please try again in 3m5.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:02:46,901 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99727, Requested 486. Please try again in 3m4.031999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:02:57,132 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99715, Requested 486. Please try again in 2m53.664s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:02:57,160 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99715, Requested 488. Please try again in 2m55.392s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:03:07,345 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99703, Requested 486. Please try again in 2m43.296s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:03:07,373 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99703, Requested 488. Please try again in 2m45.024s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:03:09,776 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99701, Requested 487. Please try again in 2m42.432s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:03:09,791 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99701, Requested 491. Please try again in 2m45.888s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:03:20,107 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99689, Requested 487. Please try again in 2m32.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:03:20,129 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99689, Requested 491. Please try again in 2m35.519999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:03:30,495 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99677, Requested 487. Please try again in 2m21.696s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:03:30,511 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99677, Requested 491. Please try again in 2m25.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:04:17,340 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 376. Please try again in 5m23.135999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:04:20,394 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 563. Please try again in 8m4.704s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:04:21,444 - uvicorn.error - WARNING - WatchFiles detected changes in 'config.py'. Reloading...
+2025-12-12 03:04:21,597 - uvicorn.error - INFO - Shutting down
+2025-12-12 03:04:21,732 - uvicorn.error - INFO - Waiting for connections to close. (CTRL+C to force quit)
+2025-12-12 03:04:27,524 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99989, Requested 376. Please try again in 5m15.36s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:04:30,482 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99986, Requested 563. Please try again in 7m54.336s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:04:37,776 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99978, Requested 376. Please try again in 5m5.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:04:40,572 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99974, Requested 563. Please try again in 7m43.967999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:04:40,664 - uvicorn.error - INFO - Waiting for background tasks to complete. (CTRL+C to force quit)
+2025-12-12 03:04:40,813 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 03:04:40,848 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 03:04:40,874 - uvicorn.error - INFO - Finished server process [18948]
+2025-12-12 03:05:05,404 - uvicorn.error - INFO - Started server process [12136]
+2025-12-12 03:05:05,464 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 03:05:05,662 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 03:05:08,575 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99942, Requested 565. Please try again in 7m18.048s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:05:08,674 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99942, Requested 563. Please try again in 7m16.32s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:05:18,781 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99930, Requested 565. Please try again in 7m7.68s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:05:18,869 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99930, Requested 563. Please try again in 7m5.952s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:05:22,304 - uvicorn.error - INFO - Shutting down
+2025-12-12 03:05:22,437 - uvicorn.error - INFO - Waiting for connections to close. (CTRL+C to force quit)
+2025-12-12 03:05:28,991 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99918, Requested 565. Please try again in 6m57.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:05:29,036 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99918, Requested 563. Please try again in 6m55.584s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:05:29,186 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 03:05:29,269 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 03:05:29,295 - uvicorn.error - INFO - Finished server process [12136]
+2025-12-12 03:05:32,022 - uvicorn.error - INFO - Stopping reloader process [5396]
+2025-12-12 03:06:36,681 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-12 03:06:36,686 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-12 03:06:36,687 - uvicorn.error - INFO - Started reloader process [22440] using WatchFiles
+2025-12-12 03:06:38,267 - uvicorn.error - INFO - Started server process [17180]
+2025-12-12 03:06:38,269 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 03:06:38,302 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 03:08:20,064 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 564. Please try again in 4m5.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:08:20,071 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99720, Requested 562. Please try again in 4m3.648s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:08:30,232 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99709, Requested 564. Please try again in 3m55.872s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:08:30,249 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99709, Requested 562. Please try again in 3m54.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:08:40,423 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99697, Requested 564. Please try again in 3m45.504s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:08:40,433 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99697, Requested 562. Please try again in 3m43.775999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:09:42,482 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 435. Please try again in 6m14.111999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:09:42,758 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99998, Requested 375. Please try again in 5m22.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:09:52,620 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99986, Requested 435. Please try again in 6m3.744s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:09:52,823 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99986, Requested 375. Please try again in 5m11.904s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:02,850 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99974, Requested 435. Please try again in 5m53.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:03,036 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99974, Requested 375. Please try again in 5m1.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:05,084 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99972, Requested 437. Please try again in 5m53.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:05,309 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99972, Requested 435. Please try again in 5m51.647999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:15,225 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99960, Requested 437. Please try again in 5m43.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:15,451 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99960, Requested 435. Please try again in 5m41.28s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:18,619 - uvicorn.error - WARNING - WatchFiles detected changes in 'llmtest.py'. Reloading...
+2025-12-12 03:10:18,827 - uvicorn.error - INFO - Shutting down
+2025-12-12 03:10:18,942 - uvicorn.error - INFO - Waiting for connections to close. (CTRL+C to force quit)
+2025-12-12 03:10:25,359 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99948, Requested 437. Please try again in 5m32.64s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:25,580 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99948, Requested 435. Please try again in 5m30.912s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:25,727 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 03:10:25,784 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 03:10:25,810 - uvicorn.error - INFO - Finished server process [17180]
+2025-12-12 03:10:41,511 - uvicorn.error - INFO - Started server process [24084]
+2025-12-12 03:10:41,522 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 03:10:41,680 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 03:10:43,604 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99927, Requested 435. Please try again in 5m12.768s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:43,630 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99927, Requested 437. Please try again in 5m14.496s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:53,774 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99915, Requested 435. Please try again in 5m2.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:10:53,802 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99915, Requested 437. Please try again in 5m4.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:11:03,965 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99904, Requested 435. Please try again in 4m52.895999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:11:03,980 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99904, Requested 437. Please try again in 4m54.623999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:11:06,243 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99901, Requested 377. Please try again in 4m0.191999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:11:16,398 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99889, Requested 377. Please try again in 3m49.824s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:11:26,521 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99877, Requested 377. Please try again in 3m39.456s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:12:02,387 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99836, Requested 375. Please try again in 3m2.304s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:12:02,397 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99836, Requested 373. Please try again in 3m0.576s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:12:12,610 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99824, Requested 373. Please try again in 2m50.208s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:12:12,636 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99824, Requested 375. Please try again in 2m51.936s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:12:17,365 - uvicorn.error - INFO - Shutting down
+2025-12-12 03:12:17,473 - uvicorn.error - INFO - Waiting for connections to close. (CTRL+C to force quit)
+2025-12-12 03:12:22,761 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99812, Requested 373. Please try again in 2m39.84s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:12:22,776 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99812, Requested 375. Please try again in 2m41.567999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:12:22,829 - uvicorn.error - INFO - Waiting for background tasks to complete. (CTRL+C to force quit)
+2025-12-12 03:12:22,948 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 03:12:22,984 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 03:12:22,991 - uvicorn.error - INFO - Finished server process [24084]
+2025-12-12 03:12:24,437 - uvicorn.error - INFO - Stopping reloader process [22440]
+2025-12-12 03:13:14,895 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-12 03:13:14,928 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-12 03:13:14,937 - uvicorn.error - INFO - Started reloader process [12280] using WatchFiles
+2025-12-12 03:13:24,712 - uvicorn.error - INFO - Started server process [19016]
+2025-12-12 03:13:24,722 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 03:13:24,846 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 03:13:47,453 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99714, Requested 373. Please try again in 1m15.168s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:13:47,466 - llm_client - ERROR - Error generating LLM response (attempt 1/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99714, Requested 375. Please try again in 1m16.896s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:13:56,652 - uvicorn.error - INFO - Shutting down
+2025-12-12 03:13:56,764 - uvicorn.error - INFO - Waiting for connections to close. (CTRL+C to force quit)
+2025-12-12 03:13:57,810 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99702, Requested 373. Please try again in 1m4.8s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:13:58,122 - llm_client - ERROR - Error generating LLM response (attempt 2/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99702, Requested 375. Please try again in 1m6.527999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:15:05,252 - llm_client - ERROR - Error generating LLM response (attempt 3/3): Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01j040vqe9es6aewrwmfv8xfyr` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 100000, Requested 375. Please try again in 5m24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-12-12 03:15:05,322 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 03:15:05,360 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 03:15:05,385 - uvicorn.error - INFO - Finished server process [19016]
+2025-12-12 03:15:07,005 - uvicorn.error - INFO - Stopping reloader process [12280]
+2025-12-12 11:30:51,936 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-12 11:30:51,938 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-12 11:30:51,940 - uvicorn.error - INFO - Started reloader process [24064] using WatchFiles
+2025-12-12 11:30:53,479 - uvicorn.error - INFO - Started server process [1320]
+2025-12-12 11:30:53,480 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 11:30:53,504 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 11:59:16,136 - uvicorn.error - WARNING - WatchFiles detected changes in 'vulnerable_server.py'. Reloading...
+2025-12-12 11:59:16,300 - uvicorn.error - INFO - Shutting down
+2025-12-12 11:59:16,599 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 11:59:16,694 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 11:59:16,707 - uvicorn.error - INFO - Finished server process [1320]
+2025-12-12 11:59:18,528 - uvicorn.error - WARNING - WatchFiles detected changes in 'vulnerable_server.py'. Reloading...
+2025-12-12 11:59:20,726 - uvicorn.error - INFO - Started server process [14992]
+2025-12-12 11:59:20,733 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 11:59:20,761 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 11:59:34,346 - uvicorn.error - WARNING - WatchFiles detected changes in 'core\firewall.py'. Reloading...
+2025-12-12 11:59:34,398 - uvicorn.error - INFO - Shutting down
+2025-12-12 11:59:34,510 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 11:59:34,514 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 11:59:34,518 - uvicorn.error - INFO - Finished server process [14992]
+2025-12-12 11:59:35,671 - uvicorn.error - WARNING - WatchFiles detected changes in 'core\firewall.py'. Reloading...
+2025-12-12 11:59:37,877 - uvicorn.error - INFO - Started server process [17348]
+2025-12-12 11:59:37,879 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 11:59:37,890 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 12:00:05,625 - uvicorn.error - WARNING - WatchFiles detected changes in 'main.py'. Reloading...
+2025-12-12 12:00:05,661 - uvicorn.error - INFO - Shutting down
+2025-12-12 12:00:05,777 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 12:00:05,782 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 12:00:05,783 - uvicorn.error - INFO - Finished server process [17348]
+2025-12-12 12:00:35,917 - uvicorn.error - WARNING - WatchFiles detected changes in 'verify_demo.py'. Reloading...
+2025-12-12 12:00:36,406 - uvicorn.error - WARNING - WatchFiles detected changes in 'verify_demo.py'. Reloading...
+2025-12-12 12:04:50,053 - uvicorn.error - INFO - Stopping reloader process [24064]
+2025-12-12 12:23:37,944 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-12 12:23:37,946 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-12 12:23:37,948 - uvicorn.error - INFO - Started reloader process [23564] using WatchFiles
+2025-12-12 12:23:42,009 - uvicorn.error - INFO - Started server process [3592]
+2025-12-12 12:23:42,011 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 12:23:42,042 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 12:24:14,287 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:26:53,875 - uvicorn.error - WARNING - WatchFiles detected changes in 'check_config.py'. Reloading...
+2025-12-12 12:26:53,908 - uvicorn.error - INFO - Shutting down
+2025-12-12 12:26:54,018 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 12:26:54,028 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 12:26:54,029 - uvicorn.error - INFO - Finished server process [3592]
+2025-12-12 12:27:00,139 - uvicorn.error - INFO - Started server process [17204]
+2025-12-12 12:27:00,141 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-12 12:27:00,179 - uvicorn.error - INFO - Application startup complete.
+2025-12-12 12:32:03,654 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:32:28,612 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:33:01,357 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:33:32,442 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:33:34,410 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:33:44,208 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:33:49,681 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:34:59,070 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+        yield part
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 107, in app
+    await response(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 269, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 273, in wrap
+    await func()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\responses.py", line 253, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+    ...<2 lines>...
+            yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+        yield chunk
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+2025-12-12 12:35:45,837 - uvicorn.error - INFO - Shutting down
+2025-12-12 12:35:45,954 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-12 12:35:45,964 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-12 12:35:45,965 - uvicorn.error - INFO - Finished server process [17204]
+2025-12-12 12:35:46,711 - uvicorn.error - INFO - Stopping reloader process [23564]
+2025-12-13 15:15:27,509 - proxy - ERROR - Honeypot generation failed: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 693d359176c532d81a831331, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-12-13 16:21:44,852 - proxy - ERROR - Honeypot generation failed: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 693d44b82c1574f07754cc9b, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-12-13 16:44:12,182 - proxy - ERROR - Honeypot generation failed: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 693d48f70164dd1f839c25df, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-12-13 16:47:21,401 - proxy - ERROR - Honeypot generation failed: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 693d4ad96f1c5777559667d3, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-12-13 16:54:16,743 - proxy - ERROR - Honeypot generation failed: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 693d4c9156669b6fb7c0ac4c, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-12-13 16:54:16,744 - proxy - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 106, in gateway_proxy
+    response_content = await honeypot.handle_honeypot_request(request, background_tasks)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\routers\honeypot.py", line 14, in handle_honeypot_request
+    session = await session_manager.get_or_create_session(client_ip, user_agent)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\session.py", line 11, in get_or_create_session
+    session = await collection.find_one({"ip_address": ip_address, "active": True})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+                  ~~~~~~~~~~~~^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1289, in __next__
+    return self.next()
+           ~~~~~~~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1265, in next
+    if len(self._data) or self._refresh():
+                          ~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1213, in _refresh
+    self._send_message(q)
+    ~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1108, in _send_message
+    response = client._run_operation(
+        operation, self._unpack_response, address=self._address
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1938, in _run_operation
+    return self._retryable_read(
+           ~~~~~~~~~~~~~~~~~~~~^
+        _cmd,
+        ^^^^^
+    ...<4 lines>...
+        operation=operation.name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2047, in _retryable_read
+    return self._retry_internal(
+           ~~~~~~~~~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<7 lines>...
+        operation_id=operation_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2014, in _retry_internal
+    ).run()
+      ~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2765, in run
+    return self._read() if self._is_read else self._write()
+           ~~~~~~~~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2910, in _read
+    self._server = self._get_server()
+                   ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2858, in _get_server
+    return self._client._select_server(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._server_selector,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        operation_id=self._operation_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1833, in _select_server
+    server = topology.select_server(
+        server_selector,
+    ...<2 lines>...
+        operation_id=operation_id,
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+        selector,
+    ...<4 lines>...
+        operation_id=operation_id,
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+        selector, operation, server_selection_timeout, address, operation_id
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+        selector, server_timeout, operation, operation_id, address
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+        f"{self._error_message(selector)}, Timeout: {timeout}s, Topology Description: {self.description!r}"
+    )
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 693d4c9156669b6fb7c0ac4c, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+
+2025-12-13 16:56:45,901 - proxy - ERROR - Honeypot generation failed: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 693d4c9156669b6fb7c0ac4c, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-12-13 16:56:45,902 - proxy - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 106, in gateway_proxy
+    response_content = await honeypot.handle_honeypot_request(request, background_tasks)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\routers\honeypot.py", line 14, in handle_honeypot_request
+    session = await session_manager.get_or_create_session(client_ip, user_agent)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\session.py", line 11, in get_or_create_session
+    session = await collection.find_one({"ip_address": ip_address, "active": True})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+                  ~~~~~~~~~~~~^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1289, in __next__
+    return self.next()
+           ~~~~~~~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1265, in next
+    if len(self._data) or self._refresh():
+                          ~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1213, in _refresh
+    self._send_message(q)
+    ~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1108, in _send_message
+    response = client._run_operation(
+        operation, self._unpack_response, address=self._address
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1938, in _run_operation
+    return self._retryable_read(
+           ~~~~~~~~~~~~~~~~~~~~^
+        _cmd,
+        ^^^^^
+    ...<4 lines>...
+        operation=operation.name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2047, in _retryable_read
+    return self._retry_internal(
+           ~~~~~~~~~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<7 lines>...
+        operation_id=operation_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2014, in _retry_internal
+    ).run()
+      ~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2765, in run
+    return self._read() if self._is_read else self._write()
+           ~~~~~~~~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2910, in _read
+    self._server = self._get_server()
+                   ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2858, in _get_server
+    return self._client._select_server(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._server_selector,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        operation_id=self._operation_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1833, in _select_server
+    server = topology.select_server(
+        server_selector,
+    ...<2 lines>...
+        operation_id=operation_id,
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\topology.py", line 409, in select_server
+    server = self._select_server(
+        selector,
+    ...<4 lines>...
+        operation_id=operation_id,
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\topology.py", line 387, in _select_server
+    servers = self.select_servers(
+        selector, operation, server_selection_timeout, address, operation_id
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\topology.py", line 294, in select_servers
+    server_descriptions = self._select_servers_loop(
+        selector, server_timeout, operation, operation_id, address
+    )
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\pymongo\synchronous\topology.py", line 344, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+        f"{self._error_message(selector)}, Timeout: {timeout}s, Topology Description: {self.description!r}"
+    )
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 693d4c9156669b6fb7c0ac4c, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+
+2025-12-13 17:58:40,644 - proxy - ERROR - Upstream error: 
+2025-12-17 14:00:32,928 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:00:50,582 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:01:03,601 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:01:14,991 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:01:28,547 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:03:03,355 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:03:35,597 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:03:38,044 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:04:23,872 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:04:30,123 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:04:51,234 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-17 14:05:44,024 - proxy - ERROR - Upstream error: All connection attempts failed

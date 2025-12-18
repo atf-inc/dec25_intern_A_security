@@ -8,3 +8,7 @@ pandas
 scikit-learn
 httpx
 python-multipart
+reportlab
+matplotlib
+requests
+pydantic>=2.0.0

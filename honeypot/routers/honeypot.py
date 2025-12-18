@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Request, BackgroundTasks
 from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse
-# Use in-memory session manager (no MongoDB required for demo)
-from core.session_memory import session_manager
+from core.session import session_manager
 from core.deception import deception_engine
 from core.logger import logger
 
