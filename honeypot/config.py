@@ -27,10 +27,26 @@ class Settings:
     LLM_TEMPERATURE = float(os.getenv("LLM_TEMPERATURE", "0.7"))
     LLM_MAX_TOKENS = int(os.getenv("LLM_MAX_TOKENS", "100000"))
     
+    # Email Alert Configuration (SendGrid)
+    SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+    ALERT_FROM_EMAIL = os.getenv("ALERT_FROM_EMAIL")
+    ALERT_TO_EMAIL = os.getenv("ALERT_TO_EMAIL")
+    ENABLE_EMAIL_ALERTS = os.getenv("ENABLE_EMAIL_ALERTS", "true").lower() == "true"
+    
     def validate(self):
         """Validate required settings"""
         if not self.GROQ_API_KEY:
             raise ValueError("GROQ_API_KEY is required. Please set it in .env file")
+        
+        # Validate email settings if alerts are enabled
+        if self.ENABLE_EMAIL_ALERTS:
+            if not self.SENDGRID_API_KEY:
+                raise ValueError("SENDGRID_API_KEY is required when email alerts are enabled")
+            if not self.ALERT_FROM_EMAIL:
+                raise ValueError("ALERT_FROM_EMAIL is required when email alerts are enabled")
+            if not self.ALERT_TO_EMAIL:
+                raise ValueError("ALERT_TO_EMAIL is required when email alerts are enabled")
+        
         return True
 
 settings = Settings()
