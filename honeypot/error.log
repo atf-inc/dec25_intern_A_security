@@ -1546,3 +1546,14 @@ pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No
 2025-12-17 14:04:30,123 - proxy - ERROR - Upstream error: All connection attempts failed
 2025-12-17 14:04:51,234 - proxy - ERROR - Upstream error: All connection attempts failed
 2025-12-17 14:05:44,024 - proxy - ERROR - Upstream error: All connection attempts failed
+2025-12-18 23:25:20,995 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-18 23:25:20,998 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-18 23:25:20,999 - uvicorn.error - INFO - Started reloader process [22676] using WatchFiles
+2025-12-18 23:25:23,514 - uvicorn.error - INFO - Started server process [23064]
+2025-12-18 23:25:23,515 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-18 23:25:23,567 - uvicorn.error - INFO - Application startup complete.
+2025-12-18 23:26:58,193 - uvicorn.error - INFO - Shutting down
+2025-12-18 23:26:58,302 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-18 23:26:58,319 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-18 23:26:58,328 - uvicorn.error - INFO - Finished server process [23064]
+2025-12-18 23:27:01,139 - uvicorn.error - INFO - Stopping reloader process [22676]
