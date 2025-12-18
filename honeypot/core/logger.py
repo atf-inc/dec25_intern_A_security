@@ -1,11 +1,21 @@
 from datetime import datetime, timezone
+from typing import Optional
 from core.database import db
 
 class Logger:
     def __init__(self):
         self.collection_name = "logs"
 
-    async def log_interaction(self, session_id: str, ip: str, request_type: str, payload: str, response: str):
+    async def log_interaction(
+        self, 
+        session_id: str, 
+        ip: str, 
+        request_type: str, 
+        payload: str, 
+        response: str,
+        ml_verdict: Optional[str] = None,
+        ml_confidence: Optional[float] = None
+    ):
         collection = db.get_collection(self.collection_name)
         log_entry = {
             "timestamp": datetime.now(timezone.utc),
@@ -13,7 +23,9 @@ class Logger:
             "ip": ip,
             "type": request_type, # e.g., "command", "http_get", "login_attempt"
             "payload": payload,
-            "response": response
+            "response": response,
+            "ml_verdict": ml_verdict,
+            "ml_confidence": ml_confidence
         }
         await collection.insert_one(log_entry)
 
