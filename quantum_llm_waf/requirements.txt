@@ -1,0 +1,98 @@
+# Global requirements for the pepplellm / PurpleLlama project
+# Install everything with:
+#   (venv) python -m pip install -r requirements.txt
+
+############################################################
+## Core CybersecurityBenchmarks dependencies
+############################################################
+
+-r PurpleLlama/CybersecurityBenchmarks/requirements.txt
+-r PurpleLlama/CybersecurityBenchmarks/benchmark/infrastructure/requirements.txt
+-r PurpleLlama/CybersecurityBenchmarks/benchmark/llms/community_contribution/requirements.txt
+
+############################################################
+## SensitiveDocClassification (ClassifyIt)
+############################################################
+
+# Library dependencies
+-r PurpleLlama/SensitiveDocClassification/requirements.txt
+
+# Install the package itself in editable mode so CLI and imports work:
+#   (venv) python -m pip install -e PurpleLlama/SensitiveDocClassification
+
+############################################################
+## LlamaFirewall and CodeShield
+############################################################
+
+# LlamaFirewall (pulls its own Python deps like torch/transformers/openai)
+llamafirewall
+
+# Static analysis engine used by CodeShield
+semgrep
+pyyaml
+
+############################################################
+## Secure Agent utilities
+############################################################
+
+-r secure_agent/requirements.txt
+
+############################################################
+## Shared utilities / extras
+############################################################
+
+python-dotenv
+fire
+pillow
+annotated-types
+anyio
+cachetools
+certifi
+charset-normalizer
+click
+distro
+google-api-core
+google-api-python-client
+google-auth
+google-auth-httplib2
+googleapis-common-protos
+h11
+httpcore
+httplib2
+httpx
+idna
+llama_stack_client
+markdown-it-py
+mdurl
+numpy
+pandas
+peewee
+prompt_toolkit
+proto-plus
+protobuf
+pyaml
+pyasn1
+pyasn1_modules
+pydantic
+pydantic_core
+Pygments
+pyparsing
+python-dateutil
+pytz
+PyYAML
+requests
+rich
+rsa
+setuptools
+six
+sniffio
+termcolor
+tika
+tqdm
+typing-inspection
+typing_extensions
+tzdata
+uritemplate
+urllib3
+wcwidth
+

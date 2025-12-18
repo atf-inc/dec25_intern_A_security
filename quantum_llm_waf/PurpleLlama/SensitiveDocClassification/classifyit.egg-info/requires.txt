@@ -1,0 +1,5 @@
+llama-stack-client
+pyyaml
+tika
+peewee
+google-api-python-client

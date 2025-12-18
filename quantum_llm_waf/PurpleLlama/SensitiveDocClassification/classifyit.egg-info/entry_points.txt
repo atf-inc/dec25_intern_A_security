@@ -1,0 +1,2 @@
+[console_scripts]
+classifyit = scanner:main
