@@ -1,0 +1,158 @@
+{
+  "dd73d37e4f08a8a0": {
+    "pattern_id": "dd73d37e4f08a8a0",
+    "pattern_type": "sql_injection",
+    "features": {
+      "indicators": {
+        "types": [
+          "sql_injection"
+        ],
+        "severities": [
+          "HIGH"
+        ],
+        "count": 1,
+        "max_severity": 3
+      },
+      "network": {
+        "protocol": "TCP",
+        "dst_port": 80,
+        "is_internal": true
+      },
+      "behavioral": {
+        "packet_count": 0,
+        "byte_count": 0,
+        "duration": 3.147125244140625e-05
+      },
+      "temporal": {
+        "hour": 9,
+        "day_of_week": 3
+      }
+    },
+    "indicators": [
+      "sql_injection"
+    ],
+    "first_seen": 1766030850.0603578,
+    "last_seen": 1766032485.5678287,
+    "count": 9,
+    "confidence": 1.0,
+    "recommended_action": null,
+    "success_rate": 0.0
+  },
+  "ada28f260129871f": {
+    "pattern_id": "ada28f260129871f",
+    "pattern_type": "unknown",
+    "features": {
+      "indicators": {
+        "types": [
+          "unusual_traffic_pattern"
+        ],
+        "severities": [
+          "MEDIUM"
+        ],
+        "count": 1,
+        "max_severity": 2
+      },
+      "network": {
+        "protocol": "TCP",
+        "dst_port": 443,
+        "is_internal": true
+      },
+      "behavioral": {
+        "packet_count": 0,
+        "byte_count": 0,
+        "duration": 2.9087066650390625e-05
+      },
+      "temporal": {
+        "hour": 9,
+        "day_of_week": 3
+      }
+    },
+    "indicators": [
+      "unusual_traffic_pattern"
+    ],
+    "first_seen": 1766030850.0614629,
+    "last_seen": 1766031201.2547262,
+    "count": 2,
+    "confidence": 1.0,
+    "recommended_action": null,
+    "success_rate": 0.0
+  },
+  "8d72675906291186": {
+    "pattern_id": "8d72675906291186",
+    "pattern_type": "xss",
+    "features": {
+      "indicators": {
+        "types": [
+          "xss_attack"
+        ],
+        "severities": [
+          "HIGH"
+        ],
+        "count": 1,
+        "max_severity": 3
+      },
+      "network": {
+        "protocol": "TCP",
+        "dst_port": 8080,
+        "is_internal": true
+      },
+      "behavioral": {
+        "packet_count": 0,
+        "byte_count": 0,
+        "duration": 2.8371810913085938e-05
+      },
+      "temporal": {
+        "hour": 9,
+        "day_of_week": 3
+      }
+    },
+    "indicators": [
+      "xss_attack"
+    ],
+    "first_seen": 1766030850.0694058,
+    "last_seen": 1766032485.5678287,
+    "count": 7,
+    "confidence": 1.0,
+    "recommended_action": null,
+    "success_rate": 0.0
+  },
+  "ec3e822be2c35579": {
+    "pattern_id": "ec3e822be2c35579",
+    "pattern_type": "port_scan",
+    "features": {
+      "indicators": {
+        "types": [
+          "port_scan"
+        ],
+        "severities": [
+          "MEDIUM"
+        ],
+        "count": 1,
+        "max_severity": 2
+      },
+      "network": {
+        "protocol": "TCP",
+        "dst_port": 80,
+        "is_internal": true
+      },
+      "behavioral": {
+        "packet_count": 0,
+        "byte_count": 0,
+        "duration": 1.2159347534179688e-05
+      },
+      "temporal": {
+        "hour": 9,
+        "day_of_week": 3
+      }
+    },
+    "indicators": [
+      "port_scan"
+    ],
+    "first_seen": 1766030850.1255972,
+    "last_seen": 1766031201.3010647,
+    "count": 10,
+    "confidence": 1.0,
+    "recommended_action": null,
+    "success_rate": 1.0
+  }
+}
