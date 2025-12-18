@@ -1,0 +1,10 @@
+fastapi>=0.104.0
+uvicorn>=0.24.0
+motor>=3.3.0
+python-dotenv>=1.0.0
+groq>=0.4.0
+slowapi>=0.1.9
+pandas
+scikit-learn
+httpx
+python-multipart
