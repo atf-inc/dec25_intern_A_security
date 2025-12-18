@@ -1,0 +1,7 @@
+google-cloud-storage
+google-auth
+aws-cdk-lib
+boto3
+botocore
+constructs
+tqdm

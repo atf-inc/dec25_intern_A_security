@@ -1,0 +1,16 @@
+openai
+paramiko
+pillow
+pyyaml
+sacrebleu
+semgrep
+tqdm
+typing-extensions
+langchain-core
+tree-sitter
+tree-sitter-cpp
+async_lru
+boto3
+pypdf
+pdf2image
+setuptools
