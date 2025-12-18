@@ -108,5 +108,43 @@ class FirewallModel:
             
         return result
 
+    def predict_with_confidence(self, text: str) -> dict:
+        """
+        Returns verdict and confidence score for ML analysis.
+        Returns: {"is_malicious": bool, "verdict": str, "confidence": float}
+        """
+        if not self.is_trained or not text or len(text) < 2:
+            return {"is_malicious": False, "verdict": "SAFE", "confidence": 0.0}
+        
+        import re
+        # Heuristic check first
+        patterns = [
+            r"(?i)(\bOR\b|\bUNION\b|\bSELECT\b).{0,10}(\bFROM\b|\bWHERE\b|\d=)",
+            r"(?i)'\s*OR\s*\d=\d",
+            r"(?i)<script",
+            r"(?i)javascript:",
+        ]
+        for p in patterns:
+            if re.search(p, text):
+                return {"is_malicious": True, "verdict": "MALICIOUS", "confidence": 0.95}
+        
+        # ML prediction
+        prediction = self.pipeline.predict([text])[0]
+        proba = self.pipeline.predict_proba([text])[0][1]
+        
+        # Determine verdict based on confidence thresholds
+        if proba > 0.80:
+            verdict = "MALICIOUS"
+        elif proba > 0.40:
+            verdict = "SUSPICIOUS"
+        else:
+            verdict = "SAFE"
+        
+        return {
+            "is_malicious": bool(prediction == 1),
+            "verdict": verdict,
+            "confidence": float(proba)
+        }
+
 # Singleton instance
 firewall_model = FirewallModel()
