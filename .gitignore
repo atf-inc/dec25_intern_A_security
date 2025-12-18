@@ -1,27 +1,107 @@
-# Documentation to exclude from repo
-README.md
-QUICKSTART.md
-MONGODB_SETUP.md
+# # --------------------
+# # Python
+# # --------------------
+# __pycache__/
+# *.py[cod]
+# *$py.class
+# *.so
+# .Python
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-.env
+# # --------------------
+# # Virtual Environments
+# # --------------------
+# env/
+# venv/
+# ENV/
+# .venv
+# cyenv/
 
-# Logs
-*.log
+# # --------------------
+# # Environment files
+# # --------------------
+# .env
+# .env.local
 
-# System
-.DS_Store
-Thumbs.db
+# # --------------------
+# # Node / Frontend
+# # --------------------
+# node_modules/
+# **/node_modules/
+# .next/
+# out/
+# build/
 
-# Node
-node_modules/
-.next/
-out/
-build/
+# # --------------------
+# # Python packaging
+# # --------------------
+# develop-eggs/
+# dist/
+# downloads/
+# eggs/
+# .eggs/
+# lib/
+# lib64/
+# parts/
+# sdist/
+# var/
+# wheels/
+# *.egg-info/
+# .installed.cfg
+# *.egg
+
+# # --------------------
+# # Logs
+# # --------------------
+# *.log
+# logs/
+
+# # --------------------
+# # IDE / Editor
+# # --------------------
+# .vscode/
+# .idea/
+# *.swp
+# *.swo
+# *~
+
+# # --------------------
+# # OS
+# # --------------------
+# .DS_Store
+# Thumbs.db
+
+# # --------------------
+# # Testing
+# # --------------------
+# .pytest_cache/
+# .coverage
+# htmlcov/
+# .tox/
+
+# # --------------------
+# # ML / Data
+# # --------------------
+# mlruns/
+# models/*.pth
+# models/*.h5
+# models/*.pt
+# models/*.pkl
+# !models/.gitkeep
+
+# datasets/raw/*
+# datasets/processed/*
+# datasets/labeled/*
+# !datasets/.gitkeep
+
+# # --------------------
+# # Database
+# # --------------------
+# *.db
+# *.sqlite
+# *.sqlite3
+
+# # --------------------
+# # Temp files
+# # --------------------
+# *.tmp
+# *.bak
