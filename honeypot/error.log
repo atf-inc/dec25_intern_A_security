@@ -1579,3 +1579,1161 @@ pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No
 2025-12-19 20:03:51,080 - uvicorn.error - INFO - Application shutdown complete.
 2025-12-19 20:03:51,082 - uvicorn.error - INFO - Finished server process [1632]
 2025-12-19 20:03:52,568 - uvicorn.error - INFO - Stopping reloader process [9016]
+2025-12-19 22:13:17,351 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-19 22:13:17,353 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-19 22:13:17,353 - uvicorn.error - INFO - Started reloader process [15288] using WatchFiles
+2025-12-19 22:13:20,732 - uvicorn.error - INFO - Started server process [24816]
+2025-12-19 22:13:20,733 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 22:13:21,002 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 22:15:32,835 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-19 22:15:32,837 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-19 22:15:32,838 - uvicorn.error - INFO - Started reloader process [15832] using WatchFiles
+2025-12-19 22:15:35,626 - uvicorn.error - INFO - Started server process [11364]
+2025-12-19 22:15:35,628 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 22:15:35,639 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 22:16:44,741 - uvicorn.error - INFO - 127.0.0.1:30548 - "WebSocket /_next/webpack-hmr?id=MNrEL-boRacy0H89gzIxz" 403
+2025-12-19 22:16:44,743 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 22:16:44,748 - uvicorn.error - INFO - connection closed
+2025-12-19 22:16:45,766 - uvicorn.error - INFO - 127.0.0.1:30552 - "WebSocket /_next/webpack-hmr?id=MNrEL-boRacy0H89gzIxz" 403
+2025-12-19 22:16:45,768 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 22:16:45,769 - uvicorn.error - INFO - connection closed
+2025-12-19 22:16:46,785 - uvicorn.error - INFO - 127.0.0.1:30553 - "WebSocket /_next/webpack-hmr?id=MNrEL-boRacy0H89gzIxz" 403
+2025-12-19 22:16:46,787 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 22:16:46,789 - uvicorn.error - INFO - connection closed
+2025-12-19 22:16:47,812 - uvicorn.error - INFO - 127.0.0.1:30554 - "WebSocket /_next/webpack-hmr?id=MNrEL-boRacy0H89gzIxz" 403
+2025-12-19 22:16:47,813 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 22:16:47,816 - uvicorn.error - INFO - connection closed
+2025-12-19 22:49:35,027 - uvicorn.error - WARNING - WatchFiles detected changes in 'core\ml_classifier.py'. Reloading...
+2025-12-19 22:49:36,019 - uvicorn.error - INFO - Shutting down
+2025-12-19 22:49:36,797 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-19 22:49:37,594 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-19 22:49:37,721 - uvicorn.error - INFO - Finished server process [11364]
+2025-12-19 22:49:48,623 - uvicorn.error - INFO - Stopping reloader process [15832]
+2025-12-19 22:55:52,834 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-19 22:55:52,852 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-19 22:55:52,862 - uvicorn.error - INFO - Started reloader process [11344] using WatchFiles
+2025-12-19 22:55:59,696 - uvicorn.error - INFO - Started server process [13996]
+2025-12-19 22:55:59,698 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 22:55:59,719 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 22:57:52,686 - uvicorn.error - INFO - Shutting down
+2025-12-19 22:57:52,903 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-19 22:57:53,042 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-19 22:57:53,082 - uvicorn.error - INFO - Finished server process [13996]
+2025-12-19 22:58:08,304 - uvicorn.error - INFO - Stopping reloader process [11344]
+2025-12-19 23:39:19,284 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-19 23:39:19,286 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-19 23:39:19,287 - uvicorn.error - INFO - Started reloader process [7032] using WatchFiles
+2025-12-19 23:39:25,229 - uvicorn.error - INFO - Started server process [304]
+2025-12-19 23:39:25,231 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 23:39:25,253 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 23:40:37,397 - uvicorn.error - INFO - 127.0.0.1:29310 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:37,621 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:37,625 - uvicorn.error - INFO - connection closed
+2025-12-19 23:40:38,645 - uvicorn.error - INFO - 127.0.0.1:29314 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:38,646 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:38,649 - uvicorn.error - INFO - connection closed
+2025-12-19 23:40:39,764 - uvicorn.error - INFO - 127.0.0.1:29315 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:39,765 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:39,767 - uvicorn.error - INFO - connection closed
+2025-12-19 23:40:40,781 - uvicorn.error - INFO - 127.0.0.1:29316 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:40,782 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:40,784 - uvicorn.error - INFO - connection closed
+2025-12-19 23:40:41,803 - uvicorn.error - INFO - 127.0.0.1:29317 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:41,804 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:41,807 - uvicorn.error - INFO - connection closed
+2025-12-19 23:40:43,021 - uvicorn.error - INFO - 127.0.0.1:29318 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:43,022 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:43,025 - uvicorn.error - INFO - connection closed
+2025-12-19 23:40:48,037 - uvicorn.error - INFO - 127.0.0.1:29320 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:48,038 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:48,041 - uvicorn.error - INFO - connection closed
+2025-12-19 23:40:53,570 - uvicorn.error - INFO - 127.0.0.1:29324 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:53,571 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:53,574 - uvicorn.error - INFO - connection closed
+2025-12-19 23:40:58,597 - uvicorn.error - INFO - 127.0.0.1:29344 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:40:58,599 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:40:58,602 - uvicorn.error - INFO - connection closed
+2025-12-19 23:41:04,723 - uvicorn.error - INFO - 127.0.0.1:29358 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:41:04,724 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:41:04,727 - uvicorn.error - INFO - connection closed
+2025-12-19 23:41:14,078 - uvicorn.error - INFO - 127.0.0.1:29360 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:41:14,079 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:41:14,082 - uvicorn.error - INFO - connection closed
+2025-12-19 23:41:27,837 - uvicorn.error - INFO - 127.0.0.1:29364 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:41:27,838 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:41:27,840 - uvicorn.error - INFO - connection closed
+2025-12-19 23:41:48,502 - uvicorn.error - INFO - 127.0.0.1:29377 - "WebSocket /_next/webpack-hmr?id=677x47nwWgO9oGvDP0a8h" 403
+2025-12-19 23:41:48,504 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:41:48,508 - uvicorn.error - INFO - connection closed
+2025-12-19 23:44:58,558 - uvicorn.error - WARNING - WatchFiles detected changes in 'main.py'. Reloading...
+2025-12-19 23:44:58,696 - uvicorn.error - INFO - Shutting down
+2025-12-19 23:44:58,817 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-19 23:44:58,855 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-19 23:44:58,861 - uvicorn.error - INFO - Finished server process [304]
+2025-12-19 23:45:20,874 - uvicorn.error - WARNING - WatchFiles detected changes in 'main.py'. Reloading...
+2025-12-19 23:45:29,515 - uvicorn.error - INFO - Started server process [3792]
+2025-12-19 23:45:29,516 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 23:45:29,536 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 23:45:29,585 - uvicorn.error - ERROR - Traceback (most recent call last):
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2040, in _run_once
+    handle._run()
+    ~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\server.py", line 70, in serve
+    with self.capture_signals():
+         ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\server.py", line 331, in capture_signals
+    signal.raise_signal(captured_signal)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 701, in lifespan
+    await receive()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+2025-12-19 23:45:36,219 - uvicorn.error - INFO - Started server process [23832]
+2025-12-19 23:45:36,221 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 23:45:36,229 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 23:45:36,233 - uvicorn.error - ERROR - Traceback (most recent call last):
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2040, in _run_once
+    handle._run()
+    ~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\server.py", line 70, in serve
+    with self.capture_signals():
+         ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\server.py", line 331, in capture_signals
+    signal.raise_signal(captured_signal)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 701, in lifespan
+    await receive()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+2025-12-19 23:45:36,999 - uvicorn.error - INFO - Stopping reloader process [7032]
+2025-12-19 23:46:02,208 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-19 23:46:02,210 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-19 23:46:02,211 - uvicorn.error - INFO - Started reloader process [25364] using WatchFiles
+2025-12-19 23:46:08,219 - uvicorn.error - INFO - Started server process [8404]
+2025-12-19 23:46:08,220 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 23:46:08,228 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 23:46:36,337 - uvicorn.error - INFO - 127.0.0.1:29808 - "WebSocket /_next/webpack-hmr?id=z8-Iop-KLJ9AZGN7SGWUW" 403
+2025-12-19 23:46:36,339 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:46:36,340 - uvicorn.error - INFO - connection closed
+2025-12-19 23:46:37,377 - uvicorn.error - INFO - 127.0.0.1:29812 - "WebSocket /_next/webpack-hmr?id=z8-Iop-KLJ9AZGN7SGWUW" 403
+2025-12-19 23:46:37,378 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:46:37,382 - uvicorn.error - INFO - connection closed
+2025-12-19 23:46:39,082 - uvicorn.error - INFO - 127.0.0.1:29813 - "WebSocket /_next/webpack-hmr?id=z8-Iop-KLJ9AZGN7SGWUW" 403
+2025-12-19 23:46:39,083 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:46:39,086 - uvicorn.error - INFO - connection closed
+2025-12-19 23:46:40,104 - uvicorn.error - INFO - 127.0.0.1:29814 - "WebSocket /_next/webpack-hmr?id=z8-Iop-KLJ9AZGN7SGWUW" 403
+2025-12-19 23:46:40,106 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:46:40,108 - uvicorn.error - INFO - connection closed
+2025-12-19 23:46:41,129 - uvicorn.error - INFO - 127.0.0.1:29815 - "WebSocket /_next/webpack-hmr?id=z8-Iop-KLJ9AZGN7SGWUW" 403
+2025-12-19 23:46:41,131 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:46:41,134 - uvicorn.error - INFO - connection closed
+2025-12-19 23:46:42,656 - uvicorn.error - INFO - 127.0.0.1:29816 - "WebSocket /_next/webpack-hmr?id=z8-Iop-KLJ9AZGN7SGWUW" 403
+2025-12-19 23:46:42,658 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:46:42,660 - uvicorn.error - INFO - connection closed
+2025-12-19 23:46:48,209 - uvicorn.error - INFO - 127.0.0.1:29823 - "WebSocket /_next/webpack-hmr?id=z8-Iop-KLJ9AZGN7SGWUW" 403
+2025-12-19 23:46:48,211 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-19 23:46:48,214 - uvicorn.error - INFO - connection closed
+2025-12-20 00:01:44,571 - uvicorn.error - WARNING - WatchFiles detected changes in 'core\trap_tracker.py'. Reloading...
+2025-12-20 00:01:44,697 - uvicorn.error - INFO - Shutting down
+2025-12-20 00:01:44,838 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 00:01:44,975 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 00:01:45,055 - uvicorn.error - INFO - Finished server process [8404]
+2025-12-20 00:01:59,966 - uvicorn.error - WARNING - WatchFiles detected changes in 'core\trap_tracker.py'. Reloading...
+2025-12-20 00:02:06,363 - uvicorn.error - INFO - Stopping reloader process [25364]
+2025-12-20 00:03:42,346 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-20 00:03:42,347 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-20 00:03:42,349 - uvicorn.error - INFO - Started reloader process [20284] using WatchFiles
+2025-12-20 00:03:48,566 - uvicorn.error - INFO - Started server process [14048]
+2025-12-20 00:03:48,568 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 00:03:48,588 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 00:04:18,787 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:04:25,849 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:04:27,560 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:04:31,700 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:04:38,382 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:04:44,512 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:04:56,225 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:05:01,253 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:05:06,209 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:05:06,787 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:05:07,302 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:05:07,970 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:05:14,165 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\applications.py", line 1139, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 106, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 430, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\fastapi\routing.py", line 316, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\main.py", line 223, in gateway_proxy
+    is_malicious = firewall_model.predict(analysis_text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\firewall.py", line 59, in predict
+    return self._classifier.predict(text, packet_data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 193, in predict
+    payloads = self._extract_payloads(text)
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\core\ml_classifier.py", line 142, in _extract_payloads
+    query_part = first_line.split('?', 1)[1].split()[0] if '?' in first_line else ""
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2025-12-20 00:05:57,215 - uvicorn.error - INFO - Shutting down
+2025-12-20 00:05:57,327 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 00:05:57,330 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 00:05:57,333 - uvicorn.error - INFO - Finished server process [14048]
+2025-12-20 00:05:58,156 - uvicorn.error - INFO - Stopping reloader process [20284]
+2025-12-20 00:10:54,827 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-20 00:10:54,829 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-20 00:10:54,831 - uvicorn.error - INFO - Started reloader process [21520] using WatchFiles
+2025-12-20 00:11:01,644 - uvicorn.error - INFO - Started server process [9836]
+2025-12-20 00:11:01,646 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 00:11:01,698 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 00:11:13,092 - uvicorn.error - INFO - 127.0.0.1:31325 - "WebSocket /_next/webpack-hmr?id=yX9cEsHHRouFAFAnN6Hh1" 403
+2025-12-20 00:11:13,099 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:11:13,102 - uvicorn.error - INFO - connection closed
+2025-12-20 00:11:14,203 - uvicorn.error - INFO - 127.0.0.1:31330 - "WebSocket /_next/webpack-hmr?id=yX9cEsHHRouFAFAnN6Hh1" 403
+2025-12-20 00:11:14,204 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:11:14,212 - uvicorn.error - INFO - connection closed
+2025-12-20 00:11:15,272 - uvicorn.error - INFO - 127.0.0.1:31331 - "WebSocket /_next/webpack-hmr?id=yX9cEsHHRouFAFAnN6Hh1" 403
+2025-12-20 00:11:15,274 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:11:15,278 - uvicorn.error - INFO - connection closed
+2025-12-20 00:11:16,394 - uvicorn.error - INFO - 127.0.0.1:31335 - "WebSocket /_next/webpack-hmr?id=yX9cEsHHRouFAFAnN6Hh1" 403
+2025-12-20 00:11:16,396 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:11:16,402 - uvicorn.error - INFO - connection closed
+2025-12-20 00:11:17,420 - uvicorn.error - INFO - 127.0.0.1:31338 - "WebSocket /_next/webpack-hmr?id=yX9cEsHHRouFAFAnN6Hh1" 403
+2025-12-20 00:11:17,421 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:11:17,424 - uvicorn.error - INFO - connection closed
+2025-12-20 00:11:18,985 - uvicorn.error - INFO - 127.0.0.1:31339 - "WebSocket /_next/webpack-hmr?id=yX9cEsHHRouFAFAnN6Hh1" 403
+2025-12-20 00:11:18,987 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:11:18,991 - uvicorn.error - INFO - connection closed
+2025-12-20 00:11:24,036 - uvicorn.error - INFO - 127.0.0.1:31340 - "WebSocket /_next/webpack-hmr?id=yX9cEsHHRouFAFAnN6Hh1" 403
+2025-12-20 00:11:24,037 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:11:24,040 - uvicorn.error - INFO - connection closed
+2025-12-20 00:11:29,064 - uvicorn.error - INFO - 127.0.0.1:31342 - "WebSocket /_next/webpack-hmr?id=yX9cEsHHRouFAFAnN6Hh1" 403
+2025-12-20 00:11:29,065 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:11:29,069 - uvicorn.error - INFO - connection closed
+2025-12-20 00:13:44,967 - uvicorn.error - INFO - 127.0.0.1:31410 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:13:44,969 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:13:44,978 - uvicorn.error - INFO - connection closed
+2025-12-20 00:13:46,058 - uvicorn.error - INFO - 127.0.0.1:31416 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:13:46,060 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:13:46,067 - uvicorn.error - INFO - connection closed
+2025-12-20 00:13:47,091 - uvicorn.error - INFO - 127.0.0.1:31417 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:13:47,092 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:13:47,095 - uvicorn.error - INFO - connection closed
+2025-12-20 00:13:48,275 - uvicorn.error - INFO - 127.0.0.1:31418 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:13:48,277 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:13:48,283 - uvicorn.error - INFO - connection closed
+2025-12-20 00:13:50,309 - uvicorn.error - INFO - 127.0.0.1:31421 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:13:50,311 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:13:50,319 - uvicorn.error - INFO - connection closed
+2025-12-20 00:13:52,338 - uvicorn.error - INFO - 127.0.0.1:31422 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:13:52,339 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:13:52,343 - uvicorn.error - INFO - connection closed
+2025-12-20 00:13:57,364 - uvicorn.error - INFO - 127.0.0.1:31426 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:13:57,365 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:13:57,367 - uvicorn.error - INFO - connection closed
+2025-12-20 00:14:02,386 - uvicorn.error - INFO - 127.0.0.1:31427 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:14:02,387 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:14:02,391 - uvicorn.error - INFO - connection closed
+2025-12-20 00:14:09,167 - uvicorn.error - INFO - 127.0.0.1:31428 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:14:09,168 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:14:09,171 - uvicorn.error - INFO - connection closed
+2025-12-20 00:14:19,336 - uvicorn.error - INFO - 127.0.0.1:31457 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:14:19,337 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:14:19,340 - uvicorn.error - INFO - connection closed
+2025-12-20 00:14:35,367 - uvicorn.error - INFO - 127.0.0.1:31596 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:14:35,368 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:14:35,371 - uvicorn.error - INFO - connection closed
+2025-12-20 00:14:58,268 - uvicorn.error - INFO - 127.0.0.1:31608 - "WebSocket /_next/webpack-hmr?id=91BG4C8V1vPPMF8LjjOgT" 403
+2025-12-20 00:14:58,269 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:14:58,273 - uvicorn.error - INFO - connection closed
+2025-12-20 00:18:02,986 - uvicorn.error - INFO - 127.0.0.1:31716 - "WebSocket /_next/webpack-hmr?id=5RHEjHcwDsfDuuuBPtPdt" 403
+2025-12-20 00:18:02,987 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:18:02,993 - uvicorn.error - INFO - connection closed
+2025-12-20 00:18:04,019 - uvicorn.error - INFO - 127.0.0.1:31718 - "WebSocket /_next/webpack-hmr?id=5RHEjHcwDsfDuuuBPtPdt" 403
+2025-12-20 00:18:04,020 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:18:04,024 - uvicorn.error - INFO - connection closed
+2025-12-20 00:18:05,040 - uvicorn.error - INFO - 127.0.0.1:31719 - "WebSocket /_next/webpack-hmr?id=5RHEjHcwDsfDuuuBPtPdt" 403
+2025-12-20 00:18:05,041 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:18:05,046 - uvicorn.error - INFO - connection closed
+2025-12-20 00:18:06,126 - uvicorn.error - INFO - 127.0.0.1:31720 - "WebSocket /_next/webpack-hmr?id=5RHEjHcwDsfDuuuBPtPdt" 403
+2025-12-20 00:18:06,127 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:18:06,130 - uvicorn.error - INFO - connection closed
+2025-12-20 00:18:07,162 - uvicorn.error - INFO - 127.0.0.1:31721 - "WebSocket /_next/webpack-hmr?id=5RHEjHcwDsfDuuuBPtPdt" 403
+2025-12-20 00:18:07,164 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:18:07,167 - uvicorn.error - INFO - connection closed

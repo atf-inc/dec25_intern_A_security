@@ -12,3 +12,8 @@ reportlab
 matplotlib
 requests
 pydantic>=2.0.0
+# ML Classifier dependencies
+torch
+transformers
+xgboost
+joblib
