@@ -1557,3 +1557,25 @@ pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No
 2025-12-18 23:26:58,319 - uvicorn.error - INFO - Application shutdown complete.
 2025-12-18 23:26:58,328 - uvicorn.error - INFO - Finished server process [23064]
 2025-12-18 23:27:01,139 - uvicorn.error - INFO - Stopping reloader process [22676]
+2025-12-19 13:19:57,626 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-19 13:19:57,645 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-19 13:19:57,649 - uvicorn.error - INFO - Started reloader process [9608] using WatchFiles
+2025-12-19 13:20:01,054 - uvicorn.error - INFO - Started server process [16368]
+2025-12-19 13:20:01,061 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 13:20:01,111 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 13:49:10,222 - uvicorn.error - INFO - Shutting down
+2025-12-19 13:49:10,476 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-19 13:49:10,552 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-19 13:49:10,560 - uvicorn.error - INFO - Finished server process [16368]
+2025-12-19 13:49:14,817 - uvicorn.error - INFO - Stopping reloader process [9608]
+2025-12-19 19:03:50,302 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-19 19:03:50,305 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-19 19:03:50,306 - uvicorn.error - INFO - Started reloader process [9016] using WatchFiles
+2025-12-19 19:03:53,549 - uvicorn.error - INFO - Started server process [1632]
+2025-12-19 19:03:53,550 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-19 19:03:54,132 - uvicorn.error - INFO - Application startup complete.
+2025-12-19 20:03:50,873 - uvicorn.error - INFO - Shutting down
+2025-12-19 20:03:51,039 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-19 20:03:51,080 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-19 20:03:51,082 - uvicorn.error - INFO - Finished server process [1632]
+2025-12-19 20:03:52,568 - uvicorn.error - INFO - Stopping reloader process [9016]
