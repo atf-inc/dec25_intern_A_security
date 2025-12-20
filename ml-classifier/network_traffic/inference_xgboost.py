@@ -27,9 +27,9 @@ class NetworkTrafficClassifier:
             # Load Processors
             self.scaler = joblib.load(self.scaler_path)
             self.encoders = joblib.load(self.encoder_path)
-            print("✅ Network Traffic Model Loaded Successfully")
+            print("[OK] Network Traffic Model Loaded Successfully")
         except Exception as e:
-            print(f"❌ Error loading Network Model: {e}")
+            print(f"[ERROR] Error loading Network Model: {e}")
             print("Did you run train_xgboost.py first?")
 
     def predict_packet(self, packet_data):

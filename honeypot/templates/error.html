@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - TechShop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-2xl font-bold text-gray-900">TechShop</a>
+                <nav class="flex gap-4">
+                    <a href="/" class="text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="/login" class="text-gray-700 hover:text-gray-900">Login</a>
+                    <a href="/profile" class="text-gray-700 hover:text-gray-900">Profile</a>
+                    <a href="/admin" class="text-gray-700 hover:text-gray-900">Admin</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Error Content -->
+    <main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <div class="max-w-lg mx-auto text-center">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <div class="text-6xl font-bold text-red-500 mb-4">{{error_code}}</div>
+                <h1 class="text-2xl font-bold text-gray-900 mb-4">{{title}}</h1>
+                <p class="text-gray-600 mb-6">{{message}}</p>
+                
+                <div class="space-y-3">
+                    <a href="/" class="block w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 text-center">
+                        Return to Home
+                    </a>
+                    <a href="/login" class="block w-full bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 text-center">
+                        Sign In
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-500 mt-6">
+                    If you believe this is an error, please contact 
+                    <a href="mailto:support@techshop.com" class="text-blue-600 hover:underline">support@techshop.com</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 TechShop - All Rights Reserved</p>
+            <p class="text-sm text-gray-400 mt-2">Your trusted tech partner</p>
+        </div>
+    </footer>
+</body>
+</html>
+
