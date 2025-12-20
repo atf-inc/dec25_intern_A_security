@@ -1,8 +1,12 @@
 """
-QuantumShield Configuration Package
-"""
-from .settings import Settings, get_settings, reload_settings
-from .logging_config import setup_logging, get_logger
+Configuration package for QuantumShield.
 
-__all__ = ['Settings', 'get_settings', 'reload_settings', 'setup_logging', 'get_logger']
+Currently exposes:
+- get_settings (from .settings)
+"""
+
+from .settings import get_settings, Settings
+
+__all__ = ["get_settings", "Settings"]
+
 

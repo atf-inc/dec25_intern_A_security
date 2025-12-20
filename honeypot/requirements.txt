@@ -9,3 +9,12 @@ scikit-learn
 httpx
 python-multipart
 sendgrid>=6.11.0
+reportlab
+matplotlib
+requests
+pydantic>=2.0.0
+# ML Classifier dependencies
+torch
+transformers
+xgboost
+joblib

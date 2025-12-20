@@ -24,7 +24,8 @@ class TrafficClassifierModel(nn.Module):
         self.pool = nn.MaxPool1d(2)
         
         # LSTM for temporal patterns
-        self.lstm = nn.LSTM(64, 128, batch_size=1, bidirectional=True)
+        # Note: batch_size is not a parameter for LSTM - it's handled when passing data
+        self.lstm = nn.LSTM(64, 128, bidirectional=True)
         
         # Classification head
         self.fc1 = nn.Linear(256, 128)
@@ -73,24 +74,49 @@ class TrafficClassifier:
     async def load_model(self) -> None:
         """Load trained model."""
         try:
+            # Initialize model architecture
             self.model = TrafficClassifierModel()
+            logger.debug("TrafficClassifierModel architecture created successfully")
             
+            # Try to load trained weights if available
             if self.model_path.exists():
-                self.model.load_state_dict(torch.load(self.model_path, map_location=self.device))
-                logger.info("Loaded traffic classifier model", path=str(self.model_path))
+                try:
+                    state_dict = torch.load(self.model_path, map_location=self.device)
+                    self.model.load_state_dict(state_dict, strict=False)
+                    logger.info("Loaded trained traffic classifier model", path=str(self.model_path))
+                except Exception as load_error:
+                    logger.warning(
+                        "Failed to load model weights, using untrained model",
+                        path=str(self.model_path),
+                        error=str(load_error)
+                    )
+                    # Continue with randomly initialized weights
             else:
-                logger.warning("Model file not found, using untrained model", path=str(self.model_path))
-                # Initialize with random weights (would train in production)
+                logger.info(
+                    "Model file not found, using untrained model with random weights",
+                    path=str(self.model_path)
+                )
+                # Model will use randomly initialized weights - still functional for inference
             
+            # Move model to device and set to evaluation mode
             self.model.to(self.device)
             self.model.eval()
-        
+            
+            # Verify model works with a test input
+            try:
+                test_input = torch.zeros(1, 1, 1500, dtype=torch.float32).to(self.device)
+                with torch.no_grad():
+                    _ = self.model(test_input)
+                logger.info("Traffic classifier model initialized and verified successfully")
+            except Exception as test_error:
+                logger.error("Model architecture test failed", error=str(test_error))
+                raise
+            
         except Exception as e:
-            logger.error("Failed to load traffic classifier", error=str(e), exc_info=True)
-            # Create a dummy model for demonstration
-            self.model = TrafficClassifierModel()
-            self.model.to(self.device)
-            self.model.eval()
+            logger.error("Failed to initialize traffic classifier", error=str(e), exc_info=True)
+            # Set to None so system can continue without ML classification
+            self.model = None
+            logger.warning("Traffic classifier disabled - continuing without ML classification")
     
     async def infer(
         self, packet: Dict[str, Any], flow: Dict[str, Any]

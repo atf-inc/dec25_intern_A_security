@@ -26,9 +26,14 @@ class LLMClient:
         """Generate response with retry logic and error handling (Async)"""
         self.request_count += 1
         
+        print(f"\n[LLM] Request #{self.request_count}")
+        print(f"[LLM] User input: {user_input[:100]}")
+        
         async with self.semaphore:
             for attempt in range(retries + 1):
                 try:
+                    print(f"[LLM] Attempt {attempt + 1}/{retries + 1} - Calling Groq API...")
+                    
                     chat_completion = await self.client.chat.completions.create(
                         messages=[
                             {
@@ -44,12 +49,16 @@ class LLMClient:
                         temperature=self.temperature,
                         max_tokens=self.max_tokens,
                     )
-                    return chat_completion.choices[0].message.content
+                    
+                    response = chat_completion.choices[0].message.content
+                    print(f"[LLM] ✓ Success! Response length: {len(response)} characters")
+                    print(f"[LLM] Response preview: {response[:150]}")
+                    return response
                     
                 except Exception as e:
                     self.error_count += 1
                     error_msg = f"Error generating LLM response (attempt {attempt + 1}/{retries + 1}): {str(e)}"
-                    print(error_msg)
+                    print(f"[LLM] ✗ {error_msg}")
                     logger.error(error_msg)
                     
                     if attempt < retries:
@@ -57,11 +66,13 @@ class LLMClient:
                         sleep_time = 2 ** attempt
                         if "rate_limit_exceeded" in str(e):
                             sleep_time = 10  # Wait longer for rate limits
-                            print(f"Rate limit hit. Sleeping {sleep_time}s...")
+                            print(f"[LLM] Rate limit hit. Sleeping {sleep_time}s...")
                         await asyncio.sleep(sleep_time)
                     else:
                         # Final fallback response
-                        return "Command not found" if "command" in user_input.lower() else "404 Not Found"
+                        fallback = "Command not found" if "command" in user_input.lower() else "404 Not Found"
+                        print(f"[LLM] All retries failed. Using fallback: {fallback}")
+                        return fallback
     
     def get_stats(self) -> dict:
         """Get LLM usage statistics"""

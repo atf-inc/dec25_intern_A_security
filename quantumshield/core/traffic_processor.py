@@ -19,13 +19,37 @@ from queue import Queue, Empty
 import numpy as np
 
 try:
+    from ..network_layer.deep_packet_inspector import DeepPacketInspector
+except (ImportError, ValueError):
+    # Fallback if running standalone
+    try:
+        import sys
+        import os
+        sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+        from quantumshield.network_layer.deep_packet_inspector import DeepPacketInspector
+    except ImportError:
+        DeepPacketInspector = None
+
+
+try:
     from scapy.all import (
         IP, IPv6, TCP, UDP, ICMP, DNS, HTTP, Raw,
-        Ether, ARP, Packet
+        Ether, ARP
     )
     SCAPY_AVAILABLE = True
 except ImportError:
     SCAPY_AVAILABLE = False
+    # Define dummy values for when scapy is not available
+    IP = None
+    IPv6 = None
+    TCP = None
+    UDP = None
+    ICMP = None
+    DNS = None
+    HTTP = None
+    Raw = None
+    Ether = None
+    ARP = None
 
 logger = logging.getLogger(__name__)
 
@@ -260,7 +284,8 @@ class PacketParser:
             if timestamp is None:
                 timestamp = time.time()
             
-            if SCAPY_AVAILABLE and isinstance(packet, Packet):
+            if SCAPY_AVAILABLE and hasattr(packet, 'summary'):  # Scapy packets have summary method
+                return self._parse_scapy_packet(packet, timestamp, interface)
                 return self._parse_scapy_packet(packet, timestamp, interface)
             elif isinstance(packet, bytes):
                 return self._parse_raw_packet(packet, timestamp, interface)
@@ -273,7 +298,7 @@ class PacketParser:
             logger.debug(f"Failed to parse packet: {e}")
             return None
     
-    def _parse_scapy_packet(self, packet: Packet, timestamp: float,
+    def _parse_scapy_packet(self, packet: Any, timestamp: float,
                            interface: str) -> Optional[PacketInfo]:
         """Parse a Scapy packet object"""
         # Extract IP layer
@@ -1107,6 +1132,15 @@ class TrafficProcessor:
         self.feature_extractor = FeatureExtractor()
         self.normalizer = TrafficNormalizer()
         
+        # Initialize Deep Packet Inspector
+        self.dpi = None
+        if DeepPacketInspector:
+            try:
+                self.dpi = DeepPacketInspector()
+                logger.info("DeepPacketInspector integrated into TrafficProcessor")
+            except Exception as e:
+                logger.error(f"Failed to initialize DeepPacketInspector: {e}")
+        
         # Processing queue
         self.packet_queue: Queue = Queue(maxsize=10000)
         self.processed_queue: Queue = Queue(maxsize=10000)
@@ -1203,6 +1237,34 @@ class TrafficProcessor:
                 features = self.feature_extractor.extract_flow_features(flow)
                 if self.normalizer.fitted:
                     features = self.normalizer.transform(features.reshape(1, -1))[0]
+            
+            # Deep Packet Inspection
+            if self.dpi:
+                try:
+                    # Analyze packet
+                    analysis = self.dpi.analyze_packet(packet)
+                    
+                    if not analysis.is_allowed:
+                        # Update flow threat score
+                        flow.threat_score = max(flow.threat_score, analysis.threat_score)
+                        
+                        # Add metadata
+                        if 'dpi_threats' not in flow.metadata:
+                            flow.metadata['dpi_threats'] = []
+                        
+                        threat_info = {
+                            'timestamp': time.time(),
+                            'reason': analysis.reason,
+                            'score': analysis.threat_score,
+                            'details': analysis.metadata
+                        }
+                        flow.metadata['dpi_threats'].append(threat_info)
+                        
+                        # Log high severity threats
+                        if analysis.threat_score > 0.8:
+                            logger.warning(f"DPI Threat Detected: {analysis.reason} (Score: {analysis.threat_score}) - Flow: {flow.flow_id}")
+                except Exception as e:
+                    logger.debug(f"DPI analysis error: {e}")
             
             # Update stats
             processing_time = time.time() - start_time

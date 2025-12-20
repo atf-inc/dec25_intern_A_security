@@ -30,20 +30,38 @@ class ModelManager:
         """Initialize and load all ML models."""
         logger.info("Initializing ML models")
         
+        # Load each model individually to allow partial success
+        # Load traffic classifier
         try:
-            # Load traffic classifier
-            self.models["traffic_classifier"] = TrafficClassifier()
-            await self.models["traffic_classifier"].load_model()
-            
-            # Load anomaly detector
-            self.models["anomaly_detector"] = AnomalyDetector()
-            await self.models["anomaly_detector"].load_model()
-            
-            logger.info("ML models loaded", count=len(self.models))
-        
+            classifier = TrafficClassifier()
+            await classifier.load_model()
+            if classifier.model is not None:
+                self.models["traffic_classifier"] = classifier
+                logger.info("Traffic classifier loaded successfully")
+            else:
+                logger.warning("Traffic classifier model is None - not available")
         except Exception as e:
-            logger.error("Failed to load ML models", error=str(e), exc_info=True)
-            # Continue with limited functionality
+            logger.error("Failed to load traffic classifier", error=str(e), exc_info=True)
+            # Continue without this model
+        
+        # Load anomaly detector
+        try:
+            from .anomaly_detector.autoencoder import AnomalyDetector
+            detector = AnomalyDetector()
+            await detector.load_model()
+            if detector.model is not None:
+                self.models["anomaly_detector"] = detector
+                logger.info("Anomaly detector loaded successfully")
+            else:
+                logger.warning("Anomaly detector model is None - not available")
+        except Exception as e:
+            logger.error("Failed to load anomaly detector", error=str(e), exc_info=True)
+            # Continue without this model
+        
+        if self.models:
+            logger.info("ML models loaded successfully", count=len(self.models), models=list(self.models.keys()))
+        else:
+            logger.warning("No ML models available - continuing with signature-based detection only")
     
     async def infer(
         self, packet: Dict[str, Any], flow: Dict[str, Any]

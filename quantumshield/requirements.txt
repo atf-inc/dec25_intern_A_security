@@ -1,91 +1,83 @@
 # Core Dependencies
-python>=3.10
-asyncio
-aiohttp>=3.9.0
-pydantic>=2.0.0
-pydantic-settings>=2.0.0
+aiohttp
+pydantic
+pydantic-settings
 
 # Network & Packet Processing
-scapy>=2.5.0
-pyshark>=0.6
-python-nfqueue>=0.6.1
-dpkt>=1.9.8
+scapy
+pyshark
+dpkt
 
 # Machine Learning & Deep Learning
-torch>=2.0.0
-tensorflow>=2.13.0
-scikit-learn>=1.3.0
-xgboost>=2.0.0
-lightgbm>=4.0.0
-numpy>=1.24.0
-pandas>=2.0.0
+torch
+tensorflow
+scikit-learn
+xgboost
+lightgbm
+numpy
+pandas
 
 # Graph Neural Networks
-torch-geometric>=2.3.0
-networkx>=3.1
-dgl>=1.1.0
+torch-geometric
+networkx
+dgl
 
 # Data Processing
-dask>=2023.8.0
-joblib>=1.3.0
+dask
+joblib
 
 # Database
-sqlalchemy>=2.0.0
-psycopg2-binary>=2.9.9
-redis>=5.0.0
-timescaledb>=2.11.0
+sqlalchemy
+psycopg2-binary
+redis
 
 # API & Web
-fastapi>=0.104.0
-uvicorn[standard]>=0.24.0
-websockets>=12.0
-pydantic>=2.0.0
+fastapi
+uvicorn[standard]
+websockets
 
 # Monitoring & Logging
-prometheus-client>=0.19.0
-structlog>=23.2.0
-python-json-logger>=2.0.7
+prometheus-client
+structlog
+python-json-logger
 
 # Configuration
-pyyaml>=6.0.1
-python-dotenv>=1.0.0
-configparser>=6.0.0
-python-json-logger>=2.0.7
+pyyaml
+python-dotenv
 
 # Security Tools Integration
-python-whois>=0.8.0
-dnspython>=2.4.0
-cryptography>=41.0.0
+python-whois
+dnspython
+cryptography
 
 # Testing
-pytest>=7.4.0
-pytest-asyncio>=0.21.0
-pytest-cov>=4.1.0
-pytest-mock>=3.12.0
+pytest
+pytest-asyncio
+pytest-cov
+pytest-mock
 
 # Utilities
-click>=8.1.7
-rich>=13.7.0
-tqdm>=4.66.0
-python-dateutil>=2.8.2
+click
+rich
+tqdm
+python-dateutil
 
 # ML Experiment Tracking
-mlflow>=2.8.0
-wandb>=0.15.0
+mlflow
+wandb
 
 # Data Augmentation
-imbalanced-learn>=0.11.0
-smote-variants>=0.4.0
+imbalanced-learn
+smote-variants
 
 # Time Series
-statsmodels>=0.14.0
-prophet>=1.1.4
+statsmodels
+prophet
 
 # HTTP Client
-httpx>=0.25.0
-requests>=2.31.0
+httpx
+requests
 
 # CLI Enhancements
-tabulate>=0.9.0
-colorama>=0.4.6
-
+tabulate
+colorama

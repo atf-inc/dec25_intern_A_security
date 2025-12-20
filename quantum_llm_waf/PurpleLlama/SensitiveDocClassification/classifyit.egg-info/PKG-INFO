@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: classifyit
+Version: 0.1.1
+Summary: A tool for classifying content using LLMs
+Author: Meta Platforms, Inc.
+Author-email: opensource@meta.com
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: llama-stack-client
+Requires-Dist: pyyaml
+Requires-Dist: tika
+Requires-Dist: peewee
+Requires-Dist: google-api-python-client
+Dynamic: author
+Dynamic: author-email
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

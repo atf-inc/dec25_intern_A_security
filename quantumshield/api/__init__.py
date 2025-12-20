@@ -1,4 +1,11 @@
-"""REST API modules."""
+"""
+API package for QuantumShield.
 
-__all__ = []
+Exposes the FastAPI app instance from `rest_api`.
+"""
+
+from .rest_api import app
+
+__all__ = ["app"]
+
 

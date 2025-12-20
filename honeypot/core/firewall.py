@@ -1,150 +1,130 @@
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.pipeline import Pipeline
-import joblib
-import os
+"""
+Firewall Model - Attack Detection Module
+
+This module provides the main interface for detecting malicious traffic.
+It uses pre-trained ML models (DistilBERT for SQLi, XGBoost for network traffic)
+via the unified ml_classifier module.
+
+The predict() interface remains unchanged for backward compatibility.
+"""
+
 import logging
+from core.ml_classifier import ml_classifier
 
 logger = logging.getLogger("firewall")
 
+
 class FirewallModel:
+    """
+    Firewall model that uses pre-trained ML classifiers for attack detection.
+    
+    This replaces the previous TF-IDF + RandomForest approach with:
+    - DistilBERT for SQL injection detection
+    - XGBoost for network traffic analysis
+    - Regex heuristics as a fast-path fallback
+    """
+
     def __init__(self):
-        self.pipeline = None
-        self.is_trained = False
-        self._train_model()
+        self.is_trained = True  # Pre-trained models are always "trained"
+        self._classifier = ml_classifier
+        
+        if self._classifier.models_loaded:
+            logger.info("Firewall initialized with pre-trained ML classifiers")
+        else:
+            logger.warning("Firewall initialized with heuristics only (ML models not loaded)")
 
     def _train_model(self):
         """
-        Trains a lightweight model on startup using embedded demo data.
-        In a real prod environment, this would load a pre-trained model file.
+        No-op for compatibility. Pre-trained models don't need training.
+        This method is kept for backward compatibility with main.py lifespan.
         """
-        logger.info("Training Firewall Model...")
-        
-        # 1. Dataset (Benign vs Malicious)
-        # 0 = Benign, 1 = Malicious
-        data = [
-            # Benign (Normal traffic)
-            ("admin", 0),
-            ("user123", 0),
-            ("login", 0),
-            ("password", 0),
-            ("search=laptop", 0),
-            ("id=105", 0),
-            ("page=1", 0),
-            ("action=submit", 0),
-            ("shubham", 0),
-            ("hello world", 0),
-            ("contact@example.com", 0),
-            
-            # Malicious (SQL Injection)
-            ("' OR 1=1 --", 1),
-            ("admin' --", 1),
-            ("UNION SELECT 1,2,3", 1),
-            ("1' ORDER BY 1--", 1),
-            ("admin' #", 1),
-            ("' OR '1'='1", 1),
-            ("1; DROP TABLE users", 1),
-            # Form-based SQLi (Noise resilience)
-            ("username=admin' OR 1=1&password=123", 1),
-            ("q=admin' OR 1=1", 1),
-            
-            # Malicious (XSS)
-            ("<script>alert(1)</script>", 1),
-            ("<img src=x onerror=alert(1)>", 1),
-            ("javascript:alert('XSS')", 1),
-            ("<body>", 1), # Suspicious in inputs
-            ("search=<script>alert('XSS')</script>", 1),
-        ]
-        
-        df = pd.DataFrame(data, columns=["payload", "label"])
-        
-        # 2. Create Pipeline
-        # TF-IDF to convert text to numbers
-        # Random Forest for classification
-        self.pipeline = Pipeline([
-            ('tfidf', TfidfVectorizer(analyzer='char', ngram_range=(2, 4))), # Character n-grams catch code patterns well
-            ('clf', RandomForestClassifier(n_estimators=100, random_state=42))
-        ])
-        
-        # 3. Train
-        self.pipeline.fit(df['payload'], df['label'])
-        self.is_trained = True
-        logger.info("Firewall Model Trained Successfully.")
+        logger.info("Firewall using pre-trained models (no training needed)")
+        pass
 
-    def predict(self, text: str) -> bool:
+    def predict(self, text: str, packet_data: dict = None) -> bool:
         """
-        Returns True if malicious, False if safe.
+        Analyze input for malicious content.
+        
+        Args:
+            text: The request text to analyze (method, path, query params, body)
+            packet_data: Optional network packet features for XGBoost analysis
+            
+        Returns:
+            True if malicious (should be blocked/trapped), False if safe
         """
-        if not self.is_trained or not text:
+        if not text:
             return False
             
-        # Basic check for empty inputs being safe
-        if len(text) < 2:
-            return False
-            
-        # 0. Heuristic Safety Net (Hybrid Approach)
-        # Ensure common demo attacks are ALWAYS caught, even if ML wavers.
-        import re
-        patterns = [
-            r"(?i)(\bOR\b|\bUNION\b|\bSELECT\b).{0,10}(\bFROM\b|\bWHERE\b|\d=)",
-            r"(?i)'\s*OR\s*\d=\d",
-            r"(?i)<script",
-            r"(?i)javascript:",
-        ]
-        for p in patterns:
-            if re.search(p, text):
-                logger.warning(f"Firewall HEURISTIC BLOCK: '{text}'")
-                return True
+        # Delegate to the unified ML classifier
+        return self._classifier.predict(text, packet_data)
 
-        prediction = self.pipeline.predict([text])[0]
-        proba = self.pipeline.predict_proba([text])[0][1] # Probability of being class 1 (Malicious)
+    def predict_detailed(self, text: str, packet_data: dict = None) -> dict:
+        """
+        Get detailed prediction results from all models.
         
-        result = bool(prediction == 1)
-        if result:
-            logger.warning(f"Firewall BLOCKED: '{text}' (Confidence: {proba:.2f})")
-        else:
-            logger.info(f"Firewall ALLOWED: '{text}' (Confidence: {proba:.2f})")
-            
-        return result
+        Returns:
+            dict with 'is_malicious', 'sqli_result', 'network_result'
+        """
+        sqli_result = self._classifier.predict_sqli(text)
+        network_result = None
+        
+        if packet_data:
+            network_result = self._classifier.predict_network(packet_data)
+        
+        # Check heuristics
+        heuristic_match = self._classifier._check_heuristics(text)
+        
+        is_malicious = (
+            heuristic_match or 
+            sqli_result.get("is_malicious", False) or
+            (network_result and network_result.get("is_malicious", False))
+        )
+        
+        return {
+            "is_malicious": is_malicious,
+            "heuristic_match": heuristic_match,
+            "sqli_result": sqli_result,
+            "network_result": network_result
+        }
 
-    def predict_with_confidence(self, text: str) -> dict:
+    def predict_with_confidence(self, text: str, packet_data: dict = None) -> dict:
         """
         Returns verdict and confidence score for ML analysis.
+        
+        Args:
+            text: The request text to analyze
+            packet_data: Optional network packet features
+            
         Returns: {"is_malicious": bool, "verdict": str, "confidence": float}
         """
-        if not self.is_trained or not text or len(text) < 2:
+        if not text or len(text) < 2:
             return {"is_malicious": False, "verdict": "SAFE", "confidence": 0.0}
         
-        import re
-        # Heuristic check first
-        patterns = [
-            r"(?i)(\bOR\b|\bUNION\b|\bSELECT\b).{0,10}(\bFROM\b|\bWHERE\b|\d=)",
-            r"(?i)'\s*OR\s*\d=\d",
-            r"(?i)<script",
-            r"(?i)javascript:",
-        ]
-        for p in patterns:
-            if re.search(p, text):
-                return {"is_malicious": True, "verdict": "MALICIOUS", "confidence": 0.95}
+        # Get detailed prediction from classifier
+        sqli_result = self._classifier.predict_sqli(text)
         
-        # ML prediction
-        prediction = self.pipeline.predict([text])[0]
-        proba = self.pipeline.predict_proba([text])[0][1]
+        # Check heuristics first (high confidence)
+        if self._classifier._check_heuristics(text):
+            return {"is_malicious": True, "verdict": "MALICIOUS", "confidence": 0.95}
+        
+        # Get confidence from SQLi model
+        confidence = sqli_result.get("confidence", 0.0)
+        is_malicious = sqli_result.get("is_malicious", False)
         
         # Determine verdict based on confidence thresholds
-        if proba > 0.80:
+        if confidence > 0.80 or is_malicious:
             verdict = "MALICIOUS"
-        elif proba > 0.40:
+        elif confidence > 0.40:
             verdict = "SUSPICIOUS"
         else:
             verdict = "SAFE"
         
         return {
-            "is_malicious": bool(prediction == 1),
+            "is_malicious": is_malicious,
             "verdict": verdict,
-            "confidence": float(proba)
+            "confidence": float(confidence)
         }
 
-# Singleton instance
+
+# Singleton instance - maintains same interface as before
 firewall_model = FirewallModel()
