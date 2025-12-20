@@ -215,7 +215,7 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         
         await patch_request_body()
         response_content = await honeypot.handle_honeypot_request(request, background_tasks)
-        return _format_honeypot_response(response_content, path_name)
+        return _format_honeypot_response(response_content, path_name, request)
     
     # ========================================================================
     # 3. FIREWALL CHECK (ML + Heuristics)
@@ -234,7 +234,7 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         
         await patch_request_body()
         response_content = await honeypot.handle_honeypot_request(request, background_tasks)
-        return _format_honeypot_response(response_content, path_name)
+        return _format_honeypot_response(response_content, path_name, request)
     
     # ========================================================================
     # 4. SAFE - Forward to Upstream
@@ -274,42 +274,89 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         await client.aclose()
 
 
-def _format_honeypot_response(response_content: str, path_name: str) -> Response:
+def _wants_json(request: Request) -> bool:
     """
-    Format the honeypot response appropriately based on content type.
-    HTML responses are rendered directly for convincing deception.
+    Check if the client expects JSON response.
+    This makes honeypot responses format-aware for more realistic deception.
     """
+    accept = request.headers.get("accept", "")
+    content_type = request.headers.get("content-type", "")
+    user_agent = request.headers.get("user-agent", "").lower()
+    
+    # Explicit JSON preference
+    if "application/json" in accept:
+        return True
+    
+    # Sending JSON body usually expects JSON response
+    if "application/json" in content_type:
+        return True
+    
+    # Common API testing tools
+    api_tools = ["postman", "insomnia", "httpie", "curl", "python-requests", "axios"]
+    if any(tool in user_agent for tool in api_tools):
+        return True
+    
+    return False
+
+
+def _format_honeypot_response(response_content: str, path_name: str, request: Request) -> Response:
+    """
+    Format the honeypot response based on what the client expects.
+    
+    - API tools (Postman, curl) → JSON response
+    - Browsers → HTML response
+    
+    This makes the honeypot more realistic and harder to detect.
+    """
+    import uuid
+    
     if not response_content:
         return Response(content="", media_type="text/plain")
     
-    # Check if response is HTML
+    # Check what format the client expects
+    wants_json = _wants_json(request)
+    is_api_path = path_name.startswith("api/") or "/api/" in path_name
     is_html = "<html" in response_content.lower() or "<!doctype" in response_content.lower()
     
+    # API tools expect JSON - give them realistic API error response
+    if wants_json or (is_api_path and not is_html):
+        # Try to parse existing JSON response
+        try:
+            parsed = json.loads(response_content)
+            return JSONResponse(
+                content=parsed, 
+                headers={"X-Request-ID": str(uuid.uuid4())[:8]}
+            )
+        except (json.JSONDecodeError, TypeError):
+            pass
+        
+        # Generate realistic API error response
+        return JSONResponse(
+            content={
+                "success": False,
+                "error": "Forbidden",
+                "message": "Access denied. Your request has been logged.",
+                "request_id": f"TK-{uuid.uuid4().hex[:8]}",
+                "timestamp": __import__('datetime').datetime.utcnow().isoformat() + "Z"
+            },
+            status_code=403,
+            headers={"X-Request-ID": str(uuid.uuid4())[:8]}
+        )
+    
+    # Browsers get HTML for visual deception
     if is_html:
         return Response(
             content=response_content,
             media_type="text/html",
-            headers={"X-QuantumShield-Trap": "Active"}
+            headers={"X-Request-ID": str(uuid.uuid4())[:8]}
         )
-    elif path_name.startswith("api/") or "/api/" in path_name:
-        try:
-            parsed = json.loads(response_content)
-            parsed["_honeypot"] = True
-            parsed["_trap_active"] = True
-            return JSONResponse(content=parsed, headers={"X-QuantumShield-Trap": "Active"})
-        except (json.JSONDecodeError, TypeError):
-            return JSONResponse(
-                content={"success": False, "error": "Blocked", "message": response_content,
-                         "_honeypot": True, "_trap_active": True},
-                status_code=403,
-                headers={"X-QuantumShield-Trap": "Active"}
-            )
-    else:
-        return Response(
-            content=response_content,
-            media_type="text/plain",
-            headers={"X-QuantumShield-Trap": "Active"}
-        )
+    
+    # Fallback to plain text
+    return Response(
+        content=response_content,
+        media_type="text/plain",
+        headers={"X-Request-ID": str(uuid.uuid4())[:8]}
+    )
 
 
 if __name__ == "__main__":

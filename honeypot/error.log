@@ -2737,3 +2737,192 @@ IndexError: list index out of range
 2025-12-20 00:18:07,162 - uvicorn.error - INFO - 127.0.0.1:31721 - "WebSocket /_next/webpack-hmr?id=5RHEjHcwDsfDuuuBPtPdt" 403
 2025-12-20 00:18:07,164 - uvicorn.error - INFO - connection rejected (403 Forbidden)
 2025-12-20 00:18:07,167 - uvicorn.error - INFO - connection closed
+2025-12-20 00:49:20,575 - uvicorn.error - INFO - Shutting down
+2025-12-20 00:49:20,794 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 00:49:20,953 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 00:49:20,972 - uvicorn.error - INFO - Finished server process [9836]
+2025-12-20 00:49:38,075 - uvicorn.error - INFO - Stopping reloader process [21520]
+2025-12-20 00:56:41,194 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-20 00:56:41,198 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-20 00:56:41,199 - uvicorn.error - INFO - Started reloader process [20076] using WatchFiles
+2025-12-20 00:56:48,000 - uvicorn.error - INFO - Started server process [7272]
+2025-12-20 00:56:48,003 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 00:56:48,017 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 00:57:17,873 - uvicorn.error - INFO - 127.0.0.1:34864 - "WebSocket /_next/webpack-hmr?id=YIoDSz3JlHZAsVkJeyBux" 403
+2025-12-20 00:57:17,876 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:57:17,890 - uvicorn.error - INFO - connection closed
+2025-12-20 00:57:18,913 - uvicorn.error - INFO - 127.0.0.1:34873 - "WebSocket /_next/webpack-hmr?id=YIoDSz3JlHZAsVkJeyBux" 403
+2025-12-20 00:57:18,914 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:57:18,920 - uvicorn.error - INFO - connection closed
+2025-12-20 00:57:19,948 - uvicorn.error - INFO - 127.0.0.1:34875 - "WebSocket /_next/webpack-hmr?id=YIoDSz3JlHZAsVkJeyBux" 403
+2025-12-20 00:57:19,950 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:57:19,953 - uvicorn.error - INFO - connection closed
+2025-12-20 00:57:20,971 - uvicorn.error - INFO - 127.0.0.1:34876 - "WebSocket /_next/webpack-hmr?id=YIoDSz3JlHZAsVkJeyBux" 403
+2025-12-20 00:57:20,972 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:57:20,975 - uvicorn.error - INFO - connection closed
+2025-12-20 00:57:22,065 - uvicorn.error - INFO - 127.0.0.1:34878 - "WebSocket /_next/webpack-hmr?id=YIoDSz3JlHZAsVkJeyBux" 403
+2025-12-20 00:57:22,066 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:57:22,068 - uvicorn.error - INFO - connection closed
+2025-12-20 00:57:23,698 - uvicorn.error - INFO - 127.0.0.1:34879 - "WebSocket /_next/webpack-hmr?id=YIoDSz3JlHZAsVkJeyBux" 403
+2025-12-20 00:57:23,699 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:57:23,702 - uvicorn.error - INFO - connection closed
+2025-12-20 00:57:29,154 - uvicorn.error - INFO - 127.0.0.1:34881 - "WebSocket /_next/webpack-hmr?id=YIoDSz3JlHZAsVkJeyBux" 403
+2025-12-20 00:57:29,155 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:57:29,157 - uvicorn.error - INFO - connection closed
+2025-12-20 00:57:34,175 - uvicorn.error - INFO - 127.0.0.1:34883 - "WebSocket /_next/webpack-hmr?id=YIoDSz3JlHZAsVkJeyBux" 403
+2025-12-20 00:57:34,176 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:57:34,178 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:05,696 - uvicorn.error - INFO - 127.0.0.1:34947 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:05,697 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:05,706 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:06,715 - uvicorn.error - INFO - 127.0.0.1:34953 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:06,716 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:06,718 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:07,733 - uvicorn.error - INFO - 127.0.0.1:34954 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:07,734 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:07,739 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:08,844 - uvicorn.error - INFO - 127.0.0.1:34955 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:08,845 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:08,851 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:09,935 - uvicorn.error - INFO - 127.0.0.1:34956 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:09,942 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:09,949 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:11,287 - uvicorn.error - INFO - 127.0.0.1:34972 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:11,288 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:11,291 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:16,401 - uvicorn.error - INFO - 127.0.0.1:34974 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:16,402 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:16,405 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:21,716 - uvicorn.error - INFO - 127.0.0.1:34984 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:21,717 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:21,722 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:26,740 - uvicorn.error - INFO - 127.0.0.1:34985 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:26,741 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:26,744 - uvicorn.error - INFO - connection closed
+2025-12-20 00:59:33,360 - uvicorn.error - INFO - 127.0.0.1:34986 - "WebSocket /_next/webpack-hmr?id=pS-kV109A5fhqhlkXFJ1R" 403
+2025-12-20 00:59:33,361 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 00:59:33,363 - uvicorn.error - INFO - connection closed
+2025-12-20 01:34:36,940 - uvicorn.error - WARNING - WatchFiles detected changes in 'main.py'. Reloading...
+2025-12-20 01:34:37,350 - uvicorn.error - INFO - Shutting down
+2025-12-20 01:34:37,569 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 01:34:37,674 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 01:34:37,705 - uvicorn.error - INFO - Finished server process [7272]
+2025-12-20 01:35:01,285 - uvicorn.error - WARNING - WatchFiles detected changes in 'main.py'. Reloading...
+2025-12-20 01:35:39,076 - uvicorn.error - INFO - Started server process [11972]
+2025-12-20 01:35:39,078 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 01:35:39,100 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 01:35:39,104 - uvicorn.error - ERROR - Traceback (most recent call last):
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 701, in lifespan
+    await receive()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+2025-12-20 01:35:40,431 - uvicorn.error - WARNING - WatchFiles detected changes in 'main.py'. Reloading...
+2025-12-20 01:35:46,268 - uvicorn.error - INFO - Started server process [23880]
+2025-12-20 01:35:46,270 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 01:35:46,283 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 01:35:46,285 - uvicorn.error - ERROR - Traceback (most recent call last):
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 701, in lifespan
+    await receive()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+2025-12-20 01:35:53,375 - uvicorn.error - INFO - Started server process [11728]
+2025-12-20 01:35:53,376 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 01:35:53,385 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 01:37:41,845 - uvicorn.error - INFO - Shutting down
+2025-12-20 01:37:41,956 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 01:37:41,959 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 01:37:41,963 - uvicorn.error - INFO - Finished server process [11728]
+2025-12-20 01:37:43,365 - uvicorn.error - INFO - Stopping reloader process [20076]
+2025-12-20 01:38:06,690 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-20 01:38:06,692 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-20 01:38:06,693 - uvicorn.error - INFO - Started reloader process [5988] using WatchFiles
+2025-12-20 01:38:13,857 - uvicorn.error - INFO - Started server process [17492]
+2025-12-20 01:38:13,859 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 01:38:13,879 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 01:43:04,315 - uvicorn.error - INFO - 127.0.0.1:14562 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:04,328 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:04,336 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:05,350 - uvicorn.error - INFO - 127.0.0.1:14574 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:05,353 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:05,358 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:06,376 - uvicorn.error - INFO - 127.0.0.1:14575 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:06,379 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:06,385 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:07,458 - uvicorn.error - INFO - 127.0.0.1:14577 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:07,460 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:07,463 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:08,773 - uvicorn.error - INFO - 127.0.0.1:14578 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:08,776 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:08,782 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:10,733 - uvicorn.error - INFO - 127.0.0.1:14583 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:10,737 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:10,742 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:16,906 - uvicorn.error - INFO - 127.0.0.1:14589 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:16,909 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:16,918 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:21,940 - uvicorn.error - INFO - 127.0.0.1:14696 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:21,942 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:21,948 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:28,502 - uvicorn.error - INFO - 127.0.0.1:14700 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:28,505 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:28,508 - uvicorn.error - INFO - connection closed
+2025-12-20 01:43:38,329 - uvicorn.error - INFO - 127.0.0.1:14703 - "WebSocket /_next/webpack-hmr?id=N5hOMonnDExLIiO1ES9L4" 403
+2025-12-20 01:43:38,331 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 01:43:38,335 - uvicorn.error - INFO - connection closed
+2025-12-20 01:51:40,312 - uvicorn.error - INFO - Shutting down
+2025-12-20 01:51:40,438 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 01:51:40,479 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 01:51:40,495 - uvicorn.error - INFO - Finished server process [17492]
+2025-12-20 01:51:43,689 - uvicorn.error - INFO - Stopping reloader process [5988]
