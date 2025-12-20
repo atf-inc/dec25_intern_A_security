@@ -8,7 +8,6 @@ myenv/
 venv/
 env/
 ENV/
-.md
 # Environment variables
 .env
 
