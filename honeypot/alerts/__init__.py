@@ -15,7 +15,7 @@ class AlertNotifier:
     def send_slack_alert(self, attack_data: dict):
         """Send Slack notification for detected attack"""
         if not self.enabled:
-            print("⚠️  Slack webhook not configured, skipping alert")
+            print("[WARNING] Slack webhook not configured, skipping alert")
             return
             
         # Determine severity color
