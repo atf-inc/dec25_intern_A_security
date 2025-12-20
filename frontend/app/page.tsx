@@ -7,6 +7,7 @@ import StatsCards from '@/components/StatsCards';
 import LiveAttackFeed from '@/components/LiveAttackFeed';
 import SessionsTable from '@/components/SessionsTable';
 import AttackPatterns from '@/components/AttackPatterns';
+import ChatBot from '@/components/ChatBot';
 import { Shield, RefreshCw } from 'lucide-react';
 
 export default function Dashboard() {
@@ -143,6 +144,9 @@ export default function Dashboard() {
           </div>
         </div>
       </footer>
+
+      {/* AI ChatBot */}
+      <ChatBot />
     </div>
   );
 }
