@@ -33,7 +33,7 @@ class InMemorySessionManager:
         }
         
         self.sessions[session_key] = session
-        print(f"✅ Created session: {session_id} for {ip_address}")
+        print(f"[OK] Created session: {session_id} for {ip_address}")
         return session
     
     async def add_history(self, session_id: str, command: str, response: str):
