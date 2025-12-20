@@ -72,11 +72,11 @@ class AlertNotifier:
                 timeout=5
             )
             if response.status_code == 200:
-                print(f"✅ Slack alert sent for {attack_type} attack from {attack_data.get('ip')}")
+                print(f"[OK] Slack alert sent for {attack_type} attack from {attack_data.get('ip')}")
             else:
-                print(f"❌ Slack alert failed: {response.status_code}")
+                print(f"[ERR] Slack alert failed: {response.status_code}")
         except Exception as e:
-            print(f"❌ Slack alert error: {e}")
+            print(f"[ERR] Slack alert error: {e}")
     
     def send_email_alert(self, attack_data: dict):
         """Send email notification (placeholder for future implementation)"""

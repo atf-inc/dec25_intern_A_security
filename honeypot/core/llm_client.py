@@ -51,14 +51,14 @@ class LLMClient:
                     )
                     
                     response = chat_completion.choices[0].message.content
-                    print(f"[LLM] ✓ Success! Response length: {len(response)} characters")
+                    print(f"[LLM] [OK] Success! Response length: {len(response)} characters")
                     print(f"[LLM] Response preview: {response[:150]}")
                     return response
                     
                 except Exception as e:
                     self.error_count += 1
                     error_msg = f"Error generating LLM response (attempt {attempt + 1}/{retries + 1}): {str(e)}"
-                    print(f"[LLM] ✗ {error_msg}")
+                    print(f"[LLM] [ERR] {error_msg}")
                     logger.error(error_msg)
                     
                     if attempt < retries:
