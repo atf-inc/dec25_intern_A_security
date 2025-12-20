@@ -8,7 +8,7 @@ from core.database import db
 from core.firewall import firewall_model
 from core.email_notifier import email_notifier
 from core.trap_tracker import trap_tracker
-from routers import analytics, honeypot
+from routers import analytics, honeypot, chat
 import logging
 
 # Configure Logging
@@ -41,6 +41,9 @@ app.add_middleware(
 
 # Include Analytics Router (So Dashboard still works)
 app.include_router(analytics.router)
+
+# Include Chat Router for NLP-powered queries
+app.include_router(chat.router)
 
 
 # ============================================================================
