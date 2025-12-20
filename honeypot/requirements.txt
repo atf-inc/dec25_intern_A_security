@@ -8,6 +8,7 @@ pandas
 scikit-learn
 httpx
 python-multipart
+sendgrid>=6.11.0
 reportlab
 matplotlib
 requests

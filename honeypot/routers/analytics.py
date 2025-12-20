@@ -179,6 +179,93 @@ async def get_timeline(hours: int = Query(24, description="Number of hours to an
         "data": timeline
     }
 
+
+@router.get("/ml-stats")
+async def get_ml_stats():
+    """Get ML model statistics and confidence distribution"""
+    logs_collection = db.get_collection("logs")
+    
+    # Count verdicts
+    verdict_pipeline = [
+        {
+            "$match": {
+                "ml_verdict": {"$exists": True, "$ne": None}
+            }
+        },
+        {
+            "$group": {
+                "_id": "$ml_verdict",
+                "count": {"$sum": 1}
+            }
+        }
+    ]
+    
+    verdict_results = await logs_collection.aggregate(verdict_pipeline).to_list(length=None)
+    
+    # Build verdict counts
+    verdict_counts = {"safe": 0, "suspicious": 0, "malicious": 0}
+    for item in verdict_results:
+        verdict = item["_id"].lower() if item["_id"] else "safe"
+        if verdict in verdict_counts:
+            verdict_counts[verdict] = item["count"]
+    
+    # Get confidence distribution (bucket by 10%)
+    confidence_pipeline = [
+        {
+            "$match": {
+                "ml_confidence": {"$exists": True, "$ne": None}
+            }
+        },
+        {
+            "$bucket": {
+                "groupBy": {"$multiply": [{"$floor": {"$multiply": ["$ml_confidence", 10]}}, 10]},
+                "boundaries": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                "default": "other",
+                "output": {
+                    "count": {"$sum": 1}
+                }
+            }
+        }
+    ]
+    
+    try:
+        confidence_results = await logs_collection.aggregate(confidence_pipeline).to_list(length=None)
+        confidence_distribution = [
+            {"range": f"{int(item['_id'])}-{int(item['_id'])+10}", "count": item["count"]}
+            for item in confidence_results if item["_id"] != "other"
+        ]
+    except Exception:
+        # Fallback if $bucket not supported
+        confidence_distribution = []
+    
+    # Calculate average confidence
+    avg_pipeline = [
+        {
+            "$match": {
+                "ml_confidence": {"$exists": True, "$ne": None}
+            }
+        },
+        {
+            "$group": {
+                "_id": None,
+                "avg_confidence": {"$avg": "$ml_confidence"},
+                "total": {"$sum": 1}
+            }
+        }
+    ]
+    
+    avg_results = await logs_collection.aggregate(avg_pipeline).to_list(length=1)
+    avg_confidence = avg_results[0]["avg_confidence"] if avg_results else 0
+    total_predictions = avg_results[0]["total"] if avg_results else 0
+    
+    return {
+        "total_predictions": total_predictions,
+        "verdict_counts": verdict_counts,
+        "confidence_distribution": confidence_distribution,
+        "average_confidence": avg_confidence * 100 if avg_confidence else 0
+    }
+
+
 @router.get("/summary/{session_id}")
 async def get_threat_summary(session_id: str):
     """Generate AI-powered threat summary for a session"""
@@ -186,6 +273,7 @@ async def get_threat_summary(session_id: str):
     
     summary = await threat_summarizer.generate_summary(session_id)
     return summary
+
 
 @router.get("/playback/{session_id}")
 async def get_attack_playback(session_id: str):
@@ -225,6 +313,7 @@ async def get_attack_playback(session_id: str):
         "total_steps": len(playback_steps),
         "steps": playback_steps
     }
+
 
 @router.get("/report/weekly")
 async def download_weekly_report():

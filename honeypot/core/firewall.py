@@ -87,6 +87,44 @@ class FirewallModel:
             "network_result": network_result
         }
 
+    def predict_with_confidence(self, text: str, packet_data: dict = None) -> dict:
+        """
+        Returns verdict and confidence score for ML analysis.
+        
+        Args:
+            text: The request text to analyze
+            packet_data: Optional network packet features
+            
+        Returns: {"is_malicious": bool, "verdict": str, "confidence": float}
+        """
+        if not text or len(text) < 2:
+            return {"is_malicious": False, "verdict": "SAFE", "confidence": 0.0}
+        
+        # Get detailed prediction from classifier
+        sqli_result = self._classifier.predict_sqli(text)
+        
+        # Check heuristics first (high confidence)
+        if self._classifier._check_heuristics(text):
+            return {"is_malicious": True, "verdict": "MALICIOUS", "confidence": 0.95}
+        
+        # Get confidence from SQLi model
+        confidence = sqli_result.get("confidence", 0.0)
+        is_malicious = sqli_result.get("is_malicious", False)
+        
+        # Determine verdict based on confidence thresholds
+        if confidence > 0.80 or is_malicious:
+            verdict = "MALICIOUS"
+        elif confidence > 0.40:
+            verdict = "SUSPICIOUS"
+        else:
+            verdict = "SAFE"
+        
+        return {
+            "is_malicious": is_malicious,
+            "verdict": verdict,
+            "confidence": float(confidence)
+        }
+
 
 # Singleton instance - maintains same interface as before
 firewall_model = FirewallModel()

@@ -6,6 +6,7 @@ import httpx
 import json
 from core.database import db
 from core.firewall import firewall_model
+from core.email_notifier import email_notifier
 from core.trap_tracker import trap_tracker
 from routers import analytics, honeypot
 import logging
@@ -184,8 +185,9 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     """
     Main Gateway Logic:
     1. Check if IP is already trapped (session-based trapping)
-    2. If not trapped, check ML Firewall
+    2. Extract Request Data and check ML Firewall with confidence scoring
     3. Route to Honeypot (trapped/malicious) or Upstream (safe)
+    4. Send email alerts for MALICIOUS attacks
     """
     client_ip = request.client.host
     
@@ -218,22 +220,42 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         return _format_honeypot_response(response_content, path_name, request)
     
     # ========================================================================
-    # 3. FIREWALL CHECK (ML + Heuristics)
+    # 3. FIREWALL CHECK (ML + Heuristics with confidence scoring)
     # ========================================================================
-    is_malicious = firewall_model.predict(analysis_text)
+    ml_result = firewall_model.predict_with_confidence(analysis_text)
+    is_malicious = ml_result["is_malicious"]
+    ml_verdict = ml_result["verdict"]
+    ml_confidence = ml_result["confidence"]
     
-    if is_malicious:
+    if is_malicious or ml_verdict == "SUSPICIOUS":
         # TRAP THIS IP for future requests
         trap_tracker.trap_session(
             ip=client_ip,
-            reason=f"Attack detected on /{path_name}",
+            reason=f"{ml_verdict} attack detected on /{path_name} (confidence: {ml_confidence:.2f})",
             attack_payload=analysis_text
         )
         
-        logger.warning(f"[NEW TRAP] {client_ip} trapped - Attack on /{path_name}")
+        logger.warning(f"[NEW TRAP] {client_ip} trapped - {ml_verdict} on /{path_name} (confidence: {ml_confidence:.2f})")
+        
+        # Send email alert for MALICIOUS attacks (not SUSPICIOUS)
+        if ml_verdict == "MALICIOUS":
+            background_tasks.add_task(
+                email_notifier.send_attack_alert,
+                ip=client_ip,
+                method=method,
+                path=path_name,
+                ml_verdict=ml_verdict,
+                ml_confidence=ml_confidence,
+                payload=body_str[:500]
+            )
         
         await patch_request_body()
-        response_content = await honeypot.handle_honeypot_request(request, background_tasks)
+        response_content = await honeypot.handle_honeypot_request(
+            request, 
+            background_tasks,
+            ml_verdict=ml_verdict,
+            ml_confidence=ml_confidence
+        )
         return _format_honeypot_response(response_content, path_name, request)
     
     # ========================================================================

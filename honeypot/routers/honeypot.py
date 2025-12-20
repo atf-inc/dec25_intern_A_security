@@ -17,7 +17,13 @@ log = logging.getLogger("honeypot_router")
 router = APIRouter()
 
 
-async def handle_honeypot_request(request: Request, background_tasks: BackgroundTasks, command: str = None):
+async def handle_honeypot_request(
+    request: Request, 
+    background_tasks: BackgroundTasks, 
+    command: str = None,
+    ml_verdict: str = None,
+    ml_confidence: float = None
+):
     """
     Handle a request from a trapped attacker.
     
@@ -55,14 +61,16 @@ async def handle_honeypot_request(request: Request, background_tasks: Background
     # Generate deceptive response (now uses templates!)
     response_text = await deception_engine.process_input(context, user_input)
 
-    # Log interaction in background
+    # Log interaction with ML data in background
     background_tasks.add_task(
         logger.log_interaction, 
         session_id, 
         client_ip, 
         "http_request" if not command else "command", 
         user_input, 
-        response_text[:500]  # Truncate for logging
+        response_text[:500],  # Truncate for logging
+        ml_verdict,
+        ml_confidence
     )
     
     # Update session history

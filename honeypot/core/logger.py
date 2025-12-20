@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from typing import Optional
 from core.database import db
 import re
 
@@ -30,7 +31,16 @@ class Logger:
             
         return "unknown"
 
-    async def log_interaction(self, session_id: str, ip: str, request_type: str, payload: str, response: str):
+    async def log_interaction(
+        self, 
+        session_id: str, 
+        ip: str, 
+        request_type: str, 
+        payload: str, 
+        response: str,
+        ml_verdict: Optional[str] = None,
+        ml_confidence: Optional[float] = None
+    ):
         collection = db.get_collection(self.collection_name)
         
         # Classify attack type
@@ -43,7 +53,9 @@ class Logger:
             "type": request_type,
             "attack_type": attack_type,  # NEW: Attack classification
             "payload": payload,
-            "response": response
+            "response": response,
+            "ml_verdict": ml_verdict,
+            "ml_confidence": ml_confidence
         }
         await collection.insert_one(log_entry)
         
