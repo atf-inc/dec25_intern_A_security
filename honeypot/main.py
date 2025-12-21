@@ -9,13 +9,15 @@ from core.firewall import firewall_model
 from core.email_notifier import email_notifier
 from core.trap_tracker import trap_tracker
 from routers import analytics, honeypot, chat
+from config import settings
 import logging
+import os
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("proxy")
 
-UPSTREAM_URL = "http://127.0.0.1:3000"
+UPSTREAM_URL = os.getenv("UPSTREAM_URL", "http://127.0.0.1:3000")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -205,6 +207,21 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     # Combine inputs for analysis
     analysis_text = f"{method} /{path_name}?{query_params}\n{body_str}"
     
+    # Extract request metadata for logging
+    request_metadata = {
+        "http_method": method,
+        "path": f"/{path_name}",
+        "query_params": dict(request.query_params),
+        "headers": {
+            "user_agent": request.headers.get("user-agent", ""),
+            "referer": request.headers.get("referer", ""),
+            "content_type": request.headers.get("content-type", ""),
+            "origin": request.headers.get("origin", ""),
+            "x_forwarded_for": request.headers.get("x-forwarded-for", ""),
+        },
+        "body_size": len(body_bytes),
+    }
+    
     # Helper to patch request body for honeypot handler
     async def patch_request_body():
         async def receive():
@@ -219,45 +236,59 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         logger.warning(f"[TRAPPED SESSION] {client_ip} - Request #{trap_info['request_count']} while trapped")
         
         await patch_request_body()
-        response_content = await honeypot.handle_honeypot_request(request, background_tasks)
+        response_content = await honeypot.handle_honeypot_request(
+            request, 
+            background_tasks,
+            **request_metadata
+        )
         return _format_honeypot_response(response_content, path_name, request)
     
     # ========================================================================
     # 3. FIREWALL CHECK (ML + Heuristics with confidence scoring)
     # ========================================================================
     ml_result = firewall_model.predict_with_confidence(analysis_text)
-    is_malicious = ml_result["is_malicious"]
     ml_verdict = ml_result["verdict"]
     ml_confidence = ml_result["confidence"]
     
-    if is_malicious or ml_verdict == "SUSPICIOUS":
+    # ========================================================================
+    # 3a. MALICIOUS - Block immediately (high confidence attacks)
+    # ========================================================================
+    if ml_verdict == "MALICIOUS":
+        logger.warning(f"[BLOCKED] {client_ip} - MALICIOUS attack on /{path_name} (confidence: {ml_confidence:.2f})")
+        
+        # Send email alert for MALICIOUS attacks
+        background_tasks.add_task(
+            email_notifier.send_attack_alert,
+            ip=client_ip,
+            method=method,
+            path=path_name,
+            ml_verdict=ml_verdict,
+            ml_confidence=ml_confidence,
+            payload=body_str[:500]
+        )
+        
+        return _block_malicious_request(request, client_ip, path_name, ml_confidence)
+    
+    # ========================================================================
+    # 3b. SUSPICIOUS - Route to honeypot for deception and intelligence
+    # ========================================================================
+    if ml_verdict == "SUSPICIOUS":
         # TRAP THIS IP for future requests
         trap_tracker.trap_session(
             ip=client_ip,
-            reason=f"{ml_verdict} attack detected on /{path_name} (confidence: {ml_confidence:.2f})",
+            reason=f"SUSPICIOUS activity detected on /{path_name} (confidence: {ml_confidence:.2f})",
             attack_payload=analysis_text
         )
         
-        logger.warning(f"[NEW TRAP] {client_ip} trapped - {ml_verdict} on /{path_name} (confidence: {ml_confidence:.2f})")
-        
-        # Send email alert for MALICIOUS attacks (not SUSPICIOUS)
-        if ml_verdict == "MALICIOUS":
-            background_tasks.add_task(
-                email_notifier.send_attack_alert,
-                ip=client_ip,
-                method=method,
-                path=path_name,
-                ml_verdict=ml_verdict,
-                ml_confidence=ml_confidence,
-                payload=body_str[:500]
-            )
+        logger.warning(f"[HONEYPOT] {client_ip} trapped - SUSPICIOUS on /{path_name} (confidence: {ml_confidence:.2f})")
         
         await patch_request_body()
         response_content = await honeypot.handle_honeypot_request(
             request, 
             background_tasks,
             ml_verdict=ml_verdict,
-            ml_confidence=ml_confidence
+            ml_confidence=ml_confidence,
+            **request_metadata
         )
         return _format_honeypot_response(response_content, path_name, request)
     
@@ -297,6 +328,60 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         return JSONResponse({"error": "Upstream unavailable"}, status_code=503)
     finally:
         await client.aclose()
+
+
+def _block_malicious_request(request: Request, client_ip: str, path_name: str, confidence: float) -> Response:
+    """
+    Block a malicious request with a 403 Forbidden response.
+    
+    MALICIOUS attacks (high confidence) are blocked immediately without deception.
+    This saves resources and clearly denies access to confirmed attackers.
+    """
+    import uuid
+    import datetime
+    
+    # Check what format the client expects
+    wants_json = _wants_json(request)
+    
+    if wants_json:
+        return JSONResponse(
+            content={
+                "success": False,
+                "error": "Forbidden",
+                "message": "Access denied. Your request has been blocked and logged.",
+                "request_id": f"BLK-{uuid.uuid4().hex[:8]}",
+                "timestamp": datetime.datetime.utcnow().isoformat() + "Z"
+            },
+            status_code=403,
+            headers={"X-Request-ID": str(uuid.uuid4())[:8]}
+        )
+    
+    # HTML response for browsers
+    return HTMLResponse(
+        content=f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>403 Forbidden</title>
+            <style>
+                body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                       background: #1a1a2e; color: #eee; text-align: center; padding: 50px; }}
+                h1 {{ color: #ff6b6b; font-size: 48px; margin-bottom: 10px; }}
+                p {{ color: #888; font-size: 18px; }}
+                .code {{ font-family: monospace; background: #333; padding: 2px 8px; border-radius: 4px; }}
+            </style>
+        </head>
+        <body>
+            <h1>403</h1>
+            <p>Access Denied</p>
+            <p>Your request has been blocked and logged.</p>
+            <p class="code">Request ID: BLK-{uuid.uuid4().hex[:8]}</p>
+        </body>
+        </html>
+        """,
+        status_code=403,
+        headers={"X-Request-ID": str(uuid.uuid4())[:8]}
+    )
 
 
 def _wants_json(request: Request) -> bool:

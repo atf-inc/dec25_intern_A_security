@@ -4,9 +4,8 @@ from groq import AsyncGroq
 from config import settings
 import logging
 
-# Configure error logging
+# Configure error logging (stdout for Docker compatibility)
 logging.basicConfig(
-    filename='error.log', 
     level=logging.ERROR,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )

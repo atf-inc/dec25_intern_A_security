@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import getDatabase from '@/lib/db'
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse> {
     const db = getDatabase()
     const searchParams = request.nextUrl.searchParams
     const search = searchParams.get('search')

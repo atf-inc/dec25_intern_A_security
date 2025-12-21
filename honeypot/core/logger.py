@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from typing import Optional
+from typing import Optional, Dict, Any
 from core.database import db
 import re
 
@@ -31,6 +31,18 @@ class Logger:
             
         return "unknown"
 
+    def classify_severity(self, attack_type: str, ml_confidence: Optional[float]) -> str:
+        """Classify severity based on attack type and ML confidence"""
+        confidence = ml_confidence or 0
+        
+        if attack_type in ("sqli", "command_injection") and confidence > 0.8:
+            return "CRITICAL"
+        elif attack_type in ("sqli", "xss", "command_injection"):
+            return "HIGH"
+        elif attack_type == "path_traversal":
+            return "MEDIUM"
+        return "LOW"
+
     async def log_interaction(
         self, 
         session_id: str, 
@@ -39,23 +51,39 @@ class Logger:
         payload: str, 
         response: str,
         ml_verdict: Optional[str] = None,
-        ml_confidence: Optional[float] = None
+        ml_confidence: Optional[float] = None,
+        # New metadata fields
+        http_method: Optional[str] = None,
+        path: Optional[str] = None,
+        query_params: Optional[Dict[str, Any]] = None,
+        headers: Optional[Dict[str, str]] = None,
+        body_size: Optional[int] = None,
+        response_time_ms: Optional[float] = None
     ):
         collection = db.get_collection(self.collection_name)
         
-        # Classify attack type
+        # Classify attack type and severity
         attack_type = self.classify_attack(payload)
+        severity = self.classify_severity(attack_type, ml_confidence)
         
         log_entry = {
             "timestamp": datetime.now(timezone.utc),
             "session_id": session_id,
             "ip": ip,
             "type": request_type,
-            "attack_type": attack_type,  # NEW: Attack classification
+            "attack_type": attack_type,
+            "severity": severity,
             "payload": payload,
             "response": response,
             "ml_verdict": ml_verdict,
-            "ml_confidence": ml_confidence
+            "ml_confidence": ml_confidence,
+            # New metadata fields
+            "http_method": http_method,
+            "path": path,
+            "query_params": query_params,
+            "headers": headers,
+            "body_size": body_size,
+            "response_time_ms": response_time_ms
         }
         await collection.insert_one(log_entry)
         

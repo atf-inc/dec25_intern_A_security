@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import getDatabase from '@/lib/db'
 
 // Login endpoint - VULNERABLE to SQL Injection
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
     const db = getDatabase()
     const body = await request.json()
     const { username, password, action } = body

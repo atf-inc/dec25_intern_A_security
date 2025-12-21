@@ -11,6 +11,8 @@ from core.session import session_manager
 from core.deception import deception_engine
 from core.logger import logger
 import logging
+import time
+from typing import Optional, Dict, Any
 
 log = logging.getLogger("honeypot_router")
 
@@ -22,7 +24,13 @@ async def handle_honeypot_request(
     background_tasks: BackgroundTasks, 
     command: str = None,
     ml_verdict: str = None,
-    ml_confidence: float = None
+    ml_confidence: float = None,
+    # New metadata parameters
+    http_method: Optional[str] = None,
+    path: Optional[str] = None,
+    query_params: Optional[Dict[str, Any]] = None,
+    headers: Optional[Dict[str, str]] = None,
+    body_size: Optional[int] = None
 ):
     """
     Handle a request from a trapped attacker.
@@ -45,10 +53,10 @@ async def handle_honeypot_request(
         user_input = command
     else:
         # Include method, path, query params, and body
-        path = str(request.url.path)
+        req_path = str(request.url.path)
         query = str(request.query_params) if request.query_params else ""
         
-        user_input = f"{request.method} {path}"
+        user_input = f"{request.method} {req_path}"
         if query:
             user_input += f"?{query}"
         
@@ -58,10 +66,16 @@ async def handle_honeypot_request(
 
     log.info(f"[HONEYPOT] Processing request from {client_ip}: {user_input[:80]}...")
 
+    # Track response time for LLM generation
+    start_time = time.time()
+    
     # Generate deceptive response (now uses templates!)
     response_text = await deception_engine.process_input(context, user_input)
+    
+    # Calculate response time in milliseconds
+    response_time_ms = (time.time() - start_time) * 1000
 
-    # Log interaction with ML data in background
+    # Log interaction with ML data and metadata in background
     background_tasks.add_task(
         logger.log_interaction, 
         session_id, 
@@ -70,7 +84,14 @@ async def handle_honeypot_request(
         user_input, 
         response_text[:500],  # Truncate for logging
         ml_verdict,
-        ml_confidence
+        ml_confidence,
+        # New metadata fields
+        http_method=http_method,
+        path=path,
+        query_params=query_params,
+        headers=headers,
+        body_size=body_size,
+        response_time_ms=response_time_ms
     )
     
     # Update session history

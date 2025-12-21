@@ -3,18 +3,12 @@ uvicorn>=0.24.0
 motor>=3.3.0
 python-dotenv>=1.0.0
 groq>=0.4.0
-slowapi>=0.1.9
-pandas
-scikit-learn
 httpx
 python-multipart
 sendgrid>=6.11.0
-reportlab
-matplotlib
 requests
 pydantic>=2.0.0
 # ML Classifier dependencies
 torch
 transformers
 xgboost
-joblib

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import getDatabase from '@/lib/db'
 
 // Get reviews for a product
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse> {
     const db = getDatabase()
     const searchParams = request.nextUrl.searchParams
     const productId = searchParams.get('product_id')
@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
 }
 
 // Add a review - VULNERABLE to XSS (no sanitization)
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
     const db = getDatabase()
     const body = await request.json()
     const { product_id, user_id, rating, comment } = body

@@ -100,29 +100,43 @@ class FirewallModel:
         if not text or len(text) < 2:
             return {"is_malicious": False, "verdict": "SAFE", "confidence": 0.0}
         
-        # Get detailed prediction from classifier
-        sqli_result = self._classifier.predict_sqli(text)
-        
-        # Check heuristics first (high confidence)
+        # Check heuristics first (high confidence) - these work on full text
         if self._classifier._check_heuristics(text):
             return {"is_malicious": True, "verdict": "MALICIOUS", "confidence": 0.95}
         
-        # Get confidence from SQLi model
-        confidence = sqli_result.get("confidence", 0.0)
-        is_malicious = sqli_result.get("is_malicious", False)
+        # Extract payloads from the request (query params, body values)
+        # The SQLi model was trained on raw payloads, not full HTTP requests
+        payloads = self._classifier._extract_payloads(text)
         
-        # Determine verdict based on confidence thresholds
-        if confidence > 0.80 or is_malicious:
+        # If no payloads to analyze, it's safe (e.g., simple GET / request)
+        if not payloads:
+            return {"is_malicious": False, "verdict": "SAFE", "confidence": 0.0}
+        
+        # Analyze each payload and track the highest confidence result
+        max_confidence = 0.0
+        
+        for payload in payloads:
+            if len(payload) < 2:
+                continue
+            sqli_result = self._classifier.predict_sqli(payload)
+            payload_confidence = sqli_result.get("confidence", 0.0)
+            
+            if payload_confidence > max_confidence:
+                max_confidence = payload_confidence
+        
+        # Determine verdict based on confidence thresholds ONLY
+        # This ensures SUSPICIOUS (0.40-0.80) goes to honeypot, MALICIOUS (>0.80) gets blocked
+        if max_confidence > 0.80:
             verdict = "MALICIOUS"
-        elif confidence > 0.40:
+        elif max_confidence > 0.40:
             verdict = "SUSPICIOUS"
         else:
             verdict = "SAFE"
         
         return {
-            "is_malicious": is_malicious,
+            "is_malicious": verdict == "MALICIOUS",  # Only true for high-confidence attacks
             "verdict": verdict,
-            "confidence": float(confidence)
+            "confidence": float(max_confidence)
         }
 
 

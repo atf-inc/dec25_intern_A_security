@@ -4,7 +4,7 @@ import getDatabase from '@/lib/db'
 export async function GET(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
-) {
+): Promise<NextResponse> {
     const db = getDatabase()
     const { id } = await params
 

@@ -5,22 +5,25 @@ Generates human-readable threat analysis from attack data using LLM with structu
 from core.llm_client import llm_client
 from core.database import db
 from datetime import datetime
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Literal, List
 import json
 
 # Pydantic models for structured output
 class AttackTechnique(BaseModel):
+    model_config = ConfigDict(extra='forbid')
     name: str = Field(description="Name of the attack technique")
     description: str = Field(description="Brief description of what the attacker attempted")
     severity: Literal["Low", "Medium", "High", "Critical"] = Field(description="Severity level of this technique")
 
 class ThreatTimeline(BaseModel):
+    model_config = ConfigDict(extra='forbid')
     phase: str = Field(description="Attack phase (e.g., Reconnaissance, Initial Access, Exploitation)")
     timestamp: str = Field(description="When this phase occurred")
     actions: List[str] = Field(description="List of actions taken in this phase")
 
 class ThreatSummary(BaseModel):
+    model_config = ConfigDict(extra='forbid')
     threat_level: Literal["Low", "Medium", "High", "Critical"] = Field(description="Overall threat level assessment")
     risk_score: int = Field(description="Numerical risk score from 0-100", ge=0, le=100)
     executive_summary: str = Field(description="2-3 sentence high-level summary for executives")

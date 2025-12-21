@@ -1,3 +1,5 @@
+export type SeverityLevel = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+
 export interface Session {
   _id: string;
   session_id: string;
@@ -5,6 +7,9 @@ export interface Session {
   user_agent: string;
   start_time: string;
   active: boolean;
+  // New duration fields
+  end_time?: string;
+  duration_seconds?: number;
   context: {
     current_directory: string;
     user: string;
@@ -23,6 +28,23 @@ export interface Log {
   type: string;
   payload: string;
   response: string;
+  // New analytics fields
+  attack_type?: string;
+  severity?: SeverityLevel;
+  ml_verdict?: string;
+  ml_confidence?: number;
+  http_method?: string;
+  path?: string;
+  query_params?: Record<string, string>;
+  headers?: {
+    user_agent?: string;
+    referer?: string;
+    content_type?: string;
+    origin?: string;
+    x_forwarded_for?: string;
+  };
+  body_size?: number;
+  response_time_ms?: number;
 }
 
 export interface Stats {
@@ -71,6 +93,7 @@ export interface ChatMessage {
 export interface ChartDataPoint {
   name: string;
   value: number;
+  [key: string]: string | number;
 }
 
 export interface TableRow {
