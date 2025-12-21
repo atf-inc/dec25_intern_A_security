@@ -2,12 +2,29 @@
 
 import { Session } from '@/lib/types';
 import { formatDistanceToNow } from 'date-fns';
-import { Users, Circle, Brain, Play, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { Users, Circle, Brain, Play, ChevronDown, ChevronUp, X, Clock } from 'lucide-react';
 import { useState } from 'react';
 import { api } from '@/lib/api';
 
 interface SessionsTableProps {
     sessions: Session[];
+}
+
+// Helper to format duration in human-readable format
+function formatDuration(seconds?: number): string {
+    if (seconds === undefined || seconds === null) return '-';
+    
+    if (seconds < 60) {
+        return `${Math.round(seconds)}s`;
+    } else if (seconds < 3600) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.round(seconds % 60);
+        return `${mins}m ${secs}s`;
+    } else {
+        const hours = Math.floor(seconds / 3600);
+        const mins = Math.floor((seconds % 3600) / 60);
+        return `${hours}h ${mins}m`;
+    }
 }
 
 export default function SessionsTable({ sessions }: SessionsTableProps) {
@@ -63,6 +80,7 @@ export default function SessionsTable({ sessions }: SessionsTableProps) {
                                 <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">IP Address</th>
                                 <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">User Agent</th>
                                 <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Started</th>
+                                <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Duration</th>
                                 <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Interactions</th>
                                 <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
                             </tr>
@@ -70,7 +88,7 @@ export default function SessionsTable({ sessions }: SessionsTableProps) {
                         <tbody className="divide-y divide-gray-700">
                             {sessions.length === 0 ? (
                                 <tr>
-                                    <td colSpan={6} className="px-4 py-8 text-center text-gray-500">
+                                    <td colSpan={7} className="px-4 py-8 text-center text-gray-500">
                                         No active sessions
                                     </td>
                                 </tr>
@@ -100,6 +118,12 @@ export default function SessionsTable({ sessions }: SessionsTableProps) {
                                             <span className="text-sm text-gray-400">
                                                 {formatDistanceToNow(new Date(session.start_time), { addSuffix: true })}
                                             </span>
+                                        </td>
+                                        <td className="px-4 py-3">
+                                            <div className="flex items-center gap-1 text-sm text-gray-300">
+                                                <Clock className="w-3 h-3 text-gray-500" />
+                                                <span>{formatDuration(session.duration_seconds)}</span>
+                                            </div>
                                         </td>
                                         <td className="px-4 py-3">
                                             <span className="text-sm text-gray-300">{session.context.history?.length || 0}</span>

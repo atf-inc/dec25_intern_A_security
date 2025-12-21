@@ -44,7 +44,7 @@ export default function Dashboard() {
       });
     } catch (error) {
       console.error('Error fetching data:', error);
-      setError(error instanceof Error ? error.message : 'Cannot connect to backend API at http://localhost:8000');
+      setError(error instanceof Error ? error.message : `Cannot connect to backend API at ${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}`);
     } finally {
       setLoading(false);
     }
