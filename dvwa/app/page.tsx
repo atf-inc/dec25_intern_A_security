@@ -100,8 +100,16 @@ export default function HomePage() {
                 href={`/product/${product.id}`}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
               >
-                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">{product.name}</span>
+                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                      e.currentTarget.parentElement!.innerHTML = `<span class="text-gray-500 text-sm">${product.name}</span>`;
+                    }}
+                  />
                 </div>
                 <div className="p-4">
                   <h4 className="font-semibold text-lg text-gray-900 mb-2">{product.name}</h4>
