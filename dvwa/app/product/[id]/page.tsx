@@ -9,6 +9,7 @@ interface Product {
     name: string
     description: string
     price: number
+    image: string
     stock: number
 }
 
@@ -81,8 +82,16 @@ export default function ProductPage() {
             <div className="max-w-7xl mx-auto px-4 py-8">
                 <div className="bg-white rounded-lg shadow-md p-8 mb-8">
                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center">
-                            <span className="text-gray-500">{product.name}</span>
+                        <div className="h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center overflow-hidden">
+                            <img 
+                                src={product.image} 
+                                alt={product.name}
+                                className="w-full h-full object-cover"
+                                onError={(e) => {
+                                    (e.target as HTMLImageElement).style.display = 'none';
+                                    e.currentTarget.parentElement!.innerHTML = `<span class="text-gray-500">${product.name}</span>`;
+                                }}
+                            />
                         </div>
                         <div>
                             <h1 className="text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
