@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import getDatabase from '@/lib/db'
 
 // VULNERABLE: IDOR - No authorization check
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse> {
     const db = getDatabase()
     const searchParams = request.nextUrl.searchParams
     const userId = searchParams.get('user_id')
