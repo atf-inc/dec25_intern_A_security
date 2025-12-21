@@ -5,7 +5,10 @@ This module provides a unified interface for the pre-trained ML models:
 - SQLiDetector (DistilBERT) for SQL injection detection
 - NetworkTrafficClassifier (XGBoost) for network traffic analysis
 
-Both SUSPICIOUS and MALICIOUS verdicts are treated as malicious (blocked).
+Verdicts are handled differently by the firewall:
+- MALICIOUS (confidence > 0.80): Blocked immediately
+- SUSPICIOUS (confidence 0.40-0.80): Routed to honeypot for deception
+- SAFE (confidence <= 0.40): Forwarded to upstream
 """
 
 import os
@@ -75,11 +78,9 @@ class UnifiedMLClassifier:
             verdict = result.get("verdict", "SAFE")
             confidence = result.get("confidence_score", 0.0)
             
-            # SUSPICIOUS and MALICIOUS are treated as malicious (block)
-            is_malicious = verdict in ("SUSPICIOUS", "MALICIOUS")
-            
+            # Return verdict and confidence - firewall decides routing based on thresholds
             return {
-                "is_malicious": is_malicious,
+                "is_malicious": verdict == "MALICIOUS",
                 "verdict": verdict,
                 "confidence": confidence
             }
@@ -109,11 +110,9 @@ class UnifiedMLClassifier:
             verdict = result.get("verdict", "SAFE")
             confidence = result.get("confidence", 0.0)
             
-            # SUSPICIOUS and MALICIOUS are treated as malicious (block)
-            is_malicious = verdict in ("SUSPICIOUS", "MALICIOUS")
-            
+            # Return verdict and confidence - firewall decides routing based on thresholds
             return {
-                "is_malicious": is_malicious,
+                "is_malicious": verdict == "MALICIOUS",
                 "verdict": verdict,
                 "confidence": confidence
             }

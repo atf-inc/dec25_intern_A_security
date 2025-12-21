@@ -104,11 +104,11 @@ async def get_attack_patterns():
     """Get common attack patterns and frequencies"""
     logs_collection = db.get_collection("logs")
     
-    # Aggregate attack types
+    # Aggregate by attack_type (sqli, xss, command_injection, etc.)
     pipeline = [
         {
             "$group": {
-                "_id": "$type",
+                "_id": "$attack_type",
                 "count": {"$sum": 1}
             }
         },
@@ -137,9 +137,30 @@ async def get_attack_patterns():
     
     top_ips = await logs_collection.aggregate(ip_pipeline).to_list(length=10)
     
+    # Aggregate by severity
+    severity_pipeline = [
+        {
+            "$match": {
+                "severity": {"$exists": True, "$ne": None}
+            }
+        },
+        {
+            "$group": {
+                "_id": "$severity",
+                "count": {"$sum": 1}
+            }
+        },
+        {
+            "$sort": {"count": -1}
+        }
+    ]
+    
+    severity_counts = await logs_collection.aggregate(severity_pipeline).to_list(length=None)
+    
     return {
         "attack_types": attack_types,
-        "top_ips": top_ips
+        "top_ips": top_ips,
+        "severity_distribution": severity_counts
     }
 
 @router.get("/timeline")
@@ -315,24 +336,3 @@ async def get_attack_playback(session_id: str):
     }
 
 
-@router.get("/report/weekly")
-async def download_weekly_report():
-    """Generate and download weekly PDF report"""
-    from fastapi.responses import Response
-    from reports import report_generator
-    
-    try:
-        pdf_bytes = await report_generator.generate_weekly_report()
-        
-        return Response(
-            content=pdf_bytes,
-            media_type="application/pdf",
-            headers={
-                "Content-Disposition": f"attachment; filename=quantum_shield_report_{datetime.utcnow().strftime('%Y%m%d')}.pdf"
-            }
-        )
-    except Exception as e:
-        return JSONResponse(
-            status_code=500,
-            content={"error": f"Failed to generate report: {str(e)}"}
-        )

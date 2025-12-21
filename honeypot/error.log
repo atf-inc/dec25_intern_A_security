@@ -2926,3 +2926,107 @@ asyncio.exceptions.CancelledError
 2025-12-20 01:51:40,479 - uvicorn.error - INFO - Application shutdown complete.
 2025-12-20 01:51:40,495 - uvicorn.error - INFO - Finished server process [17492]
 2025-12-20 01:51:43,689 - uvicorn.error - INFO - Stopping reloader process [5988]
+2025-12-20 23:05:29,756 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-20 23:05:29,759 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-20 23:05:29,759 - uvicorn.error - INFO - Started reloader process [25668] using WatchFiles
+2025-12-20 23:05:36,876 - uvicorn.error - INFO - Started server process [9476]
+2025-12-20 23:05:36,880 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 23:05:37,176 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 23:09:09,668 - uvicorn.error - INFO - Shutting down
+2025-12-20 23:09:09,782 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 23:09:09,799 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 23:09:09,802 - uvicorn.error - INFO - Finished server process [9476]
+2025-12-20 23:09:15,048 - uvicorn.error - INFO - Stopping reloader process [25668]
+2025-12-20 23:34:39,314 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-20 23:34:39,317 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-20 23:34:39,318 - uvicorn.error - INFO - Started reloader process [23228] using WatchFiles
+2025-12-20 23:34:45,766 - uvicorn.error - INFO - Started server process [26528]
+2025-12-20 23:34:45,767 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 23:34:45,784 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 23:44:41,777 - uvicorn.error - WARNING - WatchFiles detected changes in 'core\firewall.py'. Reloading...
+2025-12-20 23:44:41,906 - uvicorn.error - INFO - Shutting down
+2025-12-20 23:44:42,051 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 23:44:42,112 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 23:44:42,116 - uvicorn.error - INFO - Finished server process [26528]
+2025-12-20 23:44:58,578 - uvicorn.error - WARNING - WatchFiles detected changes in 'core\firewall.py'. Reloading...
+2025-12-20 23:45:13,893 - uvicorn.error - INFO - Started server process [22464]
+2025-12-20 23:45:13,894 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 23:45:13,909 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 23:45:13,943 - uvicorn.error - ERROR - Traceback (most recent call last):
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\starlette\routing.py", line 701, in lifespan
+    await receive()
+  File "C:\Users\shubh\OneDrive\Desktop\aitf\honeypot\myenv\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shubh\AppData\Local\Programs\Python\Python313\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+2025-12-20 23:45:14,870 - uvicorn.error - INFO - Stopping reloader process [23228]
+2025-12-20 23:45:30,300 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-20 23:45:30,302 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-20 23:45:30,303 - uvicorn.error - INFO - Started reloader process [5880] using WatchFiles
+2025-12-20 23:45:36,730 - uvicorn.error - INFO - Started server process [6724]
+2025-12-20 23:45:36,732 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 23:45:36,747 - uvicorn.error - INFO - Application startup complete.
+2025-12-20 23:45:53,463 - uvicorn.error - INFO - 127.0.0.1:34301 - "WebSocket /_next/webpack-hmr?id=Z-cw5W7-Dfl4fWUqx5G2u" 403
+2025-12-20 23:45:53,468 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 23:45:53,471 - uvicorn.error - INFO - connection closed
+2025-12-20 23:45:54,496 - uvicorn.error - INFO - 127.0.0.1:34304 - "WebSocket /_next/webpack-hmr?id=Z-cw5W7-Dfl4fWUqx5G2u" 403
+2025-12-20 23:45:54,497 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 23:45:54,499 - uvicorn.error - INFO - connection closed
+2025-12-20 23:45:55,526 - uvicorn.error - INFO - 127.0.0.1:34305 - "WebSocket /_next/webpack-hmr?id=Z-cw5W7-Dfl4fWUqx5G2u" 403
+2025-12-20 23:45:55,528 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 23:45:55,529 - uvicorn.error - INFO - connection closed
+2025-12-20 23:45:56,546 - uvicorn.error - INFO - 127.0.0.1:34306 - "WebSocket /_next/webpack-hmr?id=Z-cw5W7-Dfl4fWUqx5G2u" 403
+2025-12-20 23:45:56,547 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 23:45:56,550 - uvicorn.error - INFO - connection closed
+2025-12-20 23:45:57,628 - uvicorn.error - INFO - 127.0.0.1:34308 - "WebSocket /_next/webpack-hmr?id=Z-cw5W7-Dfl4fWUqx5G2u" 403
+2025-12-20 23:45:57,629 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 23:45:57,633 - uvicorn.error - INFO - connection closed
+2025-12-20 23:45:59,791 - uvicorn.error - INFO - 127.0.0.1:34309 - "WebSocket /_next/webpack-hmr?id=Z-cw5W7-Dfl4fWUqx5G2u" 403
+2025-12-20 23:45:59,792 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 23:45:59,795 - uvicorn.error - INFO - connection closed
+2025-12-20 23:46:04,809 - uvicorn.error - INFO - 127.0.0.1:34317 - "WebSocket /_next/webpack-hmr?id=Z-cw5W7-Dfl4fWUqx5G2u" 403
+2025-12-20 23:46:04,810 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 23:46:04,813 - uvicorn.error - INFO - connection closed
+2025-12-20 23:46:09,830 - uvicorn.error - INFO - 127.0.0.1:34325 - "WebSocket /_next/webpack-hmr?id=Z-cw5W7-Dfl4fWUqx5G2u" 403
+2025-12-20 23:46:09,832 - uvicorn.error - INFO - connection rejected (403 Forbidden)
+2025-12-20 23:46:09,834 - uvicorn.error - INFO - connection closed
+2025-12-20 23:46:35,045 - uvicorn.error - INFO - Shutting down
+2025-12-20 23:46:35,156 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-20 23:46:35,174 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-20 23:46:35,177 - uvicorn.error - INFO - Finished server process [6724]
+2025-12-20 23:46:36,765 - uvicorn.error - INFO - Stopping reloader process [5880]
+2025-12-20 23:59:50,800 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\shubh\\OneDrive\\Desktop\\aitf\\honeypot']
+2025-12-20 23:59:50,803 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-20 23:59:50,805 - uvicorn.error - INFO - Started reloader process [5532] using WatchFiles
+2025-12-20 23:59:57,217 - uvicorn.error - INFO - Started server process [20352]
+2025-12-20 23:59:57,218 - uvicorn.error - INFO - Waiting for application startup.
+2025-12-20 23:59:57,238 - uvicorn.error - INFO - Application startup complete.
+2025-12-21 00:01:57,685 - uvicorn.error - INFO - Shutting down
+2025-12-21 00:01:57,816 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-12-21 00:01:57,898 - uvicorn.error - INFO - Application shutdown complete.
+2025-12-21 00:01:57,905 - uvicorn.error - INFO - Finished server process [20352]
+2025-12-21 00:02:06,310 - uvicorn.error - INFO - Stopping reloader process [5532]
