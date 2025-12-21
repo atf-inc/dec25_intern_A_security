@@ -93,6 +93,7 @@ export interface ChatMessage {
 export interface ChartDataPoint {
   name: string;
   value: number;
+  [key: string]: string | number;
 }
 
 export interface TableRow {
