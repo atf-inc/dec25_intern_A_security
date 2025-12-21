@@ -33,6 +33,10 @@ class Settings:
     ALERT_TO_EMAIL = os.getenv("ALERT_TO_EMAIL")
     ENABLE_EMAIL_ALERTS = os.getenv("ENABLE_EMAIL_ALERTS", "true").lower() == "true"
     
+    # Slack Alert Configuration
+    SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
+    ENABLE_SLACK_ALERTS = os.getenv("ENABLE_SLACK_ALERTS", "false").lower() == "true"
+    
     def validate(self):
         """Validate required settings"""
         if not self.GROQ_API_KEY:
@@ -46,6 +50,11 @@ class Settings:
                 raise ValueError("ALERT_FROM_EMAIL is required when email alerts are enabled")
             if not self.ALERT_TO_EMAIL:
                 raise ValueError("ALERT_TO_EMAIL is required when email alerts are enabled")
+        
+        # Validate Slack settings if alerts are enabled
+        if self.ENABLE_SLACK_ALERTS:
+            if not self.SLACK_WEBHOOK_URL:
+                raise ValueError("SLACK_WEBHOOK_URL is required when Slack alerts are enabled")
         
         return True
 

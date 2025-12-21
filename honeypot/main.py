@@ -7,6 +7,7 @@ import json
 from core.database import db
 from core.firewall import firewall_model
 from core.email_notifier import email_notifier
+from core.slack_notifier import slack_notifier
 from core.trap_tracker import trap_tracker
 from routers import analytics, honeypot, chat
 from config import settings
@@ -192,7 +193,7 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     1. Check if IP is already trapped (session-based trapping)
     2. Extract Request Data and check ML Firewall with confidence scoring
     3. Route to Honeypot (trapped/malicious) or Upstream (safe)
-    4. Send email alerts for MALICIOUS attacks
+    4. Send email and Slack alerts for MALICIOUS attacks
     """
     client_ip = request.client.host
     
@@ -256,9 +257,18 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     if ml_verdict == "MALICIOUS":
         logger.warning(f"[BLOCKED] {client_ip} - MALICIOUS attack on /{path_name} (confidence: {ml_confidence:.2f})")
         
-        # Send email alert for MALICIOUS attacks
+        # Send email and Slack alerts for MALICIOUS attacks
         background_tasks.add_task(
             email_notifier.send_attack_alert,
+            ip=client_ip,
+            method=method,
+            path=path_name,
+            ml_verdict=ml_verdict,
+            ml_confidence=ml_confidence,
+            payload=body_str[:500]
+        )
+        background_tasks.add_task(
+            slack_notifier.send_attack_alert,
             ip=client_ip,
             method=method,
             path=path_name,
