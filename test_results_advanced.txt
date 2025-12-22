@@ -1,0 +1,56 @@
+
+[1mStarting Advanced Security Test Suite...[0m
+
+================================================================================
+[1m[36m                        APPLICATION LAYER: SQL INJECTION                        [0m
+================================================================================
+[[32mPASS[0m] SQLi: ' OR '1'='1                                  2486.90ms | Detected & Redirected
+[[32mPASS[0m] SQLi: admin' --                                    2107.59ms | Detected & Redirected
+[[32mPASS[0m] SQLi: UNION SELECT 1, user, password               3415.65ms | Detected & Redirected
+[[32mPASS[0m] SQLi: 1; DROP TABLE users                          2951.31ms | Detected & Redirected
+[[32mPASS[0m] SQLi: ' OR 1=1 #                                   2807.68ms | Detected & Redirected
+[[32mPASS[0m] SQLi: admin' /*                                    2110.48ms | Detected & Redirected
+[[32mPASS[0m] SQLi: ' OR '1'='1' --                              3042.92ms | Detected & Redirected
+
+================================================================================
+[1m[36m                             APPLICATION LAYER: XSS                             [0m
+================================================================================
+[[32mPASS[0m] XSS: <script>alert(1)</script>                     2910.26ms | Detected & Redirected
+[[32mPASS[0m] XSS: <img src=x onerror=alert(1)>                  3426.88ms | Detected & Redirected
+[[32mPASS[0m] XSS: javascript:alert(1)                           2698.60ms | Detected & Redirected
+[[32mPASS[0m] XSS: <body onload=alert(1)>                        2854.58ms | Detected & Redirected
+[[32mPASS[0m] XSS: "><script>alert(1)</script>                   2912.21ms | Detected & Redirected
+
+================================================================================
+[1m[36m                      APPLICATION LAYER: COMMAND INJECTION                      [0m
+================================================================================
+[[32mPASS[0m] CmdInj: | ls -la                                   3601.37ms | Detected & Redirected
+[[32mPASS[0m] CmdInj: ; cat /etc/passwd                          3865.37ms | Detected & Redirected
+[[32mPASS[0m] CmdInj: & whoami                                   2782.13ms | Detected & Redirected
+[[32mPASS[0m] CmdInj: $(id)                                      3207.95ms | Detected & Redirected
+[[32mPASS[0m] CmdInj: `ping -c 1 127.0.0.1`                      2902.49ms | Detected & Redirected
+
+================================================================================
+[1m[36m                       APPLICATION LAYER: PATH TRAVERSAL                        [0m
+================================================================================
+[[32mPASS[0m] PathTrav: ../../etc/passwd                         3142.14ms | Detected & Redirected
+[[32mPASS[0m] PathTrav: ....//....//etc/passwd                   2783.46ms | Detected & Redirected
+[[32mPASS[0m] PathTrav: %2e%2e%2f%2e%2e%2fetc%2fpasswd           3103.07ms | Detected & Redirected
+[[32mPASS[0m] PathTrav: /var/log/syslog                          3066.80ms | Detected & Redirected
+
+================================================================================
+[1m[36m                     NETWORK LAYER: HTTP FLOOD (SIMULATION)                     [0m
+================================================================================
+Sending 50 concurrent requests...
+Completed in 4.48s | RPS: 11.17 | Errors: 0
+[[32mPASS[0m] HTTP Flood Resiliency                              4475.22ms | RPS: 11.17
+
+================================================================================
+[1m[36m                              TEST RESULTS SUMMARY                              [0m
+================================================================================
+Total Tests: 22
+[32mPassed     : 22[0m
+[31mFailed     : 0[0m
+Avg Latency: 3029.78ms
+
+[1m[32m>>> SYSTEM ROBUSTNESS VERIFIED: ALL ATTACKS BLOCKED <<<[0m

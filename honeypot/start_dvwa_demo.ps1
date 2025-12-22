@@ -23,6 +23,13 @@ Start-Sleep -Seconds 3
 Write-Host "Starting QuantumShield Firewall on Port 8000..." -ForegroundColor Green
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$PWD'; & '.\myenv\Scripts\Activate.ps1'; Write-Host '🛡️ QuantumShield Honeypot + Firewall' -ForegroundColor Cyan; Write-Host 'Port: 8000 (PROTECTED - Recommended)' -ForegroundColor Green; Write-Host ''; uvicorn main:app --port 8000"
 
+# Wait a bit for Honeypot API to start
+Start-Sleep -Seconds 3
+
+# Start SOC Frontend Dashboard on Port 3001
+Write-Host "Starting QuantumShield SOC Dashboard on Port 3001..." -ForegroundColor Green
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '../frontend'; Write-Host '📊 QuantumShield SOC Dashboard' -ForegroundColor Cyan; Write-Host 'Port: 3001 (Dashboard UI)' -ForegroundColor Green; Write-Host ''; $env:NEXT_PUBLIC_API_URL='http://localhost:8000'; $env:PORT='3001'; npm run dev"
+
 # Wait for services to start
 Start-Sleep -Seconds 2
 
@@ -43,7 +50,7 @@ Write-Host "      → Direct DVWA Access (Vulnerable!)" -ForegroundColor Gray
 Write-Host ""
 Write-Host "  📈 Analytics Dashboard:" -ForegroundColor Magenta
 Write-Host "      http://localhost:3001" -ForegroundColor White
-Write-Host "      → Live Attack Monitoring" -ForegroundColor Gray
+Write-Host "      → Live Attack Monitoring (QuantumShield Frontend)" -ForegroundColor Gray
 Write-Host ""
 Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Cyan
 Write-Host "🎯 DEMO ATTACKS TO TRY:" -ForegroundColor Yellow
@@ -57,14 +64,15 @@ Write-Host "  2. SQL Injection (Search):" -ForegroundColor White
 Write-Host "     Search: iPhone' OR 1=1--" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "  3. XSS (Product Review):" -ForegroundColor White
-Write-Host "     Comment: <script>alert('XSS')</script>" -ForegroundColor Yellow
+$xssExample = "     Comment: <script>alert('XSS')</script>"
+Write-Host $xssExample -ForegroundColor Yellow
 Write-Host ""
 Write-Host "  4. IDOR (Orders):" -ForegroundColor White
 Write-Host "     Change user_id to 2 or 3 in profile" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "💡 TIP: Try attacks on BOTH ports to see the difference!" -ForegroundColor Cyan
+Write-Host "TIP: Try attacks on BOTH ports to see the difference!" -ForegroundColor Cyan
 Write-Host "    Port 3000 = Vulnerable (attacks succeed)" -ForegroundColor Red
 Write-Host "    Port 8000 = Protected (attacks blocked)" -ForegroundColor Green
 Write-Host ""

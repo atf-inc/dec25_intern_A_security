@@ -31,17 +31,55 @@ SEMGREP_GENERATED_RULES_PATH: Path = SEMGREP_RULE_REPO_PATH / "_generated_"
 
 
 def _get_semgrep_core_path() -> Path:
-    semgrep_core_name = "semgrep-core"
+    # On Windows, the binary is semgrep-core.exe, on Unix it's semgrep-core
+    import platform
+    is_windows = platform.system() == "Windows"
+    semgrep_core_name = "semgrep-core.exe" if is_windows else "semgrep-core"
+    
+    # Try using importlib.resources.files (newer API, more reliable)
+    try:
+        files = importlib.resources.files("semgrep.bin")
+        path = files / semgrep_core_name
+        if path.is_file():
+            return Path(str(path))
+    except (FileNotFoundError, ModuleNotFoundError, AttributeError):
+        pass
+    
+    # Fallback to importlib.resources.path (older API)
     try:
         with importlib.resources.path("semgrep.bin", semgrep_core_name) as path:
             if path.is_file():
                 return path
-    except (FileNotFoundError, ModuleNotFoundError):
+    except (FileNotFoundError, ModuleNotFoundError, AttributeError):
         pass
+    
+    # Try without .exe extension on Windows (fallback)
+    if is_windows:
+        try:
+            files = importlib.resources.files("semgrep.bin")
+            path = files / "semgrep-core"
+            if path.is_file():
+                return Path(str(path))
+        except (FileNotFoundError, ModuleNotFoundError, AttributeError):
+            pass
+        
+        try:
+            with importlib.resources.path("semgrep.bin", "semgrep-core") as path:
+                if path.is_file():
+                    return path
+        except (FileNotFoundError, ModuleNotFoundError, AttributeError):
+            pass
 
+    # Try finding in PATH
     path = shutil.which(semgrep_core_name)
     if path is not None:
         return Path(path)
+    
+    # Try without .exe extension on Windows
+    if is_windows:
+        path = shutil.which("semgrep-core")
+        if path is not None:
+            return Path(path)
 
     raise Exception(
         f"Failed to find {semgrep_core_name} in PATH or in the semgrep package."
@@ -50,9 +88,15 @@ def _get_semgrep_core_path() -> Path:
 
 @functools.lru_cache(maxsize=None)
 def _make_semgrep_binary_path() -> Path:
-    # create symlink to semgrep-core
+    # create symlink/copy to semgrep-core (as osemgrep)
     source = _get_semgrep_core_path()
-    destination = Path(str(source).replace("semgrep-core", "osemgrep"))
+    # Handle both .exe and non-.exe extensions
+    source_str = str(source)
+    if source_str.endswith(".exe"):
+        destination = Path(source_str.replace("semgrep-core.exe", "osemgrep.exe"))
+    else:
+        destination = Path(source_str.replace("semgrep-core", "osemgrep"))
+    
     if not os.path.exists(destination):
         try:
             os.symlink(source, destination)

@@ -186,299 +186,49 @@ async def debug_clear_all_traps(request: Request):
 # MAIN GATEWAY - Catches all other requests
 # ============================================================================
 
+# NOTE: Original Gateway Proxy Logic removed as QuantumShield now handles this.
+# This service now acts purely as:
+# 1. Deception Backend (Honeypot) - Receives redirected attacks
+# 2. Analytics Backend - Serves dashboard data
+
 @app.api_route("/{path_name:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"])
-async def gateway_proxy(request: Request, path_name: str, background_tasks: BackgroundTasks):
+async def catch_all_honeypot(request: Request, path_name: str, background_tasks: BackgroundTasks):
     """
-    Main Gateway Logic:
-    1. Check if IP is already trapped (session-based trapping)
-    2. Extract Request Data and check ML Firewall with confidence scoring
-    3. Route to Honeypot (trapped/malicious) or Upstream (safe)
-    4. Send email and Slack alerts for MALICIOUS attacks
+    Catch-all route for the Honeypot Service.
+    
+    If a request reaches here, it has likely been:
+    1. Redirected by QuantumShield (Attack)
+    2. Directly accessed (Checking honeypot)
+    3. Analytics API call (handled by included router above)
     """
     client_ip = request.client.host
-    
-    # 1. Extract Data for Analysis
     method = request.method
-    query_params = str(request.query_params)
     
-    # Read body (keep available for forwarding)
+    # Extract WAF Verdict from headers if available (added by QuantumShield)
+    waf_verdict = request.headers.get("X-WAF-Verdict", "SUSPICIOUS")
+    waf_confidence = float(request.headers.get("X-WAF-Confidence", "0.5"))
+    original_client_ip = request.headers.get("X-Attacker-IP", client_ip)
+    
+    logger.info(f"[HONEYPOT] Processing request to /{path_name} from {original_client_ip} (Verdict: {waf_verdict})")
+    
+    # Helper to patch request body for honeypot handler if needed
     body_bytes = await request.body()
-    body_str = body_bytes.decode('utf-8', errors='replace')
+    async def receive():
+        return {"type": "http.request", "body": body_bytes}
+    request._receive = receive
     
-    # Combine inputs for analysis
-    analysis_text = f"{method} /{path_name}?{query_params}\n{body_str}"
-    
-    # Extract request metadata for logging
-    request_metadata = {
-        "http_method": method,
-        "path": f"/{path_name}",
-        "query_params": dict(request.query_params),
-        "headers": {
-            "user_agent": request.headers.get("user-agent", ""),
-            "referer": request.headers.get("referer", ""),
-            "content_type": request.headers.get("content-type", ""),
-            "origin": request.headers.get("origin", ""),
-            "x_forwarded_for": request.headers.get("x-forwarded-for", ""),
-        },
-        "body_size": len(body_bytes),
-    }
-    
-    # Helper to patch request body for honeypot handler
-    async def patch_request_body():
-        async def receive():
-            return {"type": "http.request", "body": body_bytes}
-        request._receive = receive
-    
-    # ========================================================================
-    # 2. CHECK IF ALREADY TRAPPED (Session-based trapping)
-    # ========================================================================
-    if trap_tracker.is_trapped(client_ip):
-        trap_info = trap_tracker.get_trap_info(client_ip)
-        logger.warning(f"[TRAPPED SESSION] {client_ip} - Request #{trap_info['request_count']} while trapped")
-        
-        await patch_request_body()
-        response_content = await honeypot.handle_honeypot_request(
-            request, 
-            background_tasks,
-            **request_metadata
-        )
-        return _format_honeypot_response(response_content, path_name, request)
-    
-    # ========================================================================
-    # 3. FIREWALL CHECK (ML + Heuristics with confidence scoring)
-    # ========================================================================
-    ml_result = firewall_model.predict_with_confidence(analysis_text)
-    ml_verdict = ml_result["verdict"]
-    ml_confidence = ml_result["confidence"]
-    
-    # ========================================================================
-    # 3a. MALICIOUS - Block immediately (high confidence attacks)
-    # ========================================================================
-    if ml_verdict == "MALICIOUS":
-        logger.warning(f"[BLOCKED] {client_ip} - MALICIOUS attack on /{path_name} (confidence: {ml_confidence:.2f})")
-        
-        # Send email and Slack alerts for MALICIOUS attacks
-        background_tasks.add_task(
-            email_notifier.send_attack_alert,
-            ip=client_ip,
-            method=method,
-            path=path_name,
-            ml_verdict=ml_verdict,
-            ml_confidence=ml_confidence,
-            payload=body_str[:500]
-        )
-        background_tasks.add_task(
-            slack_notifier.send_attack_alert,
-            ip=client_ip,
-            method=method,
-            path=path_name,
-            ml_verdict=ml_verdict,
-            ml_confidence=ml_confidence,
-            payload=body_str[:500]
-        )
-        
-        return _block_malicious_request(request, client_ip, path_name, ml_confidence)
-    
-    # ========================================================================
-    # 3b. SUSPICIOUS - Route to honeypot for deception and intelligence
-    # ========================================================================
-    if ml_verdict == "SUSPICIOUS":
-        # TRAP THIS IP for future requests
-        trap_tracker.trap_session(
-            ip=client_ip,
-            reason=f"SUSPICIOUS activity detected on /{path_name} (confidence: {ml_confidence:.2f})",
-            attack_payload=analysis_text
-        )
-        
-        logger.warning(f"[HONEYPOT] {client_ip} trapped - SUSPICIOUS on /{path_name} (confidence: {ml_confidence:.2f})")
-        
-        await patch_request_body()
-        response_content = await honeypot.handle_honeypot_request(
-            request, 
-            background_tasks,
-            ml_verdict=ml_verdict,
-            ml_confidence=ml_confidence,
-            **request_metadata
-        )
-        return _format_honeypot_response(response_content, path_name, request)
-    
-    # ========================================================================
-    # 4. SAFE - Forward to Upstream
-    # ========================================================================
-    logger.info(f"[SAFE] Forwarding to {UPSTREAM_URL}/{path_name}")
-    
-    client = httpx.AsyncClient(base_url=UPSTREAM_URL)
-    try:
-        upstream_req = client.build_request(
-            method,
-            f"/{path_name}",
-            content=body_bytes,
-            params=request.query_params,
-            headers=request.headers.raw,
-            timeout=10.0
-        )
-        
-        upstream_response = await client.send(upstream_req)
-        content = upstream_response.content
-        
-        # Remove compression headers
-        headers = dict(upstream_response.headers)
-        headers.pop("content-encoding", None)
-        headers.pop("content-length", None)
-        headers.pop("transfer-encoding", None)
-        
-        return Response(
-            content=content,
-            status_code=upstream_response.status_code,
-            headers=headers,
-            media_type=upstream_response.headers.get("content-type")
-        )
-    except Exception as e:
-        logger.error(f"Upstream error: {str(e)}")
-        return JSONResponse({"error": "Upstream unavailable"}, status_code=503)
-    finally:
-        await client.aclose()
-
-
-def _block_malicious_request(request: Request, client_ip: str, path_name: str, confidence: float) -> Response:
-    """
-    Block a malicious request with a 403 Forbidden response.
-    
-    MALICIOUS attacks (high confidence) are blocked immediately without deception.
-    This saves resources and clearly denies access to confirmed attackers.
-    """
-    import uuid
-    import datetime
-    
-    # Check what format the client expects
-    wants_json = _wants_json(request)
-    
-    if wants_json:
-        return JSONResponse(
-            content={
-                "success": False,
-                "error": "Forbidden",
-                "message": "Access denied. Your request has been blocked and logged.",
-                "request_id": f"BLK-{uuid.uuid4().hex[:8]}",
-                "timestamp": datetime.datetime.utcnow().isoformat() + "Z"
-            },
-            status_code=403,
-            headers={"X-Request-ID": str(uuid.uuid4())[:8]}
-        )
-    
-    # HTML response for browsers
-    return HTMLResponse(
-        content=f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>403 Forbidden</title>
-            <style>
-                body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                       background: #1a1a2e; color: #eee; text-align: center; padding: 50px; }}
-                h1 {{ color: #ff6b6b; font-size: 48px; margin-bottom: 10px; }}
-                p {{ color: #888; font-size: 18px; }}
-                .code {{ font-family: monospace; background: #333; padding: 2px 8px; border-radius: 4px; }}
-            </style>
-        </head>
-        <body>
-            <h1>403</h1>
-            <p>Access Denied</p>
-            <p>Your request has been blocked and logged.</p>
-            <p class="code">Request ID: BLK-{uuid.uuid4().hex[:8]}</p>
-        </body>
-        </html>
-        """,
-        status_code=403,
-        headers={"X-Request-ID": str(uuid.uuid4())[:8]}
+    # Delegate to Honeypot Router logic
+    response_content = await honeypot.handle_honeypot_request(
+        request, 
+        background_tasks,
+        ml_verdict=waf_verdict,
+        ml_confidence=waf_confidence
     )
-
-
-def _wants_json(request: Request) -> bool:
-    """
-    Check if the client expects JSON response.
-    This makes honeypot responses format-aware for more realistic deception.
-    """
-    accept = request.headers.get("accept", "")
-    content_type = request.headers.get("content-type", "")
-    user_agent = request.headers.get("user-agent", "").lower()
     
-    # Explicit JSON preference
-    if "application/json" in accept:
-        return True
-    
-    # Sending JSON body usually expects JSON response
-    if "application/json" in content_type:
-        return True
-    
-    # Common API testing tools
-    api_tools = ["postman", "insomnia", "httpie", "curl", "python-requests", "axios"]
-    if any(tool in user_agent for tool in api_tools):
-        return True
-    
-    return False
-
-
-def _format_honeypot_response(response_content: str, path_name: str, request: Request) -> Response:
-    """
-    Format the honeypot response based on what the client expects.
-    
-    - API tools (Postman, curl) → JSON response
-    - Browsers → HTML response
-    
-    This makes the honeypot more realistic and harder to detect.
-    """
-    import uuid
-    
-    if not response_content:
-        return Response(content="", media_type="text/plain")
-    
-    # Check what format the client expects
-    wants_json = _wants_json(request)
-    is_api_path = path_name.startswith("api/") or "/api/" in path_name
-    is_html = "<html" in response_content.lower() or "<!doctype" in response_content.lower()
-    
-    # API tools expect JSON - give them realistic API error response
-    if wants_json or (is_api_path and not is_html):
-        # Try to parse existing JSON response
-        try:
-            parsed = json.loads(response_content)
-            return JSONResponse(
-                content=parsed, 
-                headers={"X-Request-ID": str(uuid.uuid4())[:8]}
-            )
-        except (json.JSONDecodeError, TypeError):
-            pass
-        
-        # Generate realistic API error response
-        return JSONResponse(
-            content={
-                "success": False,
-                "error": "Forbidden",
-                "message": "Access denied. Your request has been logged.",
-                "request_id": f"TK-{uuid.uuid4().hex[:8]}",
-                "timestamp": __import__('datetime').datetime.utcnow().isoformat() + "Z"
-            },
-            status_code=403,
-            headers={"X-Request-ID": str(uuid.uuid4())[:8]}
-        )
-    
-    # Browsers get HTML for visual deception
-    if is_html:
-        return Response(
-            content=response_content,
-            media_type="text/html",
-            headers={"X-Request-ID": str(uuid.uuid4())[:8]}
-        )
-    
-    # Fallback to plain text
-    return Response(
-        content=response_content,
-        media_type="text/plain",
-        headers={"X-Request-ID": str(uuid.uuid4())[:8]}
-    )
+    return honeypot._format_honeypot_response(response_content, path_name, request)
 
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    # Changed port to 8001 to avoid conflict with QuantumShield (8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=8001, reload=True)

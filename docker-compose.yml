@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  dvwa:
+    build:
+      context: ./dvwa
+      dockerfile: Dockerfile
+    container_name: dvwa
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - security-net
+    restart: unless-stopped
+
+  honeypot:
+    build:
+      context: ./honeypot
+      dockerfile: Dockerfile
+    container_name: honeypot
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./honeypot/.env
+    networks:
+      - security-net
+    restart: unless-stopped
+    depends_on:
+      - mongo
+
+  quantumshield:
+    build:
+      context: .
+      dockerfile: quantumshield/Dockerfile
+    container_name: quantumshield
+    ports:
+      - "8000:8000"
+      - "8081:8081"
+    environment:
+      # Use internal container names as hostnames
+      - DVWA_URL=http://dvwa:3000
+      - HONEYPOT_URL=http://honeypot:8001
+      - LOG_LEVEL=INFO
+    networks:
+      - security-net
+    restart: unless-stopped
+    depends_on:
+      - dvwa
+      - honeypot
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3001:3000" # Map host 3001 to container 3000
+    environment:
+      - NODE_ENV=production
+      # Frontend talks to QuantumShield (Gateway) for data
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    networks:
+      - security-net
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - security-net
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+networks:
+  security-net:
+    driver: bridge
+
+volumes:
+  mongo-data:

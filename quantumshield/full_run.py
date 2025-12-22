@@ -18,6 +18,11 @@ if str(_parent_dir) not in sys.path:
 if str(_current_dir) not in sys.path:
     sys.path.insert(0, str(_current_dir))
 
+# Add ml-classifier to path (assuming peer directory of quantumshield)
+_ml_classifier_dir = _parent_dir / "ml-classifier"
+if _ml_classifier_dir.exists() and str(_ml_classifier_dir) not in sys.path:
+    sys.path.insert(0, str(_ml_classifier_dir))
+
 from quantumshield.core.engine import QuantumShieldEngine
 from quantumshield.config.logging_config import setup_logging, get_logger
 from quantumshield.api.rest_api import app as api_app
@@ -250,6 +255,10 @@ async def main():
     # Create engine
     logger.info("Initializing QuantumShield Engine...")
     engine = QuantumShieldEngine(config)
+
+    # Attach global settings to engine for components that need it (like ReverseProxy)
+    from quantumshield.config.settings import get_settings
+    engine.settings = get_settings()
     
     # Integrate adaptive learning
     await start_engine_with_adaptive_learning(engine, config)

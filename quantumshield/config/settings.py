@@ -24,6 +24,8 @@ class Settings(BaseSettings):
     # Proxy
     proxy_target: str = "http://localhost:3000"
     proxy_port: int = 8000
+    honeypot_url: str = "http://localhost:8001"
+    dvwa_url: str = "http://localhost:3000"
 
     # ML Models
     ml_models_path: str = "models"

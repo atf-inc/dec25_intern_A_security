@@ -58,7 +58,16 @@ class ModelManager:
             logger.error("Failed to load anomaly detector", error=str(e), exc_info=True)
             # Continue without this model
         
-        if self.models:
+        # Load adapter for external ML classifiers
+        try:
+             from .ml_adapter import MLAdapter
+             self.ml_adapter = MLAdapter()
+             logger.info("ML Adapter initialized")
+        except Exception as e:
+             logger.error("Failed to initialize ML Adapter", error=str(e), exc_info=True)
+             self.ml_adapter = None
+
+        if self.models or self.ml_adapter:
             logger.info("ML models loaded successfully", count=len(self.models), models=list(self.models.keys()))
         else:
             logger.warning("No ML models available - continuing with signature-based detection only")
@@ -89,6 +98,15 @@ class ModelManager:
                 results["anomaly_detector"] = anomaly_result
             except Exception as e:
                 logger.error("Anomaly detector inference failed", error=str(e))
+        
+        # Run ML Adapter (External Models)
+        if hasattr(self, 'ml_adapter') and self.ml_adapter:
+             try:
+                 adapter_results = await self.ml_adapter.infer(packet, flow)
+                 if adapter_results:
+                     results.update(adapter_results)
+             except Exception as e:
+                 logger.error("ML Adapter inference failed", error=str(e))
         
         # Aggregate results
         if results:

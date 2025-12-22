@@ -34,9 +34,9 @@ class CustomCheckScanner(Scanner, Generic[OutputSchemaT]):
         scanner_name: str,
         system_prompt: str,
         output_schema: Type[OutputSchemaT],
-        model_name: str = "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
-        api_base_url: str = "https://api.together.xyz/v1",
-        api_key_env_var: str = "TOGETHER_API_KEY",
+        model_name: str = None,  # Will default to OpenAI ChatGPT
+        api_base_url: str = None,  # Will default to OpenAI API
+        api_key_env_var: str = "OPENAI_API_KEY",
         temperature: float = 0.0,
         block_threshold: float = 0.0,
     ) -> None:
@@ -57,6 +57,13 @@ class CustomCheckScanner(Scanner, Generic[OutputSchemaT]):
         self.system_prompt = system_prompt
         self.output_schema = output_schema
         self.temperature = temperature
+
+        # Default to OpenAI ChatGPT API if not specified
+        if model_name is None:
+            import os
+            model_name = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+        if api_base_url is None:
+            api_base_url = "https://api.openai.com/v1"
 
         # Initialize the LLM client
         self.llm: LLMClient[OutputSchemaT] = LLMClient(

@@ -1,3 +1,0 @@
-This is a test file for path traversal testing.
-If you can read this, the file system access is working.
-

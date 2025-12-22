@@ -1,0 +1,40 @@
+
+[1mStarting Comprehensive Security Test...[0m
+Gateway: http://localhost:8000
+Honeypot: http://localhost:8001
+DVWA: http://localhost:3000
+
+============================================================
+[1m[36m           BASELINE & EFFICIENCY (Normal Traffic)           [0m
+============================================================
+[[32mPASS[0m] Normal Usage (Home)                      2095.28ms | Test passed
+[[32mPASS[0m] Normal Usage (Admin)                     2110.13ms | Test passed
+[[32mPASS[0m] Normal API Call                          2064.67ms | Test passed
+
+============================================================
+[1m[36m                 ONE-SHOT EXPLOIT ATTEMPTS                  [0m
+============================================================
+[[32mPASS[0m] SQL Injection (Query Param)              2461.10ms | Test passed
+[[32mPASS[0m] XSS Attack (Reflected)                   2483.81ms | Test passed
+[[32mPASS[0m] Path Traversal                           2452.87ms | Test passed
+[[32mPASS[0m] Command Injection                        2427.64ms | Test passed
+
+============================================================
+[1m[36m                ML-CLASSIFIER SPECIFIC TESTS                [0m
+============================================================
+[[32mPASS[0m] ML SQLi Detection (BERT)                 2513.34ms | Test passed
+
+============================================================
+[1m[36m                    TEST RESULTS SUMMARY                    [0m
+============================================================
+Total Tests: 8
+[32mPassed     : 8[0m
+[31mFailed     : 0[0m
+Avg Latency: [31m2326.11ms[0m
+
+Efficiency Note:
+  < 500ms : Excellent
+  < 1s    : Acceptable (considering ML overhead)
+  > 1s    : Slow
+
+[1m[32m>>> SYSTEM AUDIT PASSED: SECURE & EFFICIENT <<<[0m

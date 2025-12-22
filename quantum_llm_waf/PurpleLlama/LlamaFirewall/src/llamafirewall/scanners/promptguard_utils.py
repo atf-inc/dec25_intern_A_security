@@ -61,7 +61,13 @@ class PromptGuard:
         # If old model exists but new one doesn't, we'll download the new one
         if os.path.exists(standard_cache_path):
             model_path = standard_cache_path
-        elif not os.path.exists(model_path):
+        
+        # Load model and tokenizer
+        if os.path.exists(model_path):
+            # Load the model and tokenizer from the local path with fix_mistral_regex
+            model = AutoModelForSequenceClassification.from_pretrained(model_path)
+            tokenizer = AutoTokenizer.from_pretrained(model_path, fix_mistral_regex=True)
+        else:
             # Check if old model exists - if so, we'll still download the new one
             old_model_path = os.path.expanduser("~/.cache/huggingface/hub/models--meta-llama--Llama-Prompt-Guard-2-86M")
             if os.path.exists(old_model_path):
@@ -74,16 +80,12 @@ class PromptGuard:
                     "No Hugging Face token found. You will be prompted to enter it via Hugging Face login function, no data will be stored by LlamaFirewall."
                 )
                 login()
-            # Load the model and tokenizer from Hugging Face
+            # Load the model and tokenizer from Hugging Face with fix_mistral_regex to avoid warnings
             model = AutoModelForSequenceClassification.from_pretrained(model_name)
-            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            tokenizer = AutoTokenizer.from_pretrained(model_name, fix_mistral_regex=True)
             # Save the model and tokenizer locally
             model.save_pretrained(model_path)
             tokenizer.save_pretrained(model_path)
-        else:
-            # Load the model and tokenizer from the local path
-            model = AutoModelForSequenceClassification.from_pretrained(model_path)
-            tokenizer = AutoTokenizer.from_pretrained(model_path)
 
         return model, tokenizer
 

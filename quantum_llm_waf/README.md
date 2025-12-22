@@ -124,10 +124,11 @@ else:
 **What it does**: A lightweight, BERT-style classifier that detects prompt injection attacks in real-time.
 
 **How it works**:
-- Uses a locally-running 86M parameter model (`meta-llama/Prompt-Guard-86M`)
+- Uses a locally-running 86M parameter model (`meta-llama/Prompt-Guard-86M`) - the ONLY local model used
 - Classifies text as "safe" or "unsafe" based on injection patterns
 - Optimized for speed: processes requests in milliseconds
 - No external API calls required (runs entirely locally)
+- All other LLM operations use API-based models (ChatGPT, etc.)
 
 **Key Features**:
 - **Ultra-fast**: Sub-10ms latency for most inputs
@@ -285,9 +286,9 @@ This runs comprehensive security tests and generates detailed reports on your LL
 ### Prerequisites
 
 - Python 3.8+
-- Java Runtime Environment (JRE) for SensitiveDocClassification
-- OpenAI API key (for secure_agent and ChatGPT guard)
-- Hugging Face account with access to `meta-llama/Prompt-Guard-86M`
+- Java Runtime Environment (JRE) for SensitiveDocClassification (optional)
+- OpenAI API key (required for secure_agent, ChatGPT guard, and all API-based scanners)
+- Hugging Face account with access to `meta-llama/Prompt-Guard-86M` (only for local Prompt-Guard-86M model)
 
 ### Installation
 
@@ -325,11 +326,13 @@ OPENAI_MODEL=gpt-4o-mini
 HF_TOKEN=your-huggingface-token-here
 ```
 
-6. **Download Prompt-Guard model** (runs locally):
+6. **Download Prompt-Guard-86M model** (only local model - auto-downloads on first use):
 ```bash
 # The model will auto-download on first use, or manually:
 python -c "from transformers import AutoModelForSequenceClassification, AutoTokenizer; AutoModelForSequenceClassification.from_pretrained('meta-llama/Prompt-Guard-86M'); AutoTokenizer.from_pretrained('meta-llama/Prompt-Guard-86M')"
 ```
+
+**Note**: This is the ONLY local model used. All other LLM operations (safety guards, scanners, etc.) use API-based models (ChatGPT via OpenAI API).
 
 ---
 

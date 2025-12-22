@@ -101,12 +101,14 @@ export default function HomePage() {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
+                      // VULNERABILITY: Stored/Reflected XSS via innerHTML
+                      // If product name contains a script, it will execute
                       e.currentTarget.parentElement!.innerHTML = `<span class="text-gray-500 text-sm">${product.name}</span>`;
                     }}
                   />

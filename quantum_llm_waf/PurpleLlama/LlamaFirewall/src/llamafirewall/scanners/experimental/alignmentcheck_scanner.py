@@ -42,22 +42,36 @@ class AlignmentCheckScanner(CustomCheckScanner[AlignmentCheckOutputSchema]):
     def __init__(
         self,
         scanner_name: str = "AlignmentCheck Scanner",
+        model_name: str = None,  # Will default to OpenAI ChatGPT
+        api_base_url: str = None,  # Will default to OpenAI API
+        api_key_env_var: str = "OPENAI_API_KEY",
+        temperature: float = 0.0,
     ) -> None:
         """
         Initialize a new AlignmentCheckScanner.
 
         Args:
             scanner_name: Name of the scanner
-            block_threshold: Threshold for blocking content
-            model_name: Name of the LLM model to use
-            api_base_url: Base URL for the API
+            model_name: Name of the LLM model to use (defaults to OpenAI ChatGPT)
+            api_base_url: Base URL for the API (defaults to OpenAI API)
             api_key_env_var: Environment variable name containing the API key
             temperature: Temperature setting for the LLM
         """
+        # Default to OpenAI ChatGPT API if not specified
+        import os
+        if model_name is None:
+            model_name = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+        if api_base_url is None:
+            api_base_url = "https://api.openai.com/v1"
+        
         super().__init__(
             scanner_name=scanner_name,
             system_prompt=SYSTEM_PROMPT,
             output_schema=AlignmentCheckOutputSchema,
+            model_name=model_name,
+            api_base_url=api_base_url,
+            api_key_env_var=api_key_env_var,
+            temperature=temperature,
         )
         self.require_full_trace = True
 
