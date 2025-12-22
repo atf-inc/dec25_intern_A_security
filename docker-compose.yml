@@ -38,9 +38,9 @@ services:
       - "8000:8000"
       - "8081:8081"
     environment:
-      # Use internal container names as hostnames
-      - DVWA_URL=http://dvwa:3000
-      - HONEYPOT_URL=http://honeypot:8001
+      # Use internal container names as hostnames (with prefix for Pydantic)
+      - QUANTUMSHIELD_DVWA_URL=http://dvwa:3000
+      - QUANTUMSHIELD_HONEYPOT_URL=http://honeypot:8001
       - LOG_LEVEL=INFO
     networks:
       - security-net

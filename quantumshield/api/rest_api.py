@@ -15,6 +15,17 @@ from fastapi.responses import JSONResponse
 
 app = FastAPI(title="QuantumShield API", version="0.1.0")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all for local dev, or specify ["http://localhost:3000", "http://localhost:3001"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 # Global engine reference (set by full_run.py)
 _global_engine = None
 
