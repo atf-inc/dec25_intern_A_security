@@ -163,44 +163,32 @@ class ReverseProxy:
             logger.info(f"Decision for {full_path}: {decision.action} ({reason})")
             
             # 4. Enforce
+            # 4. Enforce
+            # Note: We do NOT block here anymore. We redirect to Honeypot in step 5.
+            # Only block if strictly necessary (e.g. DDOS volume), but for this integration we want deception.
             if decision.action in [ActionType.BLOCK_PERMANENT, ActionType.BLOCK_TEMPORARY, ActionType.QUARANTINE]:
-                logger.warning(f"BLOCKED request from {client_ip} to {full_path}. Reason: {reason}")
-                
-                # Return JSON response for API requests, HTML for browser requests
-                accept_header = request.headers.get('Accept', '')
-                if 'application/json' in accept_header or full_path.startswith('/api/'):
-
-                    attack_type = violations[0]['type'] if violations else "Malicious Activity"
-                    response_data = {
-                        "message": "ohh you are trying to attack, try again because there is shubham in between",
-                        "blocked": True,
-                        "details": {
-                            "attack_type": attack_type,
-                            "violations": violations,
-                            "timestamp": time.time()
-                        }
-                    }
-                    return web.Response(
-                        status=403,
-                        text=json.dumps(response_data),
-                        content_type='application/json'
-                    )
-                else:
-                    # HTML response for browser
-                    return web.Response(
-                        status=403,
-                        text="<h1>403 Forbidden</h1><p>ohh you are trying to attack, try again because there is shubham in between</p>",
-                        content_type='text/html'
-                    )
+                 logger.info(f"Verdict is BLOCK/QUARANTINE. Will redirect to Honeypot.")
 
             # 5. Forward (Proxy)
-            # Determine target based on path
+            # Determine target based on path and decision
+            target_base = self.engine.settings.dvwa_url # Default to Safe App
+
+            # A. WAF API - Internal
             if full_path.startswith('/api/waf/'):
-                # Route WAF API requests to the internal API server
-                target = f"http://localhost:8081{full_path}"
-            else:
-                # Route other requests to the backend application
-                target = f"{self.target_url}{full_path}"
+                target_base = "http://localhost:8081"
+            
+            # B. Analytics/Stats - Route to Honeypot Analytics API
+            elif full_path.startswith('/api/analytics') or full_path.startswith('/api/stats'):
+                target_base = self.engine.settings.honeypot_url
+            
+            # C. Malicious/Suspicious - Route to Honeypot
+            elif decision.action in [ActionType.BLOCK_PERMANENT, ActionType.BLOCK_TEMPORARY, ActionType.QUARANTINE]:
+                logger.warning(f"Redirecting ATTACK from {client_ip} to Honeypot at {self.engine.settings.honeypot_url}")
+                target_base = self.engine.settings.honeypot_url
+                # We are allowing the request to proceed to the honeypot, effectively "unblocking" it from a network perspective
+                # but "blocking" it from the real app.
+            
+            target = f"{target_base}{full_path}"
             
             try:
                 # Create client session for forwarding
@@ -210,6 +198,12 @@ class ReverseProxy:
                     
                     # Exclude hop-by-hop headers
                     headers = {k: v for k, v in request.headers.items() if k.lower() not in ['host', 'content-length']} 
+                    
+                    # Add Security Headers for Honeypot Context
+                    if target_base == self.engine.settings.honeypot_url:
+                        headers['X-WAF-Verdict'] = "MALICIOUS" if decision.action != ActionType.ALLOW else "SUSPICIOUS"
+                        headers['X-WAF-Confidence'] = str(indicators[0].confidence if indicators else 0.5)
+                        headers['X-Attacker-IP'] = client_ip
                     
                     async with session.request(
                         request.method,

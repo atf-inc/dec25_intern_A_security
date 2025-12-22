@@ -222,8 +222,17 @@ class QuantumShieldEngine:
                     'src_ip': flow.src_ip,
                     'dst_ip': flow.dst_ip,
                     'src_port': flow.src_port,
+                    'src_port': flow.src_port,
                     'dst_port': flow.dst_port,
                     'protocol': flow.protocol.name,
+                    # We need payload for SQLi detection. In this simplified engine, 
+                    # we assume the processor might have attached it or we grab from packet.
+                    # Since we don't have direct access to original packet payload here easily without change,
+                    # we will assume the flow object might store a snippet or we accept that SQLi only works if payload is passed.
+                    # For this integration, we'll try to get it from the packet object we just processed if possible,
+                    # but here we are in a different scope. 
+                    # Let's check if the flow has a buffer or last payload.
+                    'payload': getattr(flow, 'last_payload', b'') 
                 }
                 
                 if flow_data:
@@ -263,10 +272,12 @@ class QuantumShieldEngine:
 
                 # Run ML models (using ModelManager)
                 if self.model_manager:
-                    # Construct flow dict for ML
-                    # Note: flow_data is already a dict
+                    # Enrich packet data for ML
+                    # For now, we try to extract payload from flow metadata if stored, or pass generic info
+                    packet_data = {'payload': flow_data.get('payload', b'')} 
+                    
                     ml_result = await self.model_manager.infer(
-                        {'payload': b''}, # Metadata packet, payload might not be available here, or we need to enrich flow_data
+                        packet_data,
                         flow_data
                     )
                     

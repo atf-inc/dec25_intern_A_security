@@ -17,7 +17,7 @@ export default function Dashboard() {
   const [attackPatterns, setAttackPatterns] = useState<AttackPattern[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
 
   const fetchData = async () => {
     try {
@@ -98,7 +98,7 @@ export default function Dashboard() {
           </div>
 
           <div className="mt-2 text-xs text-gray-500">
-            Last updated: {lastUpdate.toLocaleTimeString()}
+            Last updated: {lastUpdate ? lastUpdate.toLocaleTimeString() : 'Loading...'}
           </div>
         </div>
       </header>

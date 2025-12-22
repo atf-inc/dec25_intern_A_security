@@ -1,0 +1,46 @@
+# Cloud Build configuration for Google Cloud Run
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/quantum-llm-waf-chatbot', '.']
+  
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/quantum-llm-waf-chatbot']
+  
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'quantum-llm-waf-chatbot'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/quantum-llm-waf-chatbot'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--memory'
+      - '2Gi'
+      - '--cpu'
+      - '2'
+      - '--timeout'
+      - '300'
+      - '--max-instances'
+      - '10'
+      - '--set-env-vars'
+      - 'PYTHONPATH=/app:/app/PurpleLlama'
+      - '--set-secrets'
+      - 'OPENAI_API_KEY=openai-api-key:latest,HF_TOKEN=hf-token:latest,OPENAI_MODEL=openai-model:latest'
+
+images:
+  - 'gcr.io/$PROJECT_ID/quantum-llm-waf-chatbot'
+
+options:
+  machineType: 'E2_HIGHCPU_8'
+  logging: CLOUD_LOGGING_ONLY
+
+timeout: '1200s'
+
