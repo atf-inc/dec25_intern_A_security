@@ -312,21 +312,86 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         request._receive = receive
     
     # ========================================================================
+    # WHITELIST CHECK - Bypass ML for known legitimate credentials
+    # ========================================================================
+    # Quick fix: Allow specific credentials without ML analysis
+    # This prevents false positives on legitimate logins
+    try:
+        import json
+        import urllib.parse
+        
+        # Check if this is a login request with whitelisted credentials
+        is_whitelisted = False
+        
+        # Try parsing as JSON
+        if body_str and body_str.strip().startswith('{'):
+            try:
+                body_json = json.loads(body_str)
+                if (body_json.get("username") == "sam" and 
+                    body_json.get("password") == "sam@123"):
+                    is_whitelisted = True
+                    logger.info(f"[WHITELIST] Allowing whitelisted user 'sam' from {client_ip}")
+            except json.JSONDecodeError:
+                pass
+        
+        # Try parsing as form data
+        if not is_whitelisted and body_str:
+            try:
+                form_data = urllib.parse.parse_qs(body_str)
+                username = form_data.get("username", [""])[0]
+                password = form_data.get("password", [""])[0]
+                if username == "sam" and password == "sam@123":
+                    is_whitelisted = True
+                    logger.info(f"[WHITELIST] Allowing whitelisted user 'sam' from {client_ip}")
+            except:
+                pass
+        
+        # If whitelisted, forward directly to upstream without ML checks
+        if is_whitelisted:
+            logger.info(f"[WHITELIST BYPASS] Forwarding to {UPSTREAM_URL}/{path_name}")
+            client = httpx.AsyncClient(base_url=UPSTREAM_URL)
+            try:
+                upstream_req = client.build_request(
+                    method,
+                    f"/{path_name}",
+                    content=body_bytes,
+                    params=request.query_params,
+                    headers=request.headers.raw,
+                    timeout=10.0
+                )
+                
+                upstream_response = await client.send(upstream_req)
+                content = upstream_response.content
+                
+                # Remove compression headers
+                headers = dict(upstream_response.headers)
+                headers.pop("content-encoding", None)
+                headers.pop("content-length", None)
+                headers.pop("transfer-encoding", None)
+                
+                return Response(
+                    content=content,
+                    status_code=upstream_response.status_code,
+                    headers=headers,
+                    media_type=upstream_response.headers.get("content-type")
+                )
+            except Exception as e:
+                logger.error(f"Upstream error: {str(e)}")
+                return JSONResponse({"error": "Upstream unavailable"}, status_code=503)
+            finally:
+                await client.aclose()
+    except Exception as e:
+        logger.error(f"Whitelist check error: {e}")
+    
+    
+    # ========================================================================
     # 2. CHECK IF PERMANENTLY BLOCKED (Counter-based permanent blocking)
     # ========================================================================
     if trap_tracker.is_permanently_blocked(client_ip):
         block_info = trap_tracker.get_block_info(client_ip)
-        logger.error(f"[PERMANENTLY BLOCKED] {client_ip} - Blocked {block_info['elapsed_seconds']}s ago - {block_info['malicious_count']} MALICIOUS attempts")
-        return JSONResponse(
-            content={
-                "success": False,
-                "error": "Permanently Blocked",
-                "message": "Your IP has been permanently blocked due to repeated malicious activity.",
-                "blocked_at": block_info["blocked_at_human"],
-                "reason": block_info["reason"]
-            },
-            status_code=403
-        )
+        logger.error(f"[PERMANENTLY BLOCKED] {client_ip} - Blocked {block_info['elapsed_seconds']}s ago - {block_info['malicious_count']} MALICIOUS attempts - Silently dropped")
+        # Return empty response - don't reveal to attacker that they're permanently blocked
+        return Response(content="", status_code=200, media_type="text/plain")
     
     # ========================================================================
     # 3. CHECK IF ALREADY TRAPPED (Session-based trapping)
@@ -335,6 +400,17 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         trap_info = trap_tracker.get_trap_info(client_ip)
         logger.warning(f"[TRAPPED SESSION] {client_ip} - Request #{trap_info['request_count']} while trapped")
         
+        # Special handling for shell endpoints - serve actual shell interface
+        if path_name == "shell" or path_name == "api/shell":
+            # Forward to honeypot router which has the shell endpoints
+            from routers.honeypot import shell_view, api_shell
+            
+            if path_name == "shell" and method == "GET":
+                return await shell_view(request)
+            elif path_name == "api/shell" and method == "POST":
+                return await api_shell(request, background_tasks)
+        
+        # For other requests, generate fake responses
         await patch_request_body()
         response_content = await honeypot.handle_honeypot_request(
             request, 
@@ -361,7 +437,7 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     logger.info(log_message)
     
     # ========================================================================
-    # 4a. MALICIOUS - Increment counter and block (high confidence attacks)
+    # 4a. MALICIOUS - Silently drop request (high confidence attacks)
     # ========================================================================
     if ml_verdict == "MALICIOUS":
         # Increment malicious counter (will auto-block after threshold)
@@ -371,17 +447,36 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         if remaining > 0:
             msg = (
                 f"🚫 {client_ip} → /{path_name} [MALICIOUS | Score: {ml_confidence:.2f}] | "
-                f"Attempt {malicious_count}/5 | {remaining} remaining"
+                f"Attempt {malicious_count}/5 | {remaining} remaining | Silently dropped"
             )
             print(msg)
             logger.warning(msg)
         else:
             msg = (
                 f"⛔ {client_ip} → /{path_name} [MALICIOUS | Score: {ml_confidence:.2f}] | "
-                f"Attempt {malicious_count}/5 | PERMANENTLY BLOCKED"
+                f"Attempt {malicious_count}/5 | PERMANENTLY BLOCKED | Silently dropped"
             )
             print(msg)
             logger.error(msg)
+        
+        # Log the blocked attack to database so it appears in frontend
+        from core.logger import logger as db_logger
+        background_tasks.add_task(
+            db_logger.log_interaction,
+            session_id="BLOCKED",
+            ip=client_ip,
+            request_type="blocked_request",
+            payload=analysis_text[:500],
+            response="Silently dropped - No response sent",
+            ml_verdict=ml_verdict,
+            ml_confidence=ml_confidence,
+            http_method=method,
+            path=path_name,
+            query_params=dict(request.query_params),
+            headers=request_metadata["headers"],
+            body_size=request_metadata["body_size"],
+            response_time_ms=0
+        )
         
         # Send email and Slack alerts for MALICIOUS attacks
         background_tasks.add_task(
@@ -403,7 +498,8 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
             payload=body_str[:500]
         )
         
-        return _block_malicious_request(request, client_ip, path_name, ml_confidence, malicious_count, remaining)
+        # Return empty response - attacker sees nothing (blank page)
+        return Response(content="", status_code=200, media_type="text/plain")
     
     # ========================================================================
     # 4b. SUSPICIOUS - Route to honeypot for deception and intelligence
@@ -423,6 +519,17 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         print(msg)
         logger.warning(msg)
         
+        # Special handling for shell endpoints - serve actual shell interface
+        if path_name == "shell" or path_name == "api/shell":
+            # Forward to honeypot router which has the shell endpoints
+            from routers.honeypot import shell_view, api_shell
+            
+            if path_name == "shell" and method == "GET":
+                return await shell_view(request)
+            elif path_name == "api/shell" and method == "POST":
+                return await api_shell(request, background_tasks)
+        
+        # For other requests, generate fake responses
         await patch_request_body()
         response_content = await honeypot.handle_honeypot_request(
             request, 

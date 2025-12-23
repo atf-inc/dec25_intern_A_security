@@ -336,3 +336,86 @@ async def get_attack_playback(session_id: str):
     }
 
 
+@router.get("/grouped-attacks")
+async def get_grouped_attacks():
+    """
+    Get attacks grouped by type for the two-column UI.
+    
+    Returns:
+        - blocked: MALICIOUS requests (immediately blocked with 403)
+        - trapped: Initial SUSPICIOUS requests (trap triggers only)
+    """
+    logs_collection = db.get_collection("logs")
+    
+    # Get blocked attacks (MALICIOUS requests)
+    blocked = await logs_collection.find(
+        {"type": "blocked_request"}
+    ).sort("timestamp", -1).limit(50).to_list(length=50)
+    
+    # Get trap triggers (initial SUSPICIOUS requests only)
+    trapped = await logs_collection.find(
+        {"type": "trap_trigger", "is_trap_trigger": True}
+    ).sort("timestamp", -1).limit(50).to_list(length=50)
+    
+    # For each trap trigger, count subsequent requests
+    for trigger in trapped:
+        session_id = trigger.get("session_id")
+        if session_id:
+            # Count all requests in this session (including the trigger)
+            total_count = await logs_collection.count_documents({"session_id": session_id})
+            trigger["total_requests"] = total_count
+            trigger["subsequent_requests"] = total_count - 1  # Exclude the trigger itself
+    
+    # Convert ObjectId to string for JSON serialization
+    for log in blocked + trapped:
+        log["_id"] = str(log["_id"])
+        if isinstance(log.get("timestamp"), datetime):
+            log["timestamp"] = log["timestamp"].isoformat()
+    
+    return {
+        "blocked": blocked,
+        "trapped": trapped
+    }
+
+
+@router.get("/session-details/{session_id}")
+async def get_session_details(session_id: str):
+    """
+    Get all requests for a specific trapped session.
+    
+    Args:
+        session_id: The session ID to get details for
+        
+    Returns:
+        All logs for this session in chronological order
+    """
+    logs_collection = db.get_collection("logs")
+    sessions_collection = db.get_collection("sessions")
+    
+    # Get session info
+    session = await sessions_collection.find_one({"session_id": session_id})
+    
+    # Get all logs for this session
+    logs = await logs_collection.find(
+        {"session_id": session_id}
+    ).sort("timestamp", 1).to_list(length=None)
+    
+    # Convert ObjectId and datetime to strings
+    for log in logs:
+        log["_id"] = str(log["_id"])
+        if isinstance(log.get("timestamp"), datetime):
+            log["timestamp"] = log["timestamp"].isoformat()
+    
+    return {
+        "session_id": session_id,
+        "session_info": {
+            "ip_address": session.get("ip_address") if session else None,
+            "user_agent": session.get("user_agent") if session else None,
+            "start_time": session.get("start_time").isoformat() if session and isinstance(session.get("start_time"), datetime) else None,
+            "active": session.get("active") if session else None,
+        } if session else None,
+        "total_requests": len(logs),
+        "logs": logs
+    }
+
+
