@@ -33,10 +33,10 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="QuantumShield Firewall Proxy", lifespan=lifespan)
 
-# Add CORS middleware
+# Add CORS middleware - Allow all origins for Docker networking
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],
+    allow_origins=["*"],  # Allow all origins for Docker inter-service communication
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
