@@ -66,6 +66,19 @@ class Logger:
         attack_type = self.classify_attack(payload)
         severity = self.classify_severity(attack_type, ml_confidence)
         
+        # Determine if this is a trap trigger (first request in session)
+        is_trap_trigger = False
+        if session_id != "BLOCKED" and request_type != "blocked_request":
+            # Check if this is the first log for this session
+            existing_count = await collection.count_documents({"session_id": session_id})
+            is_trap_trigger = (existing_count == 0)
+            
+            # Update request type based on session state
+            if is_trap_trigger:
+                request_type = "trap_trigger"  # Initial SUSPICIOUS request
+            else:
+                request_type = "trapped_interaction"  # Subsequent requests from trapped IP
+        
         log_entry = {
             "timestamp": datetime.now(timezone.utc),
             "session_id": session_id,
@@ -77,6 +90,7 @@ class Logger:
             "response": response,
             "ml_verdict": ml_verdict,
             "ml_confidence": ml_confidence,
+            "is_trap_trigger": is_trap_trigger,  # Flag for easy filtering
             # New metadata fields
             "http_method": http_method,
             "path": path,
