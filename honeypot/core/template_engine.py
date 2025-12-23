@@ -136,20 +136,28 @@ class TemplateEngine:
         """
         path_lower = request_path.lower()
         
+        # Homepage / root
+        if path_lower in ["/", "get /", "post /", "get /?", ""]:
+            return "home"
+        
         # Login-related paths
         if any(p in path_lower for p in ["/login", "/signin", "/auth", "/admin"]):
             return "login"
         
-        # Search/product-related paths
-        if any(p in path_lower for p in ["/search", "/product", "/api/product"]):
+        # Products/search-related paths
+        if any(p in path_lower for p in ["/search", "/product", "/api/product", "/shop", "/catalog"]):
             return "search_results"
         
-        # API endpoints generally get error pages
+        # API endpoints - could be error or message depending on context
         if "/api/" in path_lower:
+            # For POST requests to API, show message template
+            if "post" in path_lower:
+                return "message"
+            # For GET requests to API, show error
             return "error"
         
-        # Default to error for most attacks
-        return "error"
+        # Default to homepage for unrecognized paths (better than error)
+        return "home"
 
     def generate_product_card_html(self, name: str, description: str, 
                                     price: str, stock: int = 5) -> str:

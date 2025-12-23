@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShop - Latest Tech Gadgets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-gray-900">TechShop</h1>
+                <nav class="flex gap-4">
+                    <a href="/" class="text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="/login" class="text-gray-700 hover:text-gray-900">Login</a>
+                    <a href="/profile" class="text-gray-700 hover:text-gray-900">Profile</a>
+                    <a href="/admin" class="text-gray-700 hover:text-gray-900">Admin</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Latest Tech Gadgets</h2>
+            <p class="text-xl mb-8">Find the best deals on smartphones, laptops, and accessories</p>
+
+            <!-- Search Bar -->
+            <form action="/search" method="GET" class="max-w-2xl mx-auto">
+                <div class="flex gap-2">
+                    <input
+                        type="text"
+                        name="q"
+                        placeholder="Search products..."
+                        class="flex-1 px-4 py-3 rounded-lg text-gray-900"
+                    />
+                    <button
+                        type="submit"
+                        class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100"
+                    >
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">Featured Products</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Product 1 -->
+            <a href="/product/1" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">iPhone 15 Pro</span>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-lg text-gray-900 mb-2">iPhone 15 Pro</h4>
+                    <p class="text-gray-600 text-sm mb-3">Latest flagship smartphone with A17 Pro chip</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">$999</span>
+                        <span class="text-sm text-gray-500">50 in stock</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 2 -->
+            <a href="/product/2" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">MacBook Pro</span>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-lg text-gray-900 mb-2">MacBook Pro 16"</h4>
+                    <p class="text-gray-600 text-sm mb-3">Powerful laptop with M3 Max chip</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">$2499</span>
+                        <span class="text-sm text-gray-500">30 in stock</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 3 -->
+            <a href="/product/3" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">AirPods Pro</span>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-lg text-gray-900 mb-2">AirPods Pro (2nd Gen)</h4>
+                    <p class="text-gray-600 text-sm mb-3">Premium wireless earbuds with ANC</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">$249</span>
+                        <span class="text-sm text-gray-500">100 in stock</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 4 -->
+            <a href="/product/4" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">Samsung Galaxy S24</span>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-lg text-gray-900 mb-2">Samsung Galaxy S24 Ultra</h4>
+                    <p class="text-gray-600 text-sm mb-3">Android flagship with S Pen</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">$1199</span>
+                        <span class="text-sm text-gray-500">45 in stock</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 5 -->
+            <a href="/product/5" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">Dell XPS 15</span>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-lg text-gray-900 mb-2">Dell XPS 15</h4>
+                    <p class="text-gray-600 text-sm mb-3">Premium Windows laptop</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">$1799</span>
+                        <span class="text-sm text-gray-500">25 in stock</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 6 -->
+            <a href="/product/6" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">Sony WH-1000XM5</span>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-lg text-gray-900 mb-2">Sony WH-1000XM5</h4>
+                    <p class="text-gray-600 text-sm mb-3">Industry-leading noise cancellation</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">$399</span>
+                        <span class="text-sm text-gray-500">60 in stock</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 TechShop - All Rights Reserved</p>
+            <p class="text-sm text-gray-400 mt-2">Your trusted tech partner</p>
+        </div>
+    </footer>
+</body>
+</html>
