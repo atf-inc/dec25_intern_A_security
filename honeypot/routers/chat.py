@@ -47,11 +47,12 @@ MongoDB Collections Schema:
    - session_id: string
    - ip: string (IP address of attacker)
    - type: string (e.g., "http", "ssh", "command")
-   - attack_type: string (e.g., "sql_injection", "xss", "rce", "path_traversal")
+   - attack_type: string (e.g., "sql_injection", "xss", "rce", "path_traversal", "command_injection")
    - payload: string (the malicious input)
    - response: string (honeypot's response)
-   - ml_verdict: string ("SAFE", "SUSPICIOUS", "MALICIOUS")
-   - ml_confidence: float (0.0 to 1.0)
+   - ml_verdict: string ("SAFE", "SUSPICIOUS", "MALICIOUS") - ML model's classification
+   - ml_confidence: float (0.0 to 1.0) - ML model's confidence score
+   - severity: string (e.g., "low", "medium", "high", "critical") - Attack severity level
 
 2. **sessions** collection:
    - _id: ObjectId
@@ -65,6 +66,11 @@ MongoDB Collections Schema:
        user: string,
        history: [{ cmd: string, res: string }]  // Command history
      }
+
+Analytics Notes:
+- Use $group to aggregate by IP, attack_type, ml_verdict, or severity
+- Use $match with ml_confidence thresholds to filter by confidence levels
+- Combine multiple $group stages to find patterns (e.g., which IP uses which attack type most)
 """
 
 QUERY_EXAMPLES = """
@@ -121,6 +127,73 @@ Example natural language queries and their MongoDB pipelines:
      {"$limit": 20}
    ]
    render_type: table
+
+7. "Show ML verdict distribution"
+   Collection: logs
+   Pipeline: [
+     {"$match": {"ml_verdict": {"$exists": true, "$ne": null}}},
+     {"$group": {"_id": "$ml_verdict", "count": {"$sum": 1}}},
+     {"$sort": {"count": -1}}
+   ]
+   render_type: pie_chart
+
+8. "What's the average ML confidence score?"
+   Collection: logs
+   Pipeline: [
+     {"$match": {"ml_confidence": {"$exists": true, "$ne": null}}},
+     {"$group": {"_id": null, "avg_confidence": {"$avg": "$ml_confidence"}, "total": {"$sum": 1}}}
+   ]
+   render_type: text
+
+9. "Which IP is the riskiest?" or "What is the most dangerous IP?"
+   Collection: logs
+   Pipeline: [
+     {"$match": {"ml_verdict": "MALICIOUS"}},
+     {"$group": {"_id": "$ip", "malicious_count": {"$sum": 1}, "avg_confidence": {"$avg": "$ml_confidence"}}},
+     {"$sort": {"malicious_count": -1, "avg_confidence": -1}},
+     {"$limit": 10}
+   ]
+   render_type: table
+
+10. "What type of attack does IP X.X.X.X use most?" or "Show attack types for a specific IP"
+    Collection: logs
+    Pipeline: [
+      {"$match": {"ip": "X.X.X.X"}},
+      {"$group": {"_id": "$attack_type", "count": {"$sum": 1}}},
+      {"$sort": {"count": -1}}
+    ]
+    render_type: bar_chart
+
+11. "Which is the most common attack type?" or "Most used attack type"
+    Collection: logs
+    Pipeline: [
+      {"$group": {"_id": "$attack_type", "count": {"$sum": 1}}},
+      {"$sort": {"count": -1}},
+      {"$limit": 1}
+    ]
+    render_type: text
+
+12. "Show attacks by severity level"
+    Collection: logs
+    Pipeline: [
+      {"$match": {"severity": {"$exists": true, "$ne": null}}},
+      {"$group": {"_id": "$severity", "count": {"$sum": 1}}},
+      {"$sort": {"count": -1}}
+    ]
+    render_type: pie_chart
+
+13. "Show ML confidence distribution"
+    Collection: logs
+    Pipeline: [
+      {"$match": {"ml_confidence": {"$exists": true, "$ne": null}}},
+      {"$bucket": {
+        "groupBy": {"$multiply": [{"$floor": {"$multiply": ["$ml_confidence", 10]}}, 10]},
+        "boundaries": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+        "default": "other",
+        "output": {"count": {"$sum": 1}}
+      }}
+    ]
+    render_type: bar_chart
 """
 
 
@@ -219,11 +292,44 @@ async def chat_query(request: ChatQueryRequest):
         # Format results
         formatted_results = format_results(results, render_type)
         
-        # Build response content
+        # Build response content with actual result details
         if len(results) == 0:
             content = f"No results found. {explanation}"
         else:
-            content = f"Found {len(results)} result(s). {explanation}"
+            # Try to make the response more informative by showing key results
+            content_parts = [f"Found {len(results)} result(s)."]
+            
+            # Add specific details based on the query type
+            if len(formatted_results) > 0:
+                first_result = formatted_results[0]
+                
+                # For single result queries (like "most common attack type")
+                if len(results) == 1:
+                    if "name" in first_result:
+                        content_parts.append(f"**{first_result['name']}**")
+                        if "count" in first_result:
+                            content_parts.append(f"({first_result['count']} occurrences)")
+                    elif "ip" in first_result:
+                        content_parts.append(f"**{first_result['ip']}**")
+                        if "malicious_count" in first_result:
+                            content_parts.append(f"({first_result['malicious_count']} malicious attacks)")
+                    elif "avg_confidence" in first_result:
+                        avg_conf = first_result.get("avg_confidence", 0)
+                        if isinstance(avg_conf, (int, float)):
+                            content_parts.append(f"(Average confidence: {avg_conf:.1%})")
+                
+                # For top N queries
+                elif len(results) <= 10 and "name" in first_result:
+                    top_items = [r.get("name", "Unknown") for r in formatted_results[:3]]
+                    content_parts.append(f"Top results: **{', '.join(top_items)}**")
+                elif len(results) <= 10 and "ip" in first_result:
+                    top_ips = [r.get("ip", "Unknown") for r in formatted_results[:3]]
+                    content_parts.append(f"Top IPs: **{', '.join(top_ips)}**")
+            
+            if explanation:
+                content_parts.append(explanation)
+            
+            content = " ".join(content_parts)
         
         return ChatQueryResponse(
             content=content,
@@ -381,8 +487,20 @@ def format_results(results: list, render_type: str) -> Any:
                 if isinstance(value, dict):
                     # For grouped results, flatten the _id
                     formatted_doc.update({k: str(v) for k, v in value.items()})
+                elif value is None:
+                    # Skip null _id (from $group with _id: null)
+                    continue
                 else:
-                    formatted_doc["id"] = str(value)
+                    # For simple _id values (IP, attack_type, etc.), use a meaningful name
+                    # Try to infer what the _id represents based on other fields
+                    if "malicious_count" in doc or "avg_confidence" in doc:
+                        formatted_doc["ip"] = str(value)
+                    elif "count" in doc:
+                        # Could be attack_type, severity, ml_verdict, etc.
+                        # Use generic "name" for charts, but preserve original for tables
+                        formatted_doc["name"] = str(value)
+                    else:
+                        formatted_doc["value"] = str(value)
             elif isinstance(value, datetime):
                 formatted_doc[key] = value.isoformat()
             elif hasattr(value, '__str__'):
@@ -396,22 +514,17 @@ def format_results(results: list, render_type: str) -> Any:
         # Try to normalize to {name, value} format for Recharts
         chart_data = []
         for item in formatted:
-            if "count" in item:
-                name = item.get("id") or item.get("_id") or item.get("name") or "Unknown"
+            if "count" in item and "name" in item:
+                chart_data.append({"name": str(item["name"]), "value": item["count"]})
+            elif "value" in item and "name" in item:
+                chart_data.append({"name": str(item["name"]), "value": item["value"]})
+            elif "count" in item:
+                # Fallback: try to find any string field for name
+                name = item.get("ip") or item.get("name") or "Unknown"
                 chart_data.append({"name": str(name), "value": item["count"]})
-            elif "value" in item:
-                chart_data.append(item)
             else:
-                # Try first non-count numeric field
-                name = None
-                value = None
-                for k, v in item.items():
-                    if k in ["id", "_id", "name"]:
-                        name = v
-                    elif isinstance(v, (int, float)) and value is None:
-                        value = v
-                if name and value is not None:
-                    chart_data.append({"name": str(name), "value": value})
+                # Keep as-is if we can't normalize
+                chart_data.append(item)
         return chart_data if chart_data else formatted
     
     return formatted
@@ -426,12 +539,16 @@ async def get_query_suggestions():
         "suggestions": [
             "Show me all attacks in the last hour",
             "What are the top 10 attacking IPs?",
+            "Which IP is the riskiest?",
+            "What is the most common attack type?",
             "Show attack distribution by type",
-            "How many attacks happened each hour today?",
+            "Show ML verdict distribution",
+            "What's the average ML confidence score?",
             "Find high-confidence malicious attacks",
+            "Show attacks by severity level",
+            "How many attacks happened each hour today?",
             "Show all active sessions",
-            "What SQL injection attempts were detected?",
-            "Show XSS attacks from the last 24 hours"
+            "What SQL injection attempts were detected?"
         ]
     }
 

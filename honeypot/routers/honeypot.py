@@ -109,54 +109,295 @@ async def admin_login(request: Request, background_tasks: BackgroundTasks):
 async def admin_login_post(request: Request, background_tasks: BackgroundTasks):
     return await handle_honeypot_request(request, background_tasks)
 
-@router.get("/terminal", response_class=HTMLResponse)
-async def terminal_view(request: Request):
-    # A simple web terminal UI that sends commands to /api/terminal
-    return """
+@router.get("/shell", response_class=HTMLResponse)
+async def shell_view(request: Request):
+    """Enhanced shell interface - only accessible when IP is trapped"""
+    from core.trap_tracker import trap_tracker
+    
+    client_ip = request.client.host
+    
+    # Check if IP is trapped
+    if not trap_tracker.is_trapped(client_ip) and not trap_tracker.is_permanently_blocked(client_ip):
+        # Not trapped - return 404 to appear as if endpoint doesn't exist
+        return HTMLResponse(
+            content="""
+            <!DOCTYPE html>
+            <html>
+            <head><title>404 Not Found</title></head>
+            <body>
+                <h1>404 Not Found</h1>
+                <p>The requested URL was not found on this server.</p>
+            </body>
+            </html>
+            """,
+            status_code=404
+        )
+    
+    # IP is trapped - show shell interface
+    return HTMLResponse(content="""
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Terminal</title>
+        <title>Shell - TechShop Server</title>
         <style>
-            body { background-color: #000; color: #0f0; font-family: monospace; }
-            #output { white-space: pre-wrap; }
-            input { background: transparent; border: none; color: #0f0; outline: none; width: 80%; }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                background-color: #0c0c0c;
+                color: #00ff00;
+                font-family: 'Courier New', 'Consolas', monospace;
+                font-size: 14px;
+                line-height: 1.5;
+                overflow: hidden;
+            }
+            
+            #terminal-container {
+                width: 100vw;
+                height: 100vh;
+                padding: 20px;
+                overflow-y: auto;
+            }
+            
+            #output {
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                margin-bottom: 10px;
+            }
+            
+            .prompt-line {
+                display: flex;
+                align-items: center;
+            }
+            
+            .prompt {
+                color: #00ff00;
+                margin-right: 5px;
+                user-select: none;
+            }
+            
+            #cmd {
+                background: transparent;
+                border: none;
+                color: #00ff00;
+                outline: none;
+                flex: 1;
+                font-family: inherit;
+                font-size: inherit;
+                caret-color: #00ff00;
+            }
+            
+            .error {
+                color: #ff5555;
+            }
+            
+            .success {
+                color: #50fa7b;
+            }
+            
+            .info {
+                color: #8be9fd;
+            }
+            
+            /* Scrollbar styling */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            
+            ::-webkit-scrollbar-track {
+                background: #1a1a1a;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                background: #333;
+                border-radius: 5px;
+            }
+            
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
         </style>
     </head>
     <body>
-        <div id="output">Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-91-generic x86_64)<br></div>
-        <span>$ </span><input type="text" id="cmd" autofocus>
+        <div id="terminal-container">
+            <div id="output"></div>
+            <div class="prompt-line">
+                <span class="prompt" id="prompt">www-data@techshop-prod-01:~$ </span>
+                <input type="text" id="cmd" autofocus autocomplete="off">
+            </div>
+        </div>
+        
         <script>
             const cmdInput = document.getElementById('cmd');
             const outputDiv = document.getElementById('output');
+            const promptSpan = document.getElementById('prompt');
             
-            cmdInput.addEventListener('keypress', async function (e) {
+            let commandHistory = [];
+            let historyIndex = -1;
+            let currentCommand = '';
+            
+            // Display welcome message
+            outputDiv.innerHTML = `<span class="success">Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-91-generic x86_64)</span>
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Last login: ${new Date().toLocaleString()} from 192.168.1.100
+
+`;
+            
+            // Focus input when clicking anywhere
+            document.addEventListener('click', () => cmdInput.focus());
+            
+            cmdInput.addEventListener('keydown', async function (e) {
+                // Handle up/down arrow keys for command history
+                if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (commandHistory.length > 0) {
+                        if (historyIndex === -1) {
+                            currentCommand = cmdInput.value;
+                            historyIndex = commandHistory.length - 1;
+                        } else if (historyIndex > 0) {
+                            historyIndex--;
+                        }
+                        cmdInput.value = commandHistory[historyIndex];
+                    }
+                    return;
+                }
+                
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (historyIndex !== -1) {
+                        if (historyIndex < commandHistory.length - 1) {
+                            historyIndex++;
+                            cmdInput.value = commandHistory[historyIndex];
+                        } else {
+                            historyIndex = -1;
+                            cmdInput.value = currentCommand;
+                        }
+                    }
+                    return;
+                }
+                
+                // Handle Enter key
                 if (e.key === 'Enter') {
-                    const command = cmdInput.value;
-                    outputDiv.innerHTML += '$ ' + command + '<br>';
-                    cmdInput.value = '';
+                    const command = cmdInput.value.trim();
                     
-                    const response = await fetch('/api/terminal', {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({command: command})
-                    });
-                    const data = await response.json();
-                    outputDiv.innerHTML += data.output + '<br>';
+                    // Display command with prompt
+                    outputDiv.innerHTML += promptSpan.textContent + command + '\\n';
+                    
+                    if (command) {
+                        // Add to history
+                        commandHistory.push(command);
+                        historyIndex = -1;
+                        currentCommand = '';
+                        
+                        cmdInput.value = '';
+                        
+                        // Handle clear command locally
+                        if (command === 'clear') {
+                            outputDiv.innerHTML = '';
+                            window.scrollTo(0, document.body.scrollHeight);
+                            return;
+                        }
+                        
+                        try {
+                            // Send command to server
+                            const response = await fetch('/api/shell', {
+                                method: 'POST',
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify({command: command})
+                            });
+                            
+                            const data = await response.json();
+                            
+                            // Display output
+                            if (data.output) {
+                                outputDiv.innerHTML += data.output + '\\n';
+                            }
+                            
+                            // Update prompt if provided
+                            if (data.prompt) {
+                                promptSpan.textContent = data.prompt;
+                            }
+                        } catch (error) {
+                            outputDiv.innerHTML += '<span class="error">Error: Connection failed</span>\\n';
+                        }
+                    } else {
+                        cmdInput.value = '';
+                    }
+                    
+                    // Scroll to bottom
                     window.scrollTo(0, document.body.scrollHeight);
                 }
+                
+                // Handle Ctrl+C
+                if (e.ctrlKey && e.key === 'c') {
+                    e.preventDefault();
+                    outputDiv.innerHTML += '^C\\n';
+                    cmdInput.value = '';
+                }
+                
+                // Handle Ctrl+L (clear)
+                if (e.ctrlKey && e.key === 'l') {
+                    e.preventDefault();
+                    outputDiv.innerHTML = '';
+                }
             });
+            
+            // Auto-focus on load
+            cmdInput.focus();
         </script>
     </body>
     </html>
-    """
+    """)
 
-@router.post("/api/terminal")
-async def api_terminal(request: Request, background_tasks: BackgroundTasks):
-    data = await request.json()
-    command = data.get("command")
-    response = await handle_honeypot_request(request, background_tasks, command=command)
-    return {"output": response}
+@router.post("/api/shell")
+async def api_shell(request: Request, background_tasks: BackgroundTasks):
+    """API endpoint for shell commands - only accessible when IP is trapped"""
+    from core.fake_filesystem import get_filesystem
+    from core.shell_processor import shell_processor
+    from core.trap_tracker import trap_tracker
+    import traceback
+    
+    client_ip = request.client.host
+    
+    try:
+        # Check if IP is trapped
+        if not trap_tracker.is_trapped(client_ip) and not trap_tracker.is_permanently_blocked(client_ip):
+            return JSONResponse(
+                content={"error": "Not found"},
+                status_code=404
+            )
+        
+        data = await request.json()
+        command = data.get("command")
+        
+        # Get session info
+        user_agent = request.headers.get("user-agent", "unknown")
+        session = await session_manager.get_or_create_session(client_ip, user_agent)
+        session_id = session["session_id"]
+        
+        # Process command through honeypot handler
+        response = await handle_honeypot_request(request, background_tasks, command=command)
+        
+        # Get updated prompt
+        fs = get_filesystem(session_id)
+        prompt = shell_processor.get_prompt(fs)
+        
+        return {"output": response, "prompt": prompt}
+    
+    except Exception as e:
+        log.error(f"Error in api_shell: {str(e)}")
+        log.error(traceback.format_exc())
+        return JSONResponse(
+            content={"error": "Internal server error", "output": f"Error: {str(e)}"},
+            status_code=500
+        )
 
 # Catch-all for other paths to simulate a full web server
 @router.api_route("/{path_name:path}", methods=["GET", "POST", "PUT", "DELETE"])

@@ -22,8 +22,9 @@ class SessionManager:
                 "end_time": None,
                 "duration_seconds": None,
                 "context": {
-                    "current_directory": "/home/admin",
-                    "user": "admin",
+                    "current_directory": "/var/www",
+                    "user": "www-data",
+                    "hostname": "techshop-prod-01",
                     "history": []
                 }
             }

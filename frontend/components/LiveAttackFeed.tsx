@@ -11,11 +11,14 @@ interface LiveAttackFeedProps {
 
 export default function LiveAttackFeed({ logs }: LiveAttackFeedProps) {
     const feedRef = useRef<HTMLDivElement>(null);
+    const prevLogsLengthRef = useRef<number>(0);
 
     useEffect(() => {
-        if (feedRef.current) {
+        // Only scroll to top if new logs were added (not on every render)
+        if (feedRef.current && logs.length > prevLogsLengthRef.current) {
             feedRef.current.scrollTop = 0;
         }
+        prevLogsLengthRef.current = logs.length;
     }, [logs]);
 
     const getTypeIcon = (type: string) => {
