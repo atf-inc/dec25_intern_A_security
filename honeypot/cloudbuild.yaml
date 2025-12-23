@@ -1,0 +1,25 @@
+# Cloud Build configuration for Honeypot Backend
+
+substitutions:
+  _REGION: 'us-central1'
+  _REPO: 'honeypot-repo'
+
+steps:
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/honeypot:latest'
+      - '.'
+
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/honeypot:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: 'E2_HIGHCPU_8'
+timeout: '1800s'
+
+
+

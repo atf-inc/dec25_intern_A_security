@@ -1,0 +1,23 @@
+# Ignore files for Cloud Build
+.git
+.gitignore
+.env
+.env.*
+*.log
+*.md
+myenv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+.idea/
+.vscode/
+*.egg-info/
+dist/
+build/
+tests/
+
+
+

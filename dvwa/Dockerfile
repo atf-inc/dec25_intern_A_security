@@ -24,6 +24,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Remove any existing database and re-initialize with fresh data
+RUN rm -f shop.db && node init-db.js
+
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
@@ -59,9 +62,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/shop.db ./shop.db
 
 USER nextjs
 
-EXPOSE 3000
-
-ENV PORT=3000
+# Cloud Run uses PORT env var, default to 8080
+ENV PORT=8080
+EXPOSE 8080
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/config/next-config-js/output

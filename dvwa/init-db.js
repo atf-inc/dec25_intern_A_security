@@ -62,14 +62,14 @@ db.serialize(() => {
         stmt1.run('alice', 'alice@example.com', 'alice123')
         stmt1.finalize()
 
-        // Seed products
+        // Seed products with local image URLs (from public/products folder)
         const stmt2 = db.prepare('INSERT INTO products (name, description, price, image, stock) VALUES (?, ?, ?, ?, ?)')
-        stmt2.run('iPhone 15 Pro', 'Latest Apple smartphone with A17 chip', 999.99, '/products/iphone.jpg', 50)
-        stmt2.run('Samsung Galaxy S24', 'Flagship Android phone with AI features', 899.99, '/products/samsung.jpg', 45)
-        stmt2.run('MacBook Pro M3', 'Powerful laptop for professionals', 1999.99, '/products/macbook.jpg', 30)
-        stmt2.run('Dell XPS 15', 'Premium Windows laptop', 1499.99, '/products/dell.jpg', 25)
-        stmt2.run('AirPods Pro', 'Wireless earbuds with noise cancellation', 249.99, '/products/airpods.jpg', 100)
-        stmt2.run('Sony WH-1000XM5', 'Industry-leading noise cancelling headphones', 399.99, '/products/sony.jpg', 60)
+        stmt2.run('iPhone 15 Pro', 'Latest Apple smartphone with A17 Pro chip and titanium design', 999.99, '/products/iphone.jpeg', 50)
+        stmt2.run('Samsung Galaxy S24', 'Flagship Android phone with Galaxy AI features', 899.99, '/products/samsung.jpeg', 45)
+        stmt2.run('MacBook Pro M3', 'Powerful laptop for professionals with M3 chip', 1999.99, '/products/macbook.jpeg', 30)
+        stmt2.run('Dell XPS 15', 'Premium Windows laptop with stunning OLED display', 1499.99, '/products/dell.jpeg', 25)
+        stmt2.run('AirPods Pro', 'Wireless earbuds with active noise cancellation', 249.99, '/products/airpods.jpeg', 100)
+        stmt2.run('Sony WH-1000XM5', 'Industry-leading noise cancelling headphones', 399.99, '/products/sony.jpeg', 60)
         stmt2.finalize()
 
         // Seed orders

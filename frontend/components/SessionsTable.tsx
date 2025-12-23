@@ -116,7 +116,13 @@ export default function SessionsTable({ sessions }: SessionsTableProps) {
                                         </td>
                                         <td className="px-4 py-3">
                                             <span className="text-sm text-gray-400">
-                                                {formatDistanceToNow(new Date(session.start_time), { addSuffix: true })}
+                                                {(() => {
+                                                    try {
+                                                        return formatDistanceToNow(new Date(session.start_time), { addSuffix: true });
+                                                    } catch {
+                                                        return 'Unknown';
+                                                    }
+                                                })()}
                                             </span>
                                         </td>
                                         <td className="px-4 py-3">

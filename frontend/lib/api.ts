@@ -1,6 +1,22 @@
 import { Stats, Session, Log, AttackPattern, TimelineData, ChatQueryResponse, ForensicsData, ChatSuggestions } from './types';
 
+// Get API base URL - baked in at build time for Cloud Run
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
+// Helper to build URL with query params (avoids new URL() which can throw on client)
+function buildUrl(path: string, params?: Record<string, string>): string {
+    let url = `${API_BASE}${path}`;
+    if (params && Object.keys(params).length > 0) {
+        const queryString = Object.entries(params)
+            .filter(([_, v]) => v !== undefined && v !== null)
+            .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+            .join('&');
+        if (queryString) {
+            url += `?${queryString}`;
+        }
+    }
+    return url;
+}
 
 export const api = {
     async getStats(): Promise<Stats> {
@@ -10,20 +26,19 @@ export const api = {
     },
 
     async getSessions(activeOnly: boolean = false): Promise<{ count: number; sessions: Session[] }> {
-        const url = new URL(`${API_BASE}/api/analytics/sessions`);
-        if (activeOnly) url.searchParams.set('active_only', 'true');
-
-        const res = await fetch(url.toString());
+        const params: Record<string, string> = {};
+        if (activeOnly) params.active_only = 'true';
+        
+        const res = await fetch(buildUrl('/api/analytics/sessions', params));
         if (!res.ok) throw new Error('Failed to fetch sessions');
         return res.json();
     },
 
     async getLogs(sessionId?: string, limit: number = 100): Promise<{ count: number; total: number; logs: Log[] }> {
-        const url = new URL(`${API_BASE}/api/analytics/logs`);
-        if (sessionId) url.searchParams.set('session_id', sessionId);
-        url.searchParams.set('limit', limit.toString());
-
-        const res = await fetch(url.toString());
+        const params: Record<string, string> = { limit: limit.toString() };
+        if (sessionId) params.session_id = sessionId;
+        
+        const res = await fetch(buildUrl('/api/analytics/logs', params));
         if (!res.ok) throw new Error('Failed to fetch logs');
         return res.json();
     },
@@ -35,10 +50,7 @@ export const api = {
     },
 
     async getTimeline(hours: number = 24): Promise<{ hours: number; data: TimelineData[] }> {
-        const url = new URL(`${API_BASE}/api/analytics/timeline`);
-        url.searchParams.set('hours', hours.toString());
-
-        const res = await fetch(url.toString());
+        const res = await fetch(buildUrl('/api/analytics/timeline', { hours: hours.toString() }));
         if (!res.ok) throw new Error('Failed to fetch timeline');
         return res.json();
     },

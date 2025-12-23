@@ -113,7 +113,7 @@ export default function LiveAttackFeed({ logs }: LiveAttackFeedProps) {
                                     <div className={`p-1.5 rounded border ${getTypeColor(log.type)}`}>
                                         {getTypeIcon(log.type)}
                                     </div>
-                                    <span className="text-sm font-medium text-white capitalize">{log.type.replace('_', ' ')}</span>
+                                    <span className="text-sm font-medium text-white capitalize">{log.type?.replace('_', ' ') || 'unknown'}</span>
                                     
                                     {/* Severity Badge */}
                                     {log.severity && (
@@ -130,12 +130,18 @@ export default function LiveAttackFeed({ logs }: LiveAttackFeedProps) {
                                     )}
                                 </div>
                                 <span className="text-xs text-gray-500">
-                                    {format(new Date(log.timestamp), 'HH:mm:ss')}
+                                    {(() => {
+                                        try {
+                                            return format(new Date(log.timestamp), 'HH:mm:ss');
+                                        } catch {
+                                            return 'N/A';
+                                        }
+                                    })()}
                                 </span>
                             </div>
 
                             {/* ML Confidence Bar */}
-                            {log.ml_confidence !== undefined && log.ml_confidence > 0 && (
+                            {typeof log.ml_confidence === 'number' && log.ml_confidence > 0 && (
                                 <div className="mb-3">
                                     <div className="flex items-center justify-between mb-1">
                                         <span className="text-xs text-gray-500 flex items-center gap-1">
@@ -169,7 +175,7 @@ export default function LiveAttackFeed({ logs }: LiveAttackFeedProps) {
                                                 {log.http_method} {log.path}
                                             </span>
                                         )}
-                                        {log.response_time_ms !== undefined && (
+                                        {typeof log.response_time_ms === 'number' && (
                                             <span className="flex items-center gap-1 text-gray-400">
                                                 <Clock className="w-3 h-3" />
                                                 {log.response_time_ms.toFixed(0)}ms

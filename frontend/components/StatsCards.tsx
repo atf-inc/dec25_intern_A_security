@@ -23,28 +23,28 @@ export default function StatsCards({ stats }: StatsCardsProps) {
     const cards = [
         {
             title: 'Total Interactions',
-            value: stats.total_interactions.toLocaleString(),
+            value: (stats.total_interactions ?? 0).toLocaleString(),
             icon: Activity,
             color: 'text-cyan-400',
             bgColor: 'bg-cyan-500/10',
         },
         {
             title: 'Active Sessions',
-            value: stats.active_sessions.toString(),
+            value: (stats.active_sessions ?? 0).toString(),
             icon: Users,
             color: 'text-emerald-400',
             bgColor: 'bg-emerald-500/10',
         },
         {
             title: 'Recent Activity (24h)',
-            value: stats.recent_activity_24h.toLocaleString(),
+            value: (stats.recent_activity_24h ?? 0).toLocaleString(),
             icon: Zap,
             color: 'text-yellow-400',
             bgColor: 'bg-yellow-500/10',
         },
         {
             title: 'Cache Hit Rate',
-            value: stats.cache.hit_rate,
+            value: stats.cache?.hit_rate ?? '0%',
             icon: Database,
             color: 'text-purple-400',
             bgColor: 'bg-purple-500/10',
@@ -77,16 +77,16 @@ export default function StatsCards({ stats }: StatsCardsProps) {
                     <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div>
                             <div className="text-sm text-gray-400">LLM Model</div>
-                            <div className="text-lg font-semibold text-white">{stats.llm.model}</div>
+                            <div className="text-lg font-semibold text-white">{stats.llm?.model ?? 'N/A'}</div>
                         </div>
                         <div>
                             <div className="text-sm text-gray-400">Total LLM Requests</div>
-                            <div className="text-lg font-semibold text-white">{stats.llm.total_requests.toLocaleString()}</div>
+                            <div className="text-lg font-semibold text-white">{(stats.llm?.total_requests ?? 0).toLocaleString()}</div>
                         </div>
                         <div>
                             <div className="text-sm text-gray-400">Cache Efficiency</div>
                             <div className="text-lg font-semibold text-white">
-                                {stats.cache.hits} hits / {stats.cache.misses} misses
+                                {stats.cache?.hits ?? 0} hits / {stats.cache?.misses ?? 0} misses
                             </div>
                         </div>
                     </div>

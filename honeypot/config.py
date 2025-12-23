@@ -34,18 +34,24 @@ class Settings:
     ENABLE_EMAIL_ALERTS = os.getenv("ENABLE_EMAIL_ALERTS", "true").lower() == "true"
     
     def validate(self):
-        """Validate required settings"""
+        """Validate required settings - warnings instead of errors for Cloud Run flexibility"""
+        import logging
+        logger = logging.getLogger("config")
+        
         if not self.GROQ_API_KEY:
-            raise ValueError("GROQ_API_KEY is required. Please set it in .env file")
+            logger.warning("GROQ_API_KEY not set. LLM features will be disabled.")
         
         # Validate email settings if alerts are enabled
         if self.ENABLE_EMAIL_ALERTS:
             if not self.SENDGRID_API_KEY:
-                raise ValueError("SENDGRID_API_KEY is required when email alerts are enabled")
+                logger.warning("SENDGRID_API_KEY not set. Disabling email alerts.")
+                self.ENABLE_EMAIL_ALERTS = False
             if not self.ALERT_FROM_EMAIL:
-                raise ValueError("ALERT_FROM_EMAIL is required when email alerts are enabled")
+                logger.warning("ALERT_FROM_EMAIL not set. Disabling email alerts.")
+                self.ENABLE_EMAIL_ALERTS = False
             if not self.ALERT_TO_EMAIL:
-                raise ValueError("ALERT_TO_EMAIL is required when email alerts are enabled")
+                logger.warning("ALERT_TO_EMAIL not set. Disabling email alerts.")
+                self.ENABLE_EMAIL_ALERTS = False
         
         return True
 

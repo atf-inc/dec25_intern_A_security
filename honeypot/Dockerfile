@@ -57,13 +57,16 @@ RUN rm -rf myenv/ __pycache__/ .git/ *.log .env tests/ *.md
 # Switch to non-root user
 USER appuser
 
+# Cloud Run uses PORT env var, default to 8080
+ENV PORT=8080
+
 # Expose the application port
-EXPOSE 8000
+EXPOSE 8080
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/debug/trap-status || exit 1
+# Health check (disabled for Cloud Run - it uses its own health checks)
+# HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+#     CMD curl -f http://localhost:8080/debug/trap-status || exit 1
 
-# Run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run the application - use shell form to allow $PORT substitution
+CMD uvicorn main:app --host 0.0.0.0 --port $PORT
 

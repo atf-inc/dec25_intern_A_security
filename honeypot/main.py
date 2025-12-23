@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response, StreamingResponse
 from contextlib import asynccontextmanager
+from urllib.parse import unquote, unquote_plus
 import httpx
 import json
 from core.database import db
@@ -33,9 +34,23 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="QuantumShield Firewall Proxy", lifespan=lifespan)
 
 # Add CORS middleware
+# Allow localhost for development and Cloud Run URLs for production
+ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:8080",
+]
+
+# Add Cloud Run URLs dynamically from environment
+import re
+frontend_url = os.getenv("FRONTEND_URL", "")
+if frontend_url:
+    ALLOWED_ORIGINS.append(frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],
+    allow_origins=ALLOWED_ORIGINS,
+    allow_origin_regex=r"https://.*\.run\.app",  # Allow all Cloud Run URLs
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -198,14 +213,24 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     
     # 1. Extract Data for Analysis
     method = request.method
-    query_params = str(request.query_params)
+    query_params_raw = str(request.query_params)
+    
+    # URL-decode query params for proper attack detection
+    # Attackers often URL-encode payloads like ' OR '1'='1 -> %27%20OR%20%271%27%3D%271
+    query_params_decoded = unquote_plus(query_params_raw)
     
     # Read body (keep available for forwarding)
     body_bytes = await request.body()
     body_str = body_bytes.decode('utf-8', errors='replace')
     
-    # Combine inputs for analysis
-    analysis_text = f"{method} /{path_name}?{query_params}\n{body_str}"
+    # URL-decode body as well for form submissions
+    body_decoded = unquote_plus(body_str) if body_str else ""
+    
+    # Combine inputs for analysis (use decoded versions for ML analysis)
+    analysis_text = f"{method} /{path_name}?{query_params_decoded}\n{body_decoded}"
+    
+    # Log what we're analyzing for debugging
+    logger.debug(f"[ANALYSIS] Raw: {query_params_raw[:100]} -> Decoded: {query_params_decoded[:100]}")
     
     # Extract request metadata for logging
     request_metadata = {
@@ -256,6 +281,24 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     if ml_verdict == "MALICIOUS":
         logger.warning(f"[BLOCKED] {client_ip} - MALICIOUS attack on /{path_name} (confidence: {ml_confidence:.2f})")
         
+        # Log the MALICIOUS attack to MongoDB for dashboard visibility
+        from core.logger import logger as attack_logger
+        background_tasks.add_task(
+            attack_logger.log_interaction,
+            session_id=f"blocked-{client_ip}",
+            ip=client_ip,
+            request_type="blocked_attack",
+            payload=analysis_text[:500],
+            response="403 Forbidden - Blocked",
+            ml_verdict=ml_verdict,
+            ml_confidence=ml_confidence,
+            http_method=method,
+            path=f"/{path_name}",
+            query_params=dict(request.query_params),
+            headers=request_metadata.get("headers", {}),
+            body_size=len(body_bytes)
+        )
+        
         # Send email alert for MALICIOUS attacks
         background_tasks.add_task(
             email_notifier.send_attack_alert,
@@ -297,15 +340,21 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     # ========================================================================
     logger.info(f"[SAFE] Forwarding to {UPSTREAM_URL}/{path_name}")
     
-    client = httpx.AsyncClient(base_url=UPSTREAM_URL)
+    # Filter and prepare headers for upstream (avoid problematic headers)
+    skip_headers = {'host', 'content-length', 'transfer-encoding', 'connection'}
+    upstream_headers = {
+        k: v for k, v in request.headers.items() 
+        if k.lower() not in skip_headers
+    }
+    
+    client = httpx.AsyncClient(base_url=UPSTREAM_URL, timeout=30.0)
     try:
         upstream_req = client.build_request(
             method,
             f"/{path_name}",
             content=body_bytes,
             params=request.query_params,
-            headers=request.headers.raw,
-            timeout=10.0
+            headers=upstream_headers,
         )
         
         upstream_response = await client.send(upstream_req)

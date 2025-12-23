@@ -1,0 +1,16 @@
+# Ignore files for Cloud Build
+.git
+.gitignore
+.env
+.env.*
+*.log
+*.md
+node_modules/
+.next/
+.idea/
+.vscode/
+coverage/
+.nyc_output/
+
+
+

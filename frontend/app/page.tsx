@@ -1,14 +1,29 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { api } from '@/lib/api';
 import { Stats, Session, Log, AttackPattern } from '@/lib/types';
 import StatsCards from '@/components/StatsCards';
 import LiveAttackFeed from '@/components/LiveAttackFeed';
 import SessionsTable from '@/components/SessionsTable';
-import AttackPatterns from '@/components/AttackPatterns';
-import ChatBot from '@/components/ChatBot';
 import { Shield, RefreshCw } from 'lucide-react';
+
+// Lazy load components that use libraries with SSR issues
+import dynamic from 'next/dynamic';
+
+const AttackPatterns = dynamic(() => import('@/components/AttackPatterns'), { 
+  ssr: false,
+  loading: () => (
+    <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 h-64 flex items-center justify-center">
+      <div className="text-gray-500">Loading chart...</div>
+    </div>
+  )
+});
+
+const ChatBot = dynamic(() => import('@/components/ChatBot'), { 
+  ssr: false,
+  loading: () => null 
+});
 
 export default function Dashboard() {
   const [stats, setStats] = useState<Stats | null>(null);
@@ -17,7 +32,8 @@ export default function Dashboard() {
   const [attackPatterns, setAttackPatterns] = useState<AttackPattern[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
+  const [lastUpdate, setLastUpdate] = useState<string>('');
+  const [mounted, setMounted] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -33,7 +49,7 @@ export default function Dashboard() {
       setSessions(sessionsData.sessions);
       setLogs(logsData.logs);
       setAttackPatterns(patternsData.attack_types);
-      setLastUpdate(new Date());
+      setLastUpdate(new Date().toLocaleTimeString());
 
       // Log to console for debugging
       console.log('✅ Data fetched successfully:', {
@@ -51,6 +67,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
+    setMounted(true);
     fetchData();
 
     // Auto-refresh every 5 seconds
@@ -98,7 +115,7 @@ export default function Dashboard() {
           </div>
 
           <div className="mt-2 text-xs text-gray-500">
-            Last updated: {lastUpdate.toLocaleTimeString()}
+            {mounted && lastUpdate && `Last updated: ${lastUpdate}`}
           </div>
         </div>
       </header>

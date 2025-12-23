@@ -1,0 +1,27 @@
+# Cloud Build configuration for Frontend
+# Usage: gcloud builds submit --config=cloudbuild.yaml --substitutions=_API_URL="https://honeypot-xxx.run.app"
+
+substitutions:
+  _API_URL: 'http://localhost:8000'
+  _REGION: 'us-central1'
+  _REPO: 'honeypot-repo'
+
+steps:
+  # Build the Docker image with API URL baked in
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_API_URL=${_API_URL}'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/frontend:latest'
+      - '.'
+
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/frontend:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+
+
