@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # DVWA - Vulnerable Web Application
+  # Access at: http://YOUR_VPS_IP:3000
+  dvwa:
+    build:
+      context: ./dvwa
+      dockerfile: Dockerfile
+    container_name: dvwa
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - app-network
+
+  # Honeypot/ML Firewall - Main Security Gateway
+  # Access at: http://YOUR_VPS_IP:8000
+  honeypot:
+    build:
+      context: ./honeypot
+      dockerfile: Dockerfile
+    container_name: honeypot
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      # Required from .env
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - MONGO_URI=${MONGO_URI}
+      
+      # Optional with defaults
+      - DB_NAME=${DB_NAME:-shadow_guardian}
+      - HONEYPOT_NAME=${HONEYPOT_NAME:-QuantumShield}
+      - SYSTEM_PERSONA=${SYSTEM_PERSONA:-Ubuntu 22.04 LTS}
+      - RATE_LIMIT_PER_MINUTE=${RATE_LIMIT_PER_MINUTE:-10}
+      - CACHE_TTL_SECONDS=${CACHE_TTL_SECONDS:-3600}
+      - CACHE_MAX_SIZE=${CACHE_MAX_SIZE:-1000}
+      - LLM_MODEL=${LLM_MODEL:-llama-3.3-70b-versatile}
+      - LLM_TEMPERATURE=${LLM_TEMPERATURE:-0.7}
+      - LLM_MAX_TOKENS=${LLM_MAX_TOKENS:-1024}
+      
+      # Email alerts (optional)
+      - ENABLE_EMAIL_ALERTS=${ENABLE_EMAIL_ALERTS:-false}
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY:-}
+      - ALERT_FROM_EMAIL=${ALERT_FROM_EMAIL:-}
+      - ALERT_TO_EMAIL=${ALERT_TO_EMAIL:-}
+      
+      # CRITICAL: Must use Docker service name, not localhost!
+      - UPSTREAM_URL=http://dvwa:3000
+    depends_on:
+      - dvwa
+    networks:
+      - app-network
+
+  # Frontend Dashboard
+  # Access at: http://YOUR_VPS_IP:3001
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+      # Connect to honeypot API (Docker service name)
+      - NEXT_PUBLIC_API_URL=http://honeypot:8000
+    depends_on:
+      - honeypot
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
