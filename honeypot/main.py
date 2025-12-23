@@ -56,28 +56,65 @@ app.include_router(chat.router)
 
 @app.get("/debug/trap-status", response_class=HTMLResponse)
 async def debug_trap_status(request: Request):
-    """Show trap status for the current IP and provide controls."""
+    """Show trap status, block status, and malicious counter for the current IP."""
     client_ip = request.client.host
+    
+    # Check permanent block status
+    block_info = trap_tracker.get_block_info(client_ip)
+    malicious_count = trap_tracker.get_malicious_count(client_ip)
     trap_info = trap_tracker.get_trap_info(client_ip)
     all_traps = trap_tracker.get_all_traps()
+    all_blocked = trap_tracker.get_all_blocked()
     
+    # Permanent block status
+    if block_info:
+        block_html = f"""
+        <div style="background: #330000; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 2px solid #ff0000;">
+            <h3 style="color: #ff0000; margin: 0;">🚫 PERMANENTLY BLOCKED</h3>
+            <p><strong>Blocked since:</strong> {block_info['blocked_at_human']}</p>
+            <p><strong>Duration:</strong> {block_info['elapsed_seconds']} seconds</p>
+            <p><strong>Reason:</strong> {block_info['reason']}</p>
+            <p><strong>Malicious attempts:</strong> {block_info['malicious_count']}</p>
+            <form action="/debug/unblock" method="post" style="margin-top: 10px;">
+                <button type="submit" style="background: #00cc00; padding: 8px 16px; border: none; border-radius: 4px; color: white; cursor: pointer;">Unblock My IP</button>
+            </form>
+        </div>
+        """
+    elif malicious_count > 0:
+        remaining = trap_tracker.malicious_threshold - malicious_count
+        block_html = f"""
+        <div style="background: #443300; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 2px solid #ffa502;">
+            <h3 style="color: #ffa502; margin: 0;">⚠️ WARNING - MALICIOUS ATTEMPTS DETECTED</h3>
+            <p><strong>Malicious attempts:</strong> {malicious_count}/{trap_tracker.malicious_threshold}</p>
+            <p><strong>Attempts remaining:</strong> {remaining}</p>
+            <p style="color: #ffa502;"><strong>Warning:</strong> {remaining} more malicious attempt(s) before permanent block!</p>
+        </div>
+        """
+    else:
+        block_html = """
+        <div style="background: #003300; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 2px solid #00cc00;">
+            <h3 style="color: #00cc00; margin: 0;">✅ NOT BLOCKED</h3>
+            <p>No malicious attempts detected from your IP.</p>
+        </div>
+        """
+    
+    # Trap status
     if trap_info:
-        status_html = f"""
+        trap_html = f"""
         <div style="background: #ffcccc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="color: #cc0000; margin: 0;">TRAPPED</h3>
+            <h3 style="color: #cc0000; margin: 0;">TRAPPED (Temporary)</h3>
             <p><strong>Since:</strong> {trap_info['trapped_at_human']}</p>
             <p><strong>Duration:</strong> {trap_info['elapsed_seconds']} seconds</p>
             <p><strong>Expires in:</strong> {trap_info['remaining_seconds']} seconds</p>
             <p><strong>Reason:</strong> {trap_info['reason']}</p>
             <p><strong>Requests while trapped:</strong> {trap_info['request_count']}</p>
-            <p><strong>Original payload:</strong> <code>{trap_info['attack_payload'][:100]}...</code></p>
         </div>
         """
     else:
-        status_html = """
+        trap_html = """
         <div style="background: #ccffcc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
             <h3 style="color: #00cc00; margin: 0;">NOT TRAPPED</h3>
-            <p>Your IP is not currently in the trap list.</p>
+            <p>Your IP is not currently in the temporary trap list.</p>
         </div>
         """
     
@@ -91,16 +128,26 @@ async def debug_trap_status(request: Request):
     else:
         traps_list = "<p><em>No IPs currently trapped.</em></p>"
     
+    # List all blocked IPs
+    blocked_list = ""
+    if all_blocked:
+        blocked_list = "<ul>"
+        for ip, info in all_blocked.items():
+            blocked_list += f"<li><strong>{ip}</strong> - {info['malicious_count']} attempts ({info['elapsed_seconds']}s ago)</li>"
+        blocked_list += "</ul>"
+    else:
+        blocked_list = "<p><em>No IPs permanently blocked.</em></p>"
+    
     return f"""
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Trap Status - Debug</title>
+        <title>Security Status - Debug</title>
         <style>
             body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-                   max-width: 800px; margin: 50px auto; padding: 20px; background: #1a1a2e; color: #eee; }}
+                   max-width: 900px; margin: 50px auto; padding: 20px; background: #1a1a2e; color: #eee; }}
             h1 {{ color: #00d4ff; }}
-            h2 {{ color: #ff6b6b; border-bottom: 1px solid #333; padding-bottom: 10px; }}
+            h2 {{ color: #ff6b6b; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 30px; }}
             code {{ background: #333; padding: 2px 6px; border-radius: 4px; }}
             button {{ background: #ff6b6b; color: white; border: none; padding: 10px 20px; 
                      border-radius: 5px; cursor: pointer; font-size: 16px; margin: 5px; }}
@@ -110,10 +157,15 @@ async def debug_trap_status(request: Request):
         </style>
     </head>
     <body>
-        <h1>Trap Status Debug Panel</h1>
+        <h1>🛡️ Security Status Debug Panel</h1>
         
         <h2>Your IP: {client_ip}</h2>
-        {status_html}
+        
+        <h3>Permanent Block Status</h3>
+        {block_html}
+        
+        <h3>Temporary Trap Status</h3>
+        {trap_html}
         
         <form action="/debug/clear-trap" method="post" style="display: inline;">
             <button type="submit">Clear My Trap</button>
@@ -125,11 +177,16 @@ async def debug_trap_status(request: Request):
         <h2>All Trapped IPs ({len(all_traps)})</h2>
         {traps_list}
         
+        <h2>All Permanently Blocked IPs ({len(all_blocked)})</h2>
+        {blocked_list}
+        
         <hr style="border-color: #333; margin: 30px 0;">
         <p style="color: #888;">
-            <strong>How it works:</strong> When the ML firewall detects an attack, 
-            the attacker's IP is added to the trap list. All subsequent requests from 
-            that IP go directly to the honeypot, regardless of content.
+            <strong>How it works:</strong><br>
+            • <strong>SUSPICIOUS</strong> requests (confidence 0.30-0.80) → Temporarily trapped, routed to honeypot<br>
+            • <strong>MALICIOUS</strong> requests (confidence > 0.80) → Blocked with 403, counter incremented<br>
+            • After <strong>5 MALICIOUS attempts</strong> → Permanently blocked<br>
+            • Temporary traps expire after 30 minutes, permanent blocks require manual unblock
         </p>
         <p style="color: #888;">
             <a href="/" style="color: #00d4ff;">Back to main site</a>
@@ -182,6 +239,31 @@ async def debug_clear_all_traps(request: Request):
     """)
 
 
+@app.post("/debug/unblock")
+async def debug_unblock(request: Request):
+    """Remove an IP from the permanent block list."""
+    client_ip = request.client.host
+    unblocked = await trap_tracker.unblock_ip(client_ip)
+    
+    if unblocked:
+        return HTMLResponse(f"""
+        <html><body style="font-family: sans-serif; text-align: center; padding: 50px; background: #1a1a2e; color: #eee;">
+            <h1 style="color: #00ff00;">IP Unblocked!</h1>
+            <p>Your IP ({client_ip}) has been removed from the permanent block list.</p>
+            <p>Your malicious attempt counter has been reset to 0.</p>
+            <a href="/debug/trap-status" style="color: #00d4ff;">Back to status</a>
+        </body></html>
+        """)
+    else:
+        return HTMLResponse(f"""
+        <html><body style="font-family: sans-serif; text-align: center; padding: 50px; background: #1a1a2e; color: #eee;">
+            <h1 style="color: #ffcc00;">Not Blocked</h1>
+            <p>Your IP ({client_ip}) was not in the permanent block list.</p>
+            <a href="/debug/trap-status" style="color: #00d4ff;">Back to status</a>
+        </body></html>
+        """)
+
+
 # ============================================================================
 # MAIN GATEWAY - Catches all other requests
 # ============================================================================
@@ -230,7 +312,24 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         request._receive = receive
     
     # ========================================================================
-    # 2. CHECK IF ALREADY TRAPPED (Session-based trapping)
+    # 2. CHECK IF PERMANENTLY BLOCKED (Counter-based permanent blocking)
+    # ========================================================================
+    if trap_tracker.is_permanently_blocked(client_ip):
+        block_info = trap_tracker.get_block_info(client_ip)
+        logger.error(f"[PERMANENTLY BLOCKED] {client_ip} - Blocked {block_info['elapsed_seconds']}s ago - {block_info['malicious_count']} MALICIOUS attempts")
+        return JSONResponse(
+            content={
+                "success": False,
+                "error": "Permanently Blocked",
+                "message": "Your IP has been permanently blocked due to repeated malicious activity.",
+                "blocked_at": block_info["blocked_at_human"],
+                "reason": block_info["reason"]
+            },
+            status_code=403
+        )
+    
+    # ========================================================================
+    # 3. CHECK IF ALREADY TRAPPED (Session-based trapping)
     # ========================================================================
     if trap_tracker.is_trapped(client_ip):
         trap_info = trap_tracker.get_trap_info(client_ip)
@@ -251,11 +350,38 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
     ml_verdict = ml_result["verdict"]
     ml_confidence = ml_result["confidence"]
     
+    # Enhanced logging with score and verdict tag
+    verdict_tag = f"[{ml_verdict} | Score: {ml_confidence:.2f}]"
+    log_message = f"🔍 {client_ip} → /{path_name} {verdict_tag} | Preview: {analysis_text[:80]}..."
+    
+    # Print to console (FastAPI output)
+    print(log_message)
+    
+    # Also log it
+    logger.info(log_message)
+    
     # ========================================================================
-    # 3a. MALICIOUS - Block immediately (high confidence attacks)
+    # 4a. MALICIOUS - Increment counter and block (high confidence attacks)
     # ========================================================================
     if ml_verdict == "MALICIOUS":
-        logger.warning(f"[BLOCKED] {client_ip} - MALICIOUS attack on /{path_name} (confidence: {ml_confidence:.2f})")
+        # Increment malicious counter (will auto-block after threshold)
+        malicious_count = trap_tracker.increment_malicious_counter(client_ip)
+        remaining = trap_tracker.malicious_threshold - malicious_count
+        
+        if remaining > 0:
+            msg = (
+                f"🚫 {client_ip} → /{path_name} [MALICIOUS | Score: {ml_confidence:.2f}] | "
+                f"Attempt {malicious_count}/5 | {remaining} remaining"
+            )
+            print(msg)
+            logger.warning(msg)
+        else:
+            msg = (
+                f"⛔ {client_ip} → /{path_name} [MALICIOUS | Score: {ml_confidence:.2f}] | "
+                f"Attempt {malicious_count}/5 | PERMANENTLY BLOCKED"
+            )
+            print(msg)
+            logger.error(msg)
         
         # Send email and Slack alerts for MALICIOUS attacks
         background_tasks.add_task(
@@ -277,10 +403,10 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
             payload=body_str[:500]
         )
         
-        return _block_malicious_request(request, client_ip, path_name, ml_confidence)
+        return _block_malicious_request(request, client_ip, path_name, ml_confidence, malicious_count, remaining)
     
     # ========================================================================
-    # 3b. SUSPICIOUS - Route to honeypot for deception and intelligence
+    # 4b. SUSPICIOUS - Route to honeypot for deception and intelligence
     # ========================================================================
     if ml_verdict == "SUSPICIOUS":
         # TRAP THIS IP for future requests
@@ -290,7 +416,12 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
             attack_payload=analysis_text
         )
         
-        logger.warning(f"[HONEYPOT] {client_ip} trapped - SUSPICIOUS on /{path_name} (confidence: {ml_confidence:.2f})")
+        msg = (
+            f"🍯 {client_ip} → /{path_name} [SUSPICIOUS | Score: {ml_confidence:.2f}] | "
+            f"IP TRAPPED → Honeypot"
+        )
+        print(msg)
+        logger.warning(msg)
         
         await patch_request_body()
         response_content = await honeypot.handle_honeypot_request(
@@ -340,12 +471,12 @@ async def gateway_proxy(request: Request, path_name: str, background_tasks: Back
         await client.aclose()
 
 
-def _block_malicious_request(request: Request, client_ip: str, path_name: str, confidence: float) -> Response:
+def _block_malicious_request(request: Request, client_ip: str, path_name: str, confidence: float, 
+                             malicious_count: int, remaining: int) -> Response:
     """
     Block a malicious request with a 403 Forbidden response.
     
-    MALICIOUS attacks (high confidence) are blocked immediately without deception.
-    This saves resources and clearly denies access to confirmed attackers.
+    Shows counter information to indicate consequences of repeated attacks.
     """
     import uuid
     import datetime
@@ -353,12 +484,20 @@ def _block_malicious_request(request: Request, client_ip: str, path_name: str, c
     # Check what format the client expects
     wants_json = _wants_json(request)
     
+    if remaining > 0:
+        warning_msg = f"Warning: {remaining} more malicious attempt(s) before permanent block."
+    else:
+        warning_msg = "Your IP has been permanently blocked."
+    
     if wants_json:
         return JSONResponse(
             content={
                 "success": False,
                 "error": "Forbidden",
                 "message": "Access denied. Your request has been blocked and logged.",
+                "malicious_attempts": malicious_count,
+                "attempts_remaining": max(0, remaining),
+                "warning": warning_msg,
                 "request_id": f"BLK-{uuid.uuid4().hex[:8]}",
                 "timestamp": datetime.datetime.utcnow().isoformat() + "Z"
             },
@@ -379,12 +518,16 @@ def _block_malicious_request(request: Request, client_ip: str, path_name: str, c
                 h1 {{ color: #ff6b6b; font-size: 48px; margin-bottom: 10px; }}
                 p {{ color: #888; font-size: 18px; }}
                 .code {{ font-family: monospace; background: #333; padding: 2px 8px; border-radius: 4px; }}
+                .warning {{ color: #ffa502; font-weight: bold; margin: 20px 0; }}
+                .counter {{ color: #ff6b6b; font-size: 24px; margin: 15px 0; }}
             </style>
         </head>
         <body>
             <h1>403</h1>
             <p>Access Denied</p>
             <p>Your request has been blocked and logged.</p>
+            <div class="counter">Malicious Attempts: {malicious_count}/5</div>
+            <div class="warning">{warning_msg}</div>
             <p class="code">Request ID: BLK-{uuid.uuid4().hex[:8]}</p>
         </body>
         </html>
@@ -448,26 +591,35 @@ def _format_honeypot_response(response_content: str, path_name: str, request: Re
                 headers={"X-Request-ID": str(uuid.uuid4())[:8]}
             )
         except (json.JSONDecodeError, TypeError):
-            pass
-        
-        # Generate realistic API error response
-        return JSONResponse(
-            content={
-                "success": False,
-                "error": "Forbidden",
-                "message": "Access denied. Your request has been logged.",
-                "request_id": f"TK-{uuid.uuid4().hex[:8]}",
-                "timestamp": __import__('datetime').datetime.utcnow().isoformat() + "Z"
-            },
-            status_code=403,
-            headers={"X-Request-ID": str(uuid.uuid4())[:8]}
-        )
+            # If response is HTML (like login page), return it even for JSON clients
+            # This is more realistic - some APIs return HTML error pages
+            if is_html:
+                return Response(
+                    content=response_content,
+                    media_type="text/html",
+                    status_code=200,  # Return 200 for honeypot pages
+                    headers={"X-Request-ID": str(uuid.uuid4())[:8]}
+                )
+            
+            # Only use generic 403 as last resort
+            return JSONResponse(
+                content={
+                    "success": False,
+                    "error": "Forbidden",
+                    "message": "Access denied. Your request has been logged.",
+                    "request_id": f"TK-{uuid.uuid4().hex[:8]}",
+                    "timestamp": __import__('datetime').datetime.utcnow().isoformat() + "Z"
+                },
+                status_code=403,
+                headers={"X-Request-ID": str(uuid.uuid4())[:8]}
+            )
     
     # Browsers get HTML for visual deception
     if is_html:
         return Response(
             content=response_content,
             media_type="text/html",
+            status_code=200,  # Return 200 for honeypot pages
             headers={"X-Request-ID": str(uuid.uuid4())[:8]}
         )
     

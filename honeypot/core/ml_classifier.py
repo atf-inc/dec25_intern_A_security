@@ -7,8 +7,8 @@ This module provides a unified interface for the pre-trained ML models:
 
 Verdicts are handled differently by the firewall:
 - MALICIOUS (confidence > 0.80): Blocked immediately
-- SUSPICIOUS (confidence 0.40-0.80): Routed to honeypot for deception
-- SAFE (confidence <= 0.40): Forwarded to upstream
+- SUSPICIOUS (confidence 0.30-0.80): Routed to honeypot for deception
+- SAFE (confidence <= 0.30): Forwarded to upstream
 """
 
 import os
@@ -125,9 +125,12 @@ class UnifiedMLClassifier:
         Extract potentially dangerous payloads from HTTP request text.
         
         The SQLi model was trained on raw payloads, not full HTTP requests.
-        We extract: query parameter values, form body values, and any 
-        suspicious-looking fragments.
+        We extract: query parameter values, form body values (URL-encoded, JSON), 
+        and any suspicious-looking fragments.
         """
+        import json
+        import urllib.parse
+        
         payloads = []
         
         # Split into lines (first line is usually "METHOD /path query", rest is body)
@@ -142,29 +145,75 @@ class UnifiedMLClassifier:
                 # Get query part (before any whitespace that might follow)
                 query_parts = after_question.split()
                 query_part = query_parts[0] if query_parts else ""
-                # Parse key=value pairs
+                # Parse key=value pairs and URL-decode them
                 for param in query_part.split('&'):
                     if '=' in param:
                         value = param.split('=', 1)[1]
                         if value:
-                            payloads.append(value)
+                            # URL decode the value
+                            try:
+                                decoded_value = urllib.parse.unquote_plus(value)
+                                payloads.append(decoded_value)
+                            except:
+                                payloads.append(value)
         
         # Extract body content (everything after first line)
         if len(lines) > 1:
             body = '\n'.join(lines[1:]).strip()
+            
+            # Skip common prefixes like "Body: "
+            if body.startswith('Body: '):
+                body = body[6:].strip()
+            
             if body:
-                # For form data (key=value&key2=value2)
-                if '=' in body and not body.startswith('{'):
+                # Try to parse as JSON first (most common for modern forms)
+                if body.startswith('{') or body.startswith('['):
+                    try:
+                        json_data = json.loads(body)
+                        
+                        # IMPORTANT: Add the full JSON string for NoSQL injection detection
+                        # Patterns like {"$ne": null} need to be analyzed as a whole
+                        payloads.append(body)
+                        
+                        # Also extract individual string values from JSON recursively
+                        self._extract_json_values(json_data, payloads)
+                    except json.JSONDecodeError:
+                        # Not valid JSON, treat as raw body
+                        payloads.append(body)
+                
+                # Try URL-encoded form data (key=value&key2=value2)
+                elif '=' in body:
                     for param in body.split('&'):
                         if '=' in param:
                             value = param.split('=', 1)[1]
                             if value:
-                                payloads.append(value)
+                                # URL decode the value
+                                try:
+                                    decoded_value = urllib.parse.unquote_plus(value)
+                                    payloads.append(decoded_value)
+                                except:
+                                    payloads.append(value)
+                
+                # Raw body (not JSON, not form data)
                 else:
-                    # For JSON or raw body, analyze the whole thing
                     payloads.append(body)
         
         return payloads
+    
+    def _extract_json_values(self, data, payloads: list):
+        """
+        Recursively extract all string values from JSON data.
+        This ensures we check every user-controlled value in JSON payloads.
+        """
+        if isinstance(data, dict):
+            for value in data.values():
+                self._extract_json_values(value, payloads)
+        elif isinstance(data, list):
+            for item in data:
+                self._extract_json_values(item, payloads)
+        elif isinstance(data, str) and data:
+            # Only add non-empty strings
+            payloads.append(data)
 
     def predict(self, text: str, packet_data: dict = None) -> bool:
         """
@@ -194,10 +243,23 @@ class UnifiedMLClassifier:
         # The model was trained on raw payloads, not full HTTP requests
         payloads = self._extract_payloads(text)
         
+        # Log extracted payloads for debugging
+        if payloads:
+            logger.info(f"Extracted {len(payloads)} payload(s) for analysis: {[p[:50] + '...' if len(p) > 50 else p for p in payloads]}")
+        else:
+            logger.info("No payloads extracted from request")
+        
         for payload in payloads:
             if len(payload) < 2:
                 continue
             sqli_result = self.predict_sqli(payload)
+            
+            # Log each payload analysis result
+            logger.info(
+                f"Payload analysis: '{payload[:50]}...' -> "
+                f"verdict={sqli_result['verdict']}, confidence={sqli_result['confidence']:.2f}"
+            )
+            
             if sqli_result["is_malicious"]:
                 logger.warning(
                     f"ML Classifier SQLi BLOCK: payload='{payload[:50]}...' "

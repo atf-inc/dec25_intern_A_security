@@ -124,11 +124,12 @@ class FirewallModel:
             if payload_confidence > max_confidence:
                 max_confidence = payload_confidence
         
-        # Determine verdict based on confidence thresholds ONLY
-        # This ensures SUSPICIOUS (0.40-0.80) goes to honeypot, MALICIOUS (>0.80) gets blocked
+        # Determine verdict based on confidence thresholds
+        # Lowered SUSPICIOUS threshold to 0.30 to catch more SQL injection attempts
+        # SUSPICIOUS (0.30-0.80) goes to honeypot, MALICIOUS (>0.80) gets blocked
         if max_confidence > 0.80:
             verdict = "MALICIOUS"
-        elif max_confidence > 0.40:
+        elif max_confidence > 0.30:  # Lowered from 0.40 to catch more attacks
             verdict = "SUSPICIOUS"
         else:
             verdict = "SAFE"

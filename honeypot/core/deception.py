@@ -172,7 +172,11 @@ Respond ONLY with the output of the command. Do not add markdown formatting unle
         """
         template_name = parsed.get("template", "error")
         
-        if template_name == "error":
+        if template_name == "home":
+            # Home template is static, just render it directly
+            return template_engine.render("home", {})
+        
+        elif template_name == "error":
             return template_engine.render_error(
                 error_code=parsed.get("error_code", "403"),
                 title=parsed.get("title", "Access Denied"),

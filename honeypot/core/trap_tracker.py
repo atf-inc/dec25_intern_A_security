@@ -32,8 +32,12 @@ class TrapTracker:
 
     def __init__(self, trap_duration: int = DEFAULT_TRAP_DURATION_SECONDS):
         self._trapped: Dict[str, Dict[str, Any]] = {}
+        self._malicious_counters: Dict[str, int] = {}  # Track MALICIOUS attempts per IP
+        self._permanently_blocked: Dict[str, Dict[str, Any]] = {}  # Permanently blocked IPs
         self.trap_duration = trap_duration
         self.collection_name = "traps"
+        self.blocks_collection_name = "permanent_blocks"
+        self.malicious_threshold = 5  # Block after 5 MALICIOUS attempts
 
     def _get_collection(self):
         """Get the traps collection from MongoDB."""
@@ -239,6 +243,134 @@ class TrapTracker:
         except Exception as e:
             logger.error(f"Failed to get active traps: {e}")
             return []
+    
+    # ========================================================================
+    # COUNTER-BASED PERMANENT BLOCKING
+    # ========================================================================
+    
+    def increment_malicious_counter(self, ip: str) -> int:
+        """
+        Increment the MALICIOUS attempt counter for an IP.
+        
+        Returns:
+            Current count after increment
+        """
+        self._malicious_counters[ip] = self._malicious_counters.get(ip, 0) + 1
+        count = self._malicious_counters[ip]
+        logger.info(f"[MALICIOUS COUNTER] IP {ip} - Attempt #{count}/{self.malicious_threshold}")
+        
+        # Check if threshold reached
+        if count >= self.malicious_threshold:
+            asyncio.create_task(self._permanently_block_ip(ip))
+        
+        return count
+    
+    async def _permanently_block_ip(self, ip: str) -> None:
+        """Permanently block an IP after reaching malicious threshold."""
+        if ip in self._permanently_blocked:
+            return  # Already blocked
+        
+        block_data = {
+            "blocked_at": time.time(),
+            "blocked_at_human": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "blocked_at_utc": datetime.now(timezone.utc),
+            "reason": f"Exceeded malicious threshold ({self.malicious_threshold} attempts)",
+            "malicious_count": self._malicious_counters.get(ip, 0)
+        }
+        self._permanently_blocked[ip] = block_data
+        logger.error(f"[PERMANENTLY BLOCKED] IP {ip} - {self.malicious_threshold} MALICIOUS attempts")
+        
+        # Persist to MongoDB
+        try:
+            collection = db.get_collection(self.blocks_collection_name)
+            await collection.update_one(
+                {"ip": ip},
+                {
+                    "$set": {
+                        "ip": ip,
+                        "blocked_at": block_data["blocked_at_utc"],
+                        "reason": block_data["reason"],
+                        "malicious_count": block_data["malicious_count"],
+                        "active": True
+                    }
+                },
+                upsert=True
+            )
+        except Exception as e:
+            logger.error(f"Failed to persist permanent block for {ip}: {e}")
+    
+    def is_permanently_blocked(self, ip: str) -> bool:
+        """Check if an IP is permanently blocked."""
+        return ip in self._permanently_blocked
+    
+    def get_block_info(self, ip: str) -> Optional[Dict[str, Any]]:
+        """Get permanent block information for an IP."""
+        if ip not in self._permanently_blocked:
+            return None
+        
+        info = self._permanently_blocked[ip].copy()
+        info["elapsed_seconds"] = int(time.time() - info["blocked_at"])
+        info["malicious_count"] = self._malicious_counters.get(ip, 0)
+        return info
+    
+    def get_malicious_count(self, ip: str) -> int:
+        """Get the current malicious attempt count for an IP."""
+        return self._malicious_counters.get(ip, 0)
+    
+    async def unblock_ip(self, ip: str) -> bool:
+        """
+        Remove an IP from the permanent block list.
+        
+        Returns:
+            True if IP was unblocked, False if not blocked
+        """
+        if ip not in self._permanently_blocked:
+            return False
+        
+        # Remove from memory
+        del self._permanently_blocked[ip]
+        self._malicious_counters[ip] = 0  # Reset counter
+        logger.info(f"[UNBLOCKED] IP {ip} removed from permanent block list")
+        
+        # Update MongoDB
+        try:
+            collection = db.get_collection(self.blocks_collection_name)
+            await collection.update_one(
+                {"ip": ip},
+                {
+                    "$set": {
+                        "active": False,
+                        "unblocked_at": datetime.now(timezone.utc)
+                    }
+                }
+            )
+        except Exception as e:
+            logger.error(f"Failed to update unblock status for {ip}: {e}")
+        
+        return True
+    
+    def get_all_blocked(self) -> Dict[str, Dict[str, Any]]:
+        """Get all permanently blocked IPs and their info."""
+        result = {}
+        current_time = time.time()
+        for ip, info in self._permanently_blocked.items():
+            result[ip] = info.copy()
+            result[ip]["elapsed_seconds"] = int(current_time - info["blocked_at"])
+            result[ip]["malicious_count"] = self._malicious_counters.get(ip, 0)
+        return result
+    
+    async def get_blocked_history(self, limit: int = 50) -> list:
+        """Get permanent block history from MongoDB."""
+        try:
+            collection = db.get_collection(self.blocks_collection_name)
+            blocks = await collection.find().sort("blocked_at", -1).limit(limit).to_list(length=limit)
+            for block in blocks:
+                block["_id"] = str(block["_id"])
+            return blocks
+        except Exception as e:
+            logger.error(f"Failed to get block history: {e}")
+            return []
+
 
 
 # Singleton instance
