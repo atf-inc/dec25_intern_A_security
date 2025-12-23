@@ -27,9 +27,8 @@ QuantumShield is an advanced cybersecurity defense system that sits in front of 
 
 ## System Architecture
 
-<p align="center">
-  <img src="C:\Users\hp\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\2F502EA250DA1B4D84889F58822B289E802866C7\transfers\2025-52\Screenshot 2025-12-10 012652.png" alt="QuantumShield Architecture">
-</p>
+
+<img width="1369" height="528" alt="archi" src="https://github.com/user-attachments/assets/5ec356f5-f1cf-44b3-9e51-de7da3bbc9b5" />
 
 ---
 ##  How It Works (User Flow)
