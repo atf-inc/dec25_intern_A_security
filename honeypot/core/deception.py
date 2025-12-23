@@ -3,6 +3,9 @@ Deception Engine - LLM-Powered Response Generation
 
 This engine uses LLM to generate STRUCTURED content (JSON) that is then
 rendered into pixel-perfect TechShop templates.
+
+For shell commands, it first attempts to process them locally using the
+shell processor for fast, realistic responses, then falls back to LLM.
 """
 
 import json
@@ -11,6 +14,8 @@ from config import settings
 from core.llm_client import llm_client
 from core.cache import response_cache
 from core.template_engine import template_engine
+from core.shell_processor import shell_processor
+from core.fake_filesystem import get_filesystem
 
 logger = logging.getLogger("deception")
 
@@ -231,10 +236,38 @@ Respond ONLY with the output of the command. Do not add markdown formatting unle
         """
         Process attacker input and generate a deceptive response.
         
+        For shell commands: Try shell processor first, then LLM fallback.
         For web requests: Uses LLM to generate JSON, renders with templates.
-        For terminal commands: Returns raw LLM output.
         """
         is_web_request = any(m in user_input for m in ["GET ", "POST ", "PUT ", "DELETE "])
+        is_shell_command = not is_web_request
+        
+        # ===================================================================
+        # SHELL COMMAND PROCESSING
+        # ===================================================================
+        if is_shell_command:
+            session_id = context.get("session_id", "unknown")
+            fs = get_filesystem(session_id)
+            
+            # Update context with current directory
+            context["current_directory"] = fs.pwd()
+            context["user"] = fs.username
+            context["hostname"] = fs.hostname
+            
+            # Try to process command locally first
+            output, should_use_llm = shell_processor.process_command(session_id, user_input, fs)
+            
+            if not should_use_llm:
+                # Command was handled locally
+                logger.info(f"[DECEPTION] Shell command handled locally: {user_input[:50]}")
+                return output
+            
+            # Unknown command - fall back to LLM
+            logger.info(f"[DECEPTION] Unknown shell command, using LLM: {user_input[:50]}")
+        
+        # ===================================================================
+        # WEB REQUEST OR LLM FALLBACK PROCESSING
+        # ===================================================================
         
         # Extract path from user input
         request_path = ""
@@ -245,7 +278,7 @@ Respond ONLY with the output of the command. Do not add markdown formatting unle
         
         prompt = self.build_prompt(context, user_input, request_path)
         
-        logger.info(f"[DECEPTION] Processing: {user_input[:100]}...")
+        logger.info(f"[DECEPTION] Processing with LLM: {user_input[:100]}...")
         
         # Check cache
         cached = response_cache.get(prompt, user_input)
