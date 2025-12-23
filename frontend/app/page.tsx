@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { api } from '@/lib/api';
 import { Stats, Session, Log, AttackPattern } from '@/lib/types';
 import StatsCards from '@/components/StatsCards';
-import LiveAttackFeed from '@/components/LiveAttackFeed';
+import AttackColumns from '@/components/AttackColumns';
 import SessionsTable from '@/components/SessionsTable';
 import AttackPatterns from '@/components/AttackPatterns';
 import ChatBot from '@/components/ChatBot';
@@ -13,7 +13,8 @@ import { Shield, RefreshCw } from 'lucide-react';
 export default function Dashboard() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [sessions, setSessions] = useState<Session[]>([]);
-  const [logs, setLogs] = useState<Log[]>([]);
+  const [blockedAttacks, setBlockedAttacks] = useState<Log[]>([]);
+  const [trappedSessions, setTrappedSessions] = useState<Log[]>([]);
   const [attackPatterns, setAttackPatterns] = useState<AttackPattern[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -22,16 +23,17 @@ export default function Dashboard() {
   const fetchData = async () => {
     try {
       setError(null);
-      const [statsData, sessionsData, logsData, patternsData] = await Promise.all([
+      const [statsData, sessionsData, groupedData, patternsData] = await Promise.all([
         api.getStats(),
         api.getSessions(true),
-        api.getLogs(undefined, 50),
+        api.getGroupedAttacks(),
         api.getPatterns(),
       ]);
 
       setStats(statsData);
       setSessions(sessionsData.sessions);
-      setLogs(logsData.logs);
+      setBlockedAttacks(groupedData.blocked);
+      setTrappedSessions(groupedData.trapped);
       setAttackPatterns(patternsData.attack_types);
       setLastUpdate(new Date());
 
@@ -39,7 +41,8 @@ export default function Dashboard() {
       console.log('✅ Data fetched successfully:', {
         totalInteractions: statsData.total_interactions,
         activeSessions: statsData.active_sessions,
-        logsCount: logsData.logs.length,
+        blockedCount: groupedData.blocked.length,
+        trappedCount: groupedData.trapped.length,
         attackTypes: patternsData.attack_types.length
       });
     } catch (error) {
@@ -122,14 +125,11 @@ export default function Dashboard() {
           {/* Stats Cards */}
           <StatsCards stats={stats} />
 
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Live Attack Feed */}
-            <LiveAttackFeed logs={logs} />
+          {/* Attack Columns - Blocked vs Trapped */}
+          <AttackColumns blocked={blockedAttacks} trapped={trappedSessions} />
 
-            {/* Attack Patterns */}
-            <AttackPatterns attackTypes={attackPatterns} />
-          </div>
+          {/* Attack Patterns */}
+          <AttackPatterns attackTypes={attackPatterns} />
 
           {/* Sessions Table */}
           <SessionsTable sessions={sessions} />

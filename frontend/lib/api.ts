@@ -87,4 +87,17 @@ export const api = {
         if (!res.ok) throw new Error('Failed to fetch suggestions');
         return res.json();
     },
+
+    // New methods for two-column attack display
+    async getGroupedAttacks(): Promise<{ blocked: Log[]; trapped: Log[] }> {
+        const res = await fetch(`${API_BASE}/api/analytics/grouped-attacks`);
+        if (!res.ok) throw new Error('Failed to fetch grouped attacks');
+        return res.json();
+    },
+
+    async getSessionDetails(sessionId: string): Promise<{ session_id: string; session_info: any; total_requests: number; logs: Log[] }> {
+        const res = await fetch(`${API_BASE}/api/analytics/session-details/${sessionId}`);
+        if (!res.ok) throw new Error('Failed to fetch session details');
+        return res.json();
+    },
 };
